@@ -20,4 +20,6 @@ from mall.view import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     url('^hello/$', greeting),
+    url('^login/$', login),
+    url('^user_login/$', loginCheck)
 ]

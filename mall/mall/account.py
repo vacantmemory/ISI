@@ -12,19 +12,45 @@ def login(request):
 
 def loginCheck(request):
 
-    if 'UserID' and 'UserPswd' in request.POST:
-        uID = request.POST.get('UserID')
-        uPswd = request.POST.get('UserPswd')
+    if request.POST['UserID'] != '' and request.POST['UserPswd'] != '':
+        uID = request.POST['UserID']
+        uPswd = request.POST['UserPswd']
     else:
         message = 'Error: Incorrect Login Information!'
         return HttpResponse(message)
 
     try:
         account.objects.get(aid=uID, password=uPswd)
-    # fill error type
     except account.DoesNotExist:
-        message = 'Error: Incorrect Login Information!'
+        message = 'Error: Something wrong!'
         return HttpResponse(message)
     request.session['UserID'] = uID
     return render(request, 'HomePage.html')
 
+
+def home(request):
+    return render(request, 'HomePage.html')
+
+
+def register(request):
+    return render(request, 'Register.html')
+
+
+def registerSystem(request):
+
+    if request.POST['UserID'] != '' and request.POST['UserPswd'] != '':
+        uID = request.POST['UserID']
+        uPswd = request.POST['UserPswd']
+    else:
+        message = 'Error: You need to fill both ID and password!'
+        return HttpResponse(message)
+
+    try:
+        account.objects.get(aid=uID)
+    except account.DoesNotExist:
+        account.objects.create(aid=uID, password=uPswd, venderFlag=0)
+        request.session['UserID'] = uID
+        return render(request, 'SignUpSuccessful.html')
+    else:
+        message = 'Error: User exist!'
+        return HttpResponse(message)

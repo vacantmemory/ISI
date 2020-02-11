@@ -21,5 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url('^hello/$', greeting),
     url('^login/$', login),
-    url('^user_login/$', loginCheck)
+    url('^user_login/$', loginCheck),
+    url('^register/$', register, name='register_link'),
+    url('^user_sign_up/$', registerSystem),
+    url('^home/$', home, name='home_link'),
 ]

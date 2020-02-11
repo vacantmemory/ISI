@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from ISI.models import *
 
@@ -6,7 +6,8 @@ from ISI.models import *
 def login(request):
     request.session.set_expiry(0)
     if 'UserID' in request.session:
-        return render(request, 'HomePage.html')
+        # return render(request, 'HomePage.html')
+        return HttpResponseRedirect('/home/')
     return render(request, 'LoginPage.html')
 
 
@@ -25,7 +26,8 @@ def loginCheck(request):
         message = 'Error: Something wrong!'
         return HttpResponse(message)
     request.session['UserID'] = uID
-    return render(request, 'HomePage.html')
+    # return render(request, 'HomePage.html')
+    return HttpResponseRedirect('/home/')
 
 
 def home(request):

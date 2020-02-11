@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="279dd37b-947a-4341-be15-faed8b9053fd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/SignUpSuccessful.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mall.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mall.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mall/account.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/account.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mall/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/LoginPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/LoginPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,6 +118,7 @@
       <workItem from="1581420216049" duration="672000" />
       <workItem from="1581421703551" duration="428000" />
       <workItem from="1581424631933" duration="853000" />
+      <workItem from="1581425594873" duration="2495000" />
     </task>
     <servers />
   </component>
@@ -131,22 +126,22 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1578" height="265" key="GridCell.Tab.0.bottom" timestamp="1581425485565">
+    <state width="1578" height="265" key="GridCell.Tab.0.bottom" timestamp="1581428091656">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1578" height="265" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581425485565" />
-    <state width="1578" height="265" key="GridCell.Tab.0.center" timestamp="1581425485565">
+    <state width="1578" height="265" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581428091656" />
+    <state width="1578" height="265" key="GridCell.Tab.0.center" timestamp="1581428091656">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1578" height="265" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581425485565" />
-    <state width="1578" height="265" key="GridCell.Tab.0.left" timestamp="1581425485565">
+    <state width="1578" height="265" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581428091656" />
+    <state width="1578" height="265" key="GridCell.Tab.0.left" timestamp="1581428091656">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1578" height="265" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581425485565" />
-    <state width="1578" height="265" key="GridCell.Tab.0.right" timestamp="1581425485565">
+    <state width="1578" height="265" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581428091656" />
+    <state width="1578" height="265" key="GridCell.Tab.0.right" timestamp="1581428091656">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1578" height="265" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581425485565" />
+    <state width="1578" height="265" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581428091656" />
     <state x="432" y="163" key="SettingsEditor" timestamp="1581424671259">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

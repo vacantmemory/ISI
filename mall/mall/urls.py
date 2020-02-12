@@ -25,5 +25,8 @@ urlpatterns = [
     url('^user_login/$', loginCheck),
     url('^product/$', product_list),
     url('^finish/$', filter_product),
-    url('^product/1/$', filter_product)
+    url('^product/1/$', filter_product),
+    url(r'^register/$', register, name='register_link'),
+    url(r'^user_sign_up/$', registerSystem),
+    url(r'^home/$', home, name='home_link'),
 ]

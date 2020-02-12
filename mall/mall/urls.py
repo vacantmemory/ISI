@@ -17,9 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
 from mall.view import *
+from mall.product import product_list, upload, filter_product
 urlpatterns = [
     path('admin/', admin.site.urls),
     url('^hello/$', greeting),
     url('^login/$', login),
-    url('^user_login/$', loginCheck)
+    url('^user_login/$', loginCheck),
+    url('^product/$', product_list),
+    url('^finish/$', filter_product),
+    url('^product/1/$', filter_product)
 ]

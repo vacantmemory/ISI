@@ -10,7 +10,7 @@ class product(models.Model):
     pname = models.CharField(max_length=15)
     brand = models.CharField(max_length=15)
     price = models.DecimalField(max_digits=8, decimal_places=2)
-    thumbnail_image = models.BinaryField()
+    thumbnail_image = models.CharField(max_length=15)
     class Meta:
         db_table = 'product_info'
 

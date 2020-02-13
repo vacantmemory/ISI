@@ -17,16 +17,21 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
 from mall.view import *
-from mall.product import product_list, upload, filter_product
+from mall.product import product_list, filter_product
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     url('^hello/$', greeting),
+
+    #account
+    url(r'^home/$', home, name='home_link'),
     url('^login/$', login),
     url('^user_login/$', loginCheck),
-    url('^product/$', product_list),
-    url('^finish/$', filter_product),
-    url('^product/1/$', filter_product),
-    url(r'^register/$', register, name='register_link'),
     url(r'^user_sign_up/$', registerSystem),
-    url(r'^home/$', home, name='home_link'),
+    url(r'^register/$', register, name='register_link'),
+
+    # product
+    url('^product/$', product_list),
+    url('^Search/$', filter_product),
+
 ]

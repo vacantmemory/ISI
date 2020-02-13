@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Purchase Order Tracking</title>
+</head>
+<body>
+<h1>Purchase Orders</h1>
+<label><input checked="true" class="filter" name="filter" type="radio" value="all">All purchases</label>
+<label><input class="filter" name="filter" type="radio" value="ph">Current purchases</label>
+<label><input class="filter" name="filter" type="radio" value="sc">Past purchases</label>
+{#should be table format#}
+{% for order in orderSet %}
+    <div class="{{ order.status }} orders">
+        <p><a href="{% url 'order_detail_link' order.po %}">Order number: {{ order.po }}</a></p>
+        <p>Purchase date: {{ order.pDate }}</p>
+        <p>Total order amount: {{ order.totalAmount }}</p>
+        <p>Order status: {{ order.status }}</p>
+    </div>
+{% endfor %}
+</body>
+<script src="{% static 'jquery-3.4.1.min.js' %}"></script>
+<script>
+    $('.filter').on('click', statusFilter);
+
+    function statusFilter(event){
+        if(event.target.value === 'all'){
+            $('.orders').css('display', '')
+        }
+        if(event.target.value === 'ph'){
+            $('.s, .c').css('display', 'none');
+            $('.p, .h').css('display', '')
+        }
+        if(event.target.value === 'sc'){
+            $('.s, .c').css('display', '');
+            $('.p, .h').css('display', 'none')
+        }
+    }
+</script>
+</html>

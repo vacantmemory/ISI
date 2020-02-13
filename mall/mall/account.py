@@ -2,13 +2,14 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from ISI.models import *
 
+# User id will be saved in session as 'UserID'
 
 def login(request):
     request.session.set_expiry(0)
     if 'UserID' in request.session:
         # return render(request, 'HomePage.html')
         return HttpResponseRedirect('/home/')
-    return render(request, 'LoginPage.html')
+    return render(request, 'SignIn/LoginPage.html')
 
 
 def loginCheck(request):
@@ -35,7 +36,7 @@ def home(request):
 
 
 def register(request):
-    return render(request, 'Register.html')
+    return render(request, 'SignIn/Register.html')
 
 
 def registerSystem(request):
@@ -52,7 +53,7 @@ def registerSystem(request):
     except account.DoesNotExist:
         account.objects.create(aid=uID, password=uPswd, venderFlag=0)
         request.session['UserID'] = uID
-        return render(request, 'SignUpSuccessful.html')
+        return render(request, 'SignIn/SignUpSuccessful.html')
     else:
         message = 'Error: User exist!'
         return HttpResponse(message)

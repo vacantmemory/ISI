@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="279dd37b-947a-4341-be15-faed8b9053fd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mall/product.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/FInish.html" afterDir="false" />
+    <list default="true" id="ca45a2b8-d4cc-4a2c-8f98-63c63717413a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ISI/migrations/0006_auto_20200212_2123.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mall/order.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/JS/jquery-3.4.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/OrderDetail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/PurchaseTracking.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/mall.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mall.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/ISI/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ISI/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall/account.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/account.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mall/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mall/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mall/view.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product.html" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall/account.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/account.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/urls.py" afterDir="false" />
->>>>>>> 8fb8bccf432278ad256c010337541cfbc41335b5
+      <change beforePath="$PROJECT_DIR$/templates/LoginPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/SignIn/LoginPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/SignIn/Register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/SignUpSuccessful.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/SignIn/SignUpSuccessful.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,83 +62,6 @@
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
-<<<<<<< HEAD
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mall/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
-              <folding>
-                <element signature="e#628#660#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mall/view.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="17" column="48" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
-              <folding>
-                <element signature="e#0#36#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/product.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-              <folding>
-                <element signature="e#1156#1163#1#HTML" expanded="true" />
-                <element signature="e#1302#1309#1#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mall/product.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mall/account.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-              <folding>
-                <element signature="e#0#36#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/FInish.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
-=======
->>>>>>> 8fb8bccf432278ad256c010337541cfbc41335b5
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -146,110 +73,40 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-<<<<<<< HEAD
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/mall/account.py" />
-        <option value="$PROJECT_DIR$/mall/settings.py" />
-        <option value="$PROJECT_DIR$/ISI/migrations/forms.py" />
-        <option value="$PROJECT_DIR$/ISI/forms.py" />
-        <option value="$PROJECT_DIR$/ISI/models.py" />
-        <option value="$PROJECT_DIR$/mall/view.py" />
-        <option value="$PROJECT_DIR$/templates/product.html" />
-        <option value="$PROJECT_DIR$/mall/urls.py" />
-        <option value="$PROJECT_DIR$/templates/FInish.html" />
-        <option value="$PROJECT_DIR$/mall/product.py" />
-      </list>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="D:\gitspace\ISI\mall\.idea" />
+      </set>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+  <component name="ProjectId" id="1XhqhW1u4TlEMQd0nHTf8j0MMuh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="mall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mall" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mall" type="462c0819:PsiDirectoryNode" />
-              <item name="ISI" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mall" type="462c0819:PsiDirectoryNode" />
-              <item name="mall" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mall" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mall" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mall" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
-=======
-  <component name="ProjectId" id="1Xf66kPYRcT2JHOI883ZN799cOt" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
->>>>>>> 8fb8bccf432278ad256c010337541cfbc41335b5
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-<<<<<<< HEAD
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/ISI" />
-      <recent name="$PROJECT_DIR$" />
+      <recent name="D:\gitspace\ISI\mall\resources\JS" />
+      <recent name="D:\gitspace\ISI\mall\resources" />
+      <recent name="D:\gitspace\ISI\mall\templates" />
+      <recent name="D:\gitspace\ISI\mall\templates\SignIn" />
+      <recent name="D:\gitspace\ISI\mall\templates\SignUp" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-=======
->>>>>>> 8fb8bccf432278ad256c010337541cfbc41335b5
   <component name="RunManager">
     <configuration name="mall" type="Python.DjangoServer" factoryName="Django server">
       <module name="mall" />
@@ -281,204 +138,54 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="279dd37b-947a-4341-be15-faed8b9053fd" name="Default Changelist" comment="" />
-      <created>1581265311731</created>
+      <changelist id="ca45a2b8-d4cc-4a2c-8f98-63c63717413a" name="Default Changelist" comment="" />
+      <created>1581508793870</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1581265311731</updated>
-      <workItem from="1581265333594" duration="442000" />
-      <workItem from="1581332765081" duration="1195000" />
-      <workItem from="1581399878030" duration="909000" />
-      <workItem from="1581400922131" duration="566000" />
-      <workItem from="1581401498848" duration="46000" />
-      <workItem from="1581401816533" duration="178000" />
-      <workItem from="1581402121866" duration="102000" />
-      <workItem from="1581402290560" duration="2067000" />
-      <workItem from="1581420216049" duration="672000" />
-<<<<<<< HEAD
-      <workItem from="1581421703551" duration="1230000" />
-      <workItem from="1581423565587" duration="679000" />
-      <workItem from="1581424377983" duration="142000" />
-      <workItem from="1581424641560" duration="14431000" />
-      <workItem from="1581471498301" duration="2881000" />
-    </task>
-    <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25540000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32902467" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32902467" />
-      <window_info anchor="bottom" id="Python Console" order="12" />
-      <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.32902467" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-    </layout>
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mall/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mall/wsgi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mall/asgi.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/LoginPage.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ISI/views.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Register.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/HomePage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/images/bible.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ISI/forms.py" />
-    <entry file="file://$PROJECT_DIR$/mall/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="59" column="12" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ISI/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="21" lean-forward="true" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mall/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
-          <folding>
-            <element signature="e#628#660#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mall/view.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="17" column="48" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/product.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-          <folding>
-            <element signature="e#1156#1163#1#HTML" expanded="true" />
-            <element signature="e#1302#1309#1#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/FInish.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mall/account.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mall/product.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-=======
-      <workItem from="1581421703551" duration="428000" />
-      <workItem from="1581424631933" duration="853000" />
-      <workItem from="1581425594873" duration="2495000" />
+      <updated>1581508793870</updated>
+      <workItem from="1581508796063" duration="5373000" />
+      <workItem from="1581514370136" duration="8932000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1578" height="265" key="GridCell.Tab.0.bottom" timestamp="1581428091656">
+    <state x="630" y="133" key="#mall" timestamp="1581508813926">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1578" height="265" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581428091656" />
-    <state width="1578" height="265" key="GridCell.Tab.0.center" timestamp="1581428091656">
+    <state x="630" y="133" key="#mall/0.0.1920.1040@0.0.1920.1040" timestamp="1581508813926" />
+    <state x="649" y="382" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1581509821493">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1578" height="265" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581428091656" />
-    <state width="1578" height="265" key="GridCell.Tab.0.left" timestamp="1581428091656">
+    <state x="649" y="382" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1581509821493" />
+    <state width="1471" height="266" key="GridCell.Tab.0.bottom" timestamp="1581523365237">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1578" height="265" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581428091656" />
-    <state width="1578" height="265" key="GridCell.Tab.0.right" timestamp="1581428091656">
+    <state width="1471" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581523365237" />
+    <state width="1471" height="266" key="GridCell.Tab.0.center" timestamp="1581523365236">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1578" height="265" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581428091656" />
-    <state x="432" y="163" key="SettingsEditor" timestamp="1581424671259">
+    <state width="1471" height="266" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581523365236" />
+    <state width="1471" height="266" key="GridCell.Tab.0.left" timestamp="1581523365236">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="432" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1581424671259" />
-    <state x="644" y="358" key="com.intellij.ide.util.TipDialog" timestamp="1581425600330">
+    <state width="1471" height="266" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581523365236" />
+    <state width="1471" height="266" key="GridCell.Tab.0.right" timestamp="1581523365237">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="644" y="358" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581425600330" />
->>>>>>> 8fb8bccf432278ad256c010337541cfbc41335b5
+    <state width="1471" height="266" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581523365237" />
+    <state x="403" y="169" key="SettingsEditor" timestamp="1581508825683">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="403" y="169" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1581508825683" />
+    <state x="540" y="336" key="com.intellij.ide.util.TipDialog" timestamp="1581569974350">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="540" y="336" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581569974350" />
   </component>
 </project>

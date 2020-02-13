@@ -16,8 +16,17 @@
         <p><a href="{% url 'order_detail_link' order.po %}">Order number: {{ order.po }}</a></p>
         <p>Purchase date: {{ order.pDate }}</p>
         <p>Total order amount: {{ order.totalAmount }}</p>
-        <p>Order status: {{ order.status }}</p>
+        {% if order.status == 'p' %}
+            <p>Order status: pending</p>
+        {% elif order.status == 'h' %}
+            <p>Order status: hold</p>
+        {% elif order.status == 'c' %}
+            <p>Order status: cancelled</p>
+        {% elif order.status == 's' %}
+            <p>Order status: shipped</p>
+        {% endif %}
     </div>
+    <br/>
 {% endfor %}
 </body>
 <script src="{% static 'jquery-3.4.1.min.js' %}"></script>

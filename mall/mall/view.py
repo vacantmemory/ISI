@@ -15,21 +15,29 @@ def greeting(request):
     product.objects.all().delete()
 
     p1 = product.objects.create(pid='1', pname='bible', brand='CTS', price=12.95, thumbnail_image='bible')
-    product.objects.create(pid='2', pname='Harry Potter', brand='fiction', price=4.50, thumbnail_image='fiction')
+    p2 = product.objects.create(pid='2', pname='Harry Potter', brand='fiction', price=4.50, thumbnail_image='fiction')
     product.objects.create(pid='3', pname='dictionary', brand='fiction', price=4.50, thumbnail_image='dictionary')
 
     properties.objects.create(pid=p1, author='Derek', numPage=2000, publisher='xxxxx')
 
     a123 = account.objects.create(aid='account1', aname='Bowie', eaddress='P123366@ipm.edu.mo', password='44455666',
                            saddress='XXXXXXX', venderFlag=0)
+    account.objects.create(aid='admin', aname='vendor', eaddress='vendor6@ipm.edu.mo', password='123',
+                                  saddress='--', venderFlag=1)
 
     shopcartRecord.objects.create(pid=p1, aid=a123, quantity=10000)
 
-    po123 = purchOrder.objects.create(po='purchOrder1', aid=a123, pDate='2021-02-01', totalAmount='200', status='p',
+    po1 = purchOrder.objects.create(po='purchOrder1', aid=a123, pDate='2021-02-01', totalAmount='200', status='p',
                                     specDate='2021-02-02', cancelledPerson='c')
+    po2 = purchOrder.objects.create(po='purchOrder2', aid=a123, pDate='2019-02-02', totalAmount='400', status='h',
+                                      specDate='2022-02-02', cancelledPerson='c')
+    po3 = purchOrder.objects.create(po='purchOrder3', aid=a123, pDate='2020-03-01', totalAmount='500', status='c',
+                                      specDate='2024-02-02', cancelledPerson='c')
 
-    dorder.objects.create(po=po123, pid=p1, rName='Derek', rAddress='XXXX', rQuentity=10000,
+    dorder.objects.create(po=po1, pid=p1, rName='product1', rAddress='XXXX', rQuentity=10000,
                           rPrice=20.5)
+    dorder.objects.create(po=po1, pid=p2, rName='product2', rAddress='YYYY', rQuentity=400,
+                          rPrice=80.3)
 
     return HttpResponse('<h3>ok</h3>')
 

@@ -18,7 +18,9 @@ def orderDetail(request, PO):
     except purchOrder.DoesNotExist:
         message = 'Error: Order does not exist!'
         return HttpResponse(message)
-    return render(request, 'OrderDetail.html', {'order': order})
+
+    productList = dorder.objects.filter(po=order)
+    return render(request, 'OrderDetail.html', {'order': order, 'pList': productList})
 
 
 

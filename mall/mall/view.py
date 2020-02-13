@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from ISI.models import *
 from mall.account import *
+from mall.order import *
 
 
 def greeting(request):
@@ -31,3 +32,12 @@ def greeting(request):
                           rPrice=20.5)
 
     return HttpResponse('<h3>ok</h3>')
+
+
+def test(request):
+    # a123 = account.objects.get(aid='account1')
+    # purchOrder.objects.create(po='purchOrder2', aid=a123, pDate='2019-02-01', totalAmount='300', status='p',
+    #                           specDate='2021-02-02', cancelledPerson='c')
+    # purchOrder.objects.create(po='purchOrder3', aid=a123, pDate='2020-02-01', totalAmount='500', status='p',
+    #                           specDate='2021-02-02', cancelledPerson='c')
+    return HttpResponse('ok')

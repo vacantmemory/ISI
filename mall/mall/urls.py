@@ -20,6 +20,7 @@ from mall.view import *
 from mall.product import product_list, filter_product
 urlpatterns = [
     path('admin/', admin.site.urls),
+<<<<<<< HEAD
 
     url('^hello/$', greeting),
 
@@ -34,4 +35,20 @@ urlpatterns = [
     url('^product/$', product_list),
     url('^Search/$', filter_product),
 
+=======
+    url(r'^hello/$', greeting),
+    url(r'^login/$', login),
+    url(r'^user_login/$', loginCheck),
+    url(r'^product/$', product_list),
+    url(r'^finish/$', filter_product),
+    url(r'^product/1/$', filter_product),
+    url(r'^register/$', register, name='register_link'),
+    url(r'^user_sign_up/$', registerSystem),
+    url(r'^home/$', home, name='home_link'),
+    url(r'^orders/$', orderListing),
+    url(r'^order_detail/([A-Za-z0-9]+)/$', orderDetail, name='order_detail_link'),
+
+    # test url
+    url(r'^test/$', test),
+>>>>>>> 21ecb259c46925ce7e53e6b9474713acb571c34f
 ]

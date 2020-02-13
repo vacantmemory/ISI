@@ -49,10 +49,10 @@ class shopcartRecord(models.Model):
 class purchOrder(models.Model):
     po = models.CharField(max_length=10, primary_key=True)
     aid = models.ForeignKey(account, on_delete=models.CASCADE)
-    pDate = models.DateField()
+    pDate = models.DateTimeField()
     totalAmount = models.DecimalField(max_digits=10, decimal_places=2)
     status = models.CharField(max_length=1, choices=status_sizes)
-    specDate = models.DateField()
+    specDate = models.DateTimeField()
     cancelledPerson = models.CharField(max_length=1, choices=cancelledPerson_sizes)
 
     class Meta:

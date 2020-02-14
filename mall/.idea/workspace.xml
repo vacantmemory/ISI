@@ -1,23 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="083df046-e46c-4533-a301-d70c84287e07" name="Default Changelist" comment="">
+=======
+    <list default="true" id="ca45a2b8-d4cc-4a2c-8f98-63c63717413a" name="Default Changelist" comment="">
+>>>>>>> 8a204d94add4520a40b2a35f0fb4d8805e5a3d6b
       <change beforePath="$PROJECT_DIR$/.idea/mall.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mall.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/mall/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product.html" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/mall/order.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/order.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall/view.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/OrderDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/OrderDetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/PurchaseTracking.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/PurchaseTracking.html" afterDir="false" />
+>>>>>>> 8a204d94add4520a40b2a35f0fb4d8805e5a3d6b
     </list>
-    <ignored path="$PROJECT_DIR$/venv/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="dorder_info: table" type="3d80ac25:SqliteImplModel$Table" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
+<<<<<<< HEAD
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
@@ -126,22 +174,24 @@
         </subPane>
       </pane>
     </panes>
+=======
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1Xl3GfOFVSCNI7NQNmboxNOWElD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+>>>>>>> 8a204d94add4520a40b2a35f0fb4d8805e5a3d6b
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="mall" type="Python.DjangoServer" factoryName="Django server">
@@ -152,9 +202,9 @@
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="mall.settings" />
       </envs>
-      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="launchJavascriptDebuger" value="false" />
@@ -174,7 +224,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="083df046-e46c-4533-a301-d70c84287e07" name="Default Changelist" comment="" />
+      <changelist id="ca45a2b8-d4cc-4a2c-8f98-63c63717413a" name="Default Changelist" comment="" />
       <created>1581520914943</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -186,6 +236,7 @@
       <workItem from="1581566975900" duration="762000" />
       <workItem from="1581567933434" duration="2674000" />
       <workItem from="1581571251948" duration="110000" />
+<<<<<<< HEAD
       <workItem from="1581571366097" duration="1731000" />
       <workItem from="1581605694832" duration="17000" />
       <workItem from="1581605810148" duration="34000" />
@@ -328,5 +379,48 @@
         </state>
       </provider>
     </entry>
+=======
+      <workItem from="1581571366097" duration="289000" />
+      <workItem from="1581606762579" duration="8125000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="324" y="140" key="#mall" timestamp="1581607517343">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="324" y="140" key="#mall/0.0.1920.1040@0.0.1920.1040" timestamp="1581607517343" />
+    <state width="1103" height="279" key="GridCell.Tab.0.bottom" timestamp="1581613806965">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1103" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581613806965" />
+    <state width="1103" height="279" key="GridCell.Tab.0.center" timestamp="1581613806965">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1103" height="279" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581613806965" />
+    <state width="1103" height="279" key="GridCell.Tab.0.left" timestamp="1581613806965">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1103" height="279" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581613806965" />
+    <state width="1103" height="279" key="GridCell.Tab.0.right" timestamp="1581613806965">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1103" height="279" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581613806965" />
+    <state x="549" y="265" key="SettingsEditor" timestamp="1581607499444">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="549" y="265" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1581607499444" />
+    <state x="688" y="393" key="com.intellij.ide.util.TipDialog" timestamp="1581606764501">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="688" y="393" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581606764501" />
+    <state x="257" y="234" width="672" height="678" key="search.everywhere.popup" timestamp="1581613806741">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="257" y="234" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1581613806741" />
+>>>>>>> 8a204d94add4520a40b2a35f0fb4d8805e5a3d6b
   </component>
 </project>

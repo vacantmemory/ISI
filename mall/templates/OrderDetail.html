@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,56 @@
     <title>Order Detail</title>
 </head>
 <body>
-{{ order.po }}
+<h1>Purchase Order Detail</h1>
+<p>Order number: {{ order.po }}</p>
+<p>Purchase date: {{ order.pDate }}</p>
+<p>Customer name: {{ order.aid.aname }}</p>
+{#<p>Shipping address: </p>#}
+<p>Total order amount: {{ order.totalAmount }}</p>
+{% if order.status == 'p' %}
+    <p>Order status: pending</p>
+    {% if request.session.isVendor == 1 %}
+        <a href="{% url 'ship_order_link' order.po %}"><button>Shipped</button></a>
+    {% endif %}
+{% elif order.status == 'h' %}
+    <p>Order status: hold</p>
+{% elif order.status == 'c' %}
+    <p>Order status: cancelled</p>
+    {% if order.cancelledPerson == 'c' %}
+        <p>Cancelled by: customer</p>
+    {% else %}
+        <p>Cancelled by: vendor</p>
+    {% endif %}
+    <p>Cancel date: {{ order.specDate }}</p>
+{% elif order.status == 's' %}
+    <p>Order status: shipped</p>
+    <p>Shipment date: {{ order.specDate }}</p>
+{% endif %}
+<br/>
+<h2>Products in the order</h2>
+{% for p in pList %}
+    <div>
+        <p>Product name: {{ p.rName }}</p>
+        <p>Destination address: {{ p.rAddress }}</p>
+        <p>Quantity: <span class="quantity">{{ p.rQuentity }}</span></p>
+        <p>Unit price: <span class="price">{{ p.rPrice }}</span></p>
+        <p>Subtotal: <span class="subtotal"></span></p>
+    </div>
+    <br/>
+{% endfor %}
+
+
 </body>
+<script src="{% static 'jquery-3.4.1.min.js' %}"></script>
+<script>
+    quantitySet = $('.quantity')
+    priceSet = $('.price')
+    subtotalSet = $('.subtotal')
+    num = 0
+    for(subtotal of subtotalSet){
+        {#subtotal.innerText(priceSet[num]*quantitySet[num]);#}
+        subtotal.innerText = parseFloat(priceSet[num].innerText)*parseFloat(quantitySet[num].innerText);
+        num = num + 1;
+    }
+</script>
 </html>

@@ -22,11 +22,12 @@ def loginCheck(request):
         return HttpResponse(message)
 
     try:
-        account.objects.get(aid=uID, password=uPswd)
+        user = account.objects.get(aid=uID, password=uPswd)
     except account.DoesNotExist:
         message = 'Error: Something wrong!'
         return HttpResponse(message)
     request.session['UserID'] = uID
+    request.session['isVendor'] = user.venderFlag
     # return render(request, 'HomePage.html')
     return HttpResponseRedirect('/home/')
 

@@ -31,12 +31,16 @@ urlpatterns = [
     url(r'^register/$', register, name='register_link'),
 
     # product
-    url(r'^product/$', product_list),
+    url(r'^product/([0-9]?)/$', product_list),
     url(r'^Search/$', filter_product),
 
     # order
     url(r'^orders/$', orderListing),
     url(r'^order_detail/([A-Za-z0-9]+)/$', orderDetail, name='order_detail_link'),
+
+    # order for vendor
+    url(r'^ship_order/([A-Za-z0-9]+)/$', shipOrder, name='ship_order_link'),
+    url(r'^search_order/$', searchOrder, name='search_order_link'),
 
     # test url
     url(r'^test/$', test),

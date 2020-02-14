@@ -1,24 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ca45a2b8-d4cc-4a2c-8f98-63c63717413a" name="Default Changelist" comment="">
+    <list default="true" id="2e773af0-cf9e-44c9-858a-ba6e82f44a31" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/PurchaseOrderPageForVendor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/mall.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mall.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall/account.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/account.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall/order.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/order.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall/view.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/OrderDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/OrderDetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/PurchaseTracking.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/PurchaseTracking.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="ProjectId" id="1XnZCSW1iQlyLdj9uxHAU7MdUkL" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -31,7 +75,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="mall.settings" />
       </envs>
-      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -53,19 +97,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="083df046-e46c-4533-a301-d70c84287e07" name="Default Changelist" comment="" />
-      <created>1581520914943</created>
+      <changelist id="2e773af0-cf9e-44c9-858a-ba6e82f44a31" name="Default Changelist" comment="" />
+      <created>1581683690440</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1581520914943</updated>
-      <workItem from="1581520919922" duration="386000" />
-      <workItem from="1581559025809" duration="77000" />
-      <workItem from="1581559106422" duration="2854000" />
-      <workItem from="1581565306059" duration="1439000" />
-      <workItem from="1581566975900" duration="762000" />
-      <workItem from="1581567933434" duration="2674000" />
-      <workItem from="1581571251948" duration="110000" />
-      <workItem from="1581571366097" duration="289000" />
+      <updated>1581683690440</updated>
+      <workItem from="1581683692729" duration="4123000" />
     </task>
     <servers />
   </component>
@@ -73,9 +110,29 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="615" y="162" key="#mall" timestamp="1581683580521">
+    <state width="1248" height="279" key="GridCell.Tab.0.bottom" timestamp="1581687818768">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="615" y="162" key="#mall/0.0.1920.1040@0.0.1920.1040" timestamp="1581683580521" />
+    <state width="1248" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581687818768" />
+    <state width="1248" height="279" key="GridCell.Tab.0.center" timestamp="1581687818768">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1248" height="279" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581687818768" />
+    <state width="1248" height="279" key="GridCell.Tab.0.left" timestamp="1581687818768">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1248" height="279" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581687818768" />
+    <state width="1248" height="279" key="GridCell.Tab.0.right" timestamp="1581687818768">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1248" height="279" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581687818768" />
+    <state x="273" y="215" key="SettingsEditor" timestamp="1581683726295">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="273" y="215" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1581683726295" />
+    <state x="592" y="379" key="com.intellij.ide.util.TipDialog" timestamp="1581683692652">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="592" y="379" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581683692652" />
   </component>
 </project>

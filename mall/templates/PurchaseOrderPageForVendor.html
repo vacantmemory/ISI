@@ -3,18 +3,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Purchase Order Tracking</title>
+    <title>Order List</title>
 </head>
 <body>
-<h1>Purchase Orders</h1>
+<h1>Order List</h1>
+<form action="{% url 'search_order_link' %}" method="get">
+    <h3>View by P.O. number: <input type="text" name="po">
+    <input type="submit" value="Enter"></h3>
+</form>
 <label><input checked="true" class="filter" name="filter" type="radio" value="all">All purchases</label>
-<label><input class="filter" name="filter" type="radio" value="ph">Current purchases</label>
-<label><input class="filter" name="filter" type="radio" value="sc">Past purchases</label>
-{#should be table format#}
+<label><input class="filter" name="filter" type="radio" value="p">Pending orders</label>
+<label><input class="filter" name="filter" type="radio" value="h">Orders on hold</label>
+<label><input class="filter" name="filter" type="radio" value="sc">Past orders</label>
 {% for order in orderSet %}
     <div class="{{ order.status }} orders">
         <p><a href="{% url 'order_detail_link' order.po %}">Order number: {{ order.po }}</a></p>
         <p>Purchase date: {{ order.pDate }}</p>
+        <p>Customer names: {{ order.aid.aname }}</p>
         <p>Total order amount: {{ order.totalAmount }}</p>
         {% if order.status == 'p' %}
             <p>Order status: pending</p>
@@ -25,8 +30,9 @@
         {% elif order.status == 's' %}
             <p>Order status: shipped</p>
         {% endif %}
-    </div>
     <br/>
+    </div>
+
 {% endfor %}
 </body>
 <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
@@ -37,14 +43,19 @@
         if(event.target.value === 'all'){
             $('.orders').css('display', '')
         }
-        if(event.target.value === 'ph'){
-            $('.s, .c').css('display', 'none');
-            $('.p, .h').css('display', '')
+        if(event.target.value === 'h'){
+            $('.s, .p, .c').css('display', 'none');
+            $('.h').css('display', '')
+        }
+        if(event.target.value === 'p'){
+            $('.s, .c, .h').css('display', 'none');
+            $('.p').css('display', '')
         }
         if(event.target.value === 'sc'){
             $('.s, .c').css('display', '');
             $('.p, .h').css('display', 'none')
         }
     }
+
 </script>
 </html>

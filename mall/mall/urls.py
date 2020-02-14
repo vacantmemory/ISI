@@ -31,7 +31,7 @@ urlpatterns = [
     url(r'^register/$', register, name='register_link'),
 
     # product
-    url(r'^product/$', product_list),
+    url(r'^product/([0-9]?)/$', product_list),
     url(r'^Search/$', filter_product),
 
     # order

@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
 from mall.view import *
-from mall.product import product_list, filter_product
+from mall.product import *
 urlpatterns = [
     path(r'admin/', admin.site.urls),
 
@@ -31,8 +31,11 @@ urlpatterns = [
     url(r'^register/$', register, name='register_link'),
 
     # product
-    url(r'^product/([0-9]?)/$', product_list),
+    url(r'^product/$', product_list),
+    url(r'^product/(?P<id>[0-9]?)/$', paging),
     url(r'^Search/$', filter_product),
+    url(r'productDetail/(?P<name>[a-z]+)/$', product_detail, name="detail_link"),
+    url(r'sort/$', sort_product),
 
     # order
     url(r'^orders/$', orderListing),

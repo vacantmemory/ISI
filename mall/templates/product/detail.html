@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Detail</title>
+</head>
+<body>
+{% for s in row %}
+    <div>
+    <img src="{% static ''%}{{ s.thumbnail_image }}.jpg">
+    <h3>product name: {{ s.pname }}</h3>
+    <h3>product brand: {{ s.brand }}</h3>
+    <h3>product price: {{ s.price }}</h3>
+    </div>
+{% endfor %}
+{% for d in detail %}
+    <div>
+        <h3>product author: {{ d.author }}</h3>
+        <h3>product numPage: {{ d.numPage }}</h3>
+        <h3>product publisher: {{ d.publisher }}</h3>
+    </div>
+{% endfor %}
+</body>
+</html>

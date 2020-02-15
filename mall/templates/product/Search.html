@@ -16,7 +16,7 @@
 <body>
 {% for s in search %}
     <div class="image">
-    <img src="{% static ''%}{{ s.thumbnail_image }}.jpg">
+    <img src="{% static 'Search.html' %}{{ s.thumbnail_image }}.jpg">
     <h3>product name: {{ s.pname }}</h3>
     <h3>product brand: {{ s.brand }}</h3>
     <h3>product price: {{ s.price }}</h3>

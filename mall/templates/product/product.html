@@ -5,37 +5,49 @@
     <meta charset="UTF-8">
     <title>Product</title>
     <style>
-        .pagination {
+        .paging {
             display: inline-block;
         }
-        .pagination a {
+        .paging a {
             color: black;
             float: left;
             padding: 8px 16px;
             text-decoration: none;
         }
-        .pagination a.active {
+        .paging a.active {
             background-color: #4CAF50;
             color: white;
             border-radius: 5px;
         }
-        .pagination a:hover:not(.active) {
+        .paging a:hover:not(.active) {
             background-color: #ddd;
             border-radius: 5px;
         }
-        .image {
+        .entry {
             width:300px;
             height:auto;
              float:left;
             display:inline;
+        }
+        .price {
+            height: 25px;
+            width: 55px;
+            font-size: 17px;
+            text-align: center;
+        }
+        .button{
+            height: 25px;
+            width: 75px;
+            font-size: 17px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
 {% for p in p_list %}
-    <div class="image">
-    <img src="{% static ''%}{{ p.thumbnail_image }}.jpg">
+    <div class="entry">
+    <a href="{% url 'detail_link' name=p.thumbnail_image %}"><img id="image" src="{% static '' %}{{ p.thumbnail_image }}.jpg"></a>
     <h3>product name: {{ p.pname }}</h3>
     <h3>product brand: {{ p.brand }}</h3>
     <h3>product price: {{ p.price }}</h3>
@@ -51,7 +63,7 @@
     </div>
 </form>
 
-<div class="pagination">
+<div class="paging">
   <a href="">&laquo;</a>
   <a href="1">1</a>
   <a href="2">2</a>
@@ -59,6 +71,17 @@
   <a href="">&raquo;</a>
 </div>
 
+<form action="/sort/" method="post">
+    {% csrf_token %}
+    <div class="sort">
+        <h3>Sort</h3>
+        <input type="text" class="price" name="fprice" value="0"> -- <input type="text" class="price" name="lprice" value="100"><br><br>
+        <button name="sort" class="button">Submit</button>
+    </div>
+</form>
 
 </body>
+<script src="{% static 'jquery-3.4.1.min.js' %}"></script>
+<script>
+</script>
 </html>

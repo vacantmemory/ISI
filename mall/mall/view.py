@@ -14,9 +14,9 @@ def greeting(request):
     properties.objects.all().delete()
     product.objects.all().delete()
 
-    p1 = product.objects.create(pid='1', pname='bible', brand='CTS', price=12.95, thumbnail_image='bible')
-    p2 = product.objects.create(pid='2', pname='Harry Potter', brand='fiction', price=4.50, thumbnail_image='fiction')
-    product.objects.create(pid='3', pname='dictionary', brand='fiction', price=4.50, thumbnail_image='dictionary')
+    p1 = product.objects.create(pid='1', pname='bible', brand='CTS', price=120, thumbnail_image='bible')
+    p2 = product.objects.create(pid='2', pname='Harry Potter', brand='fiction', price=75, thumbnail_image='fiction')
+    product.objects.create(pid='3', pname='dictionary', brand='fiction', price=240, thumbnail_image='dictionary')
 
     properties.objects.create(pid=p1, author='Derek', numPage=2000, publisher='xxxxx')
 

@@ -14,6 +14,7 @@
     <h3>product price: {{ s.price }}</h3>
     </div>
 {% endfor %}
+{% include 'product/Add-To-CartButton.html' %}
 {% for d in detail %}
     <div>
         <h3>product author: {{ d.author }}</h3>

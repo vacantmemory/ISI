@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from ISI.models import product, properties
+from ISI.models import product, properties, shopcartRecord
 import decimal
 
 def product_list(request):
@@ -40,11 +40,24 @@ def sort_product(request):
     return render(request, "product/sort.html", {'message': msg, 'sort_list': sort_list})
 
 
-def product_detail(request, name):
-    row = product.objects.filter(thumbnail_image=name)
-    po = row[0].pid
-    detail = properties.objects.filter(pid=po)
-    return render(request, "product/detail.html", {'row':row, 'detail': detail})
+def product_detail(request, pid):
+    row = product.objects.filter(pid=pid)
+    detail = properties.objects.filter(pid=pid)
+    # add a 'isInCart' parameter to check if the product in user's cart.
+    return render(request, "product/detail.html", {'row': row, 'detail': detail, 'isInCart': inCartCheck(request, pid)})
+
+
+# return 0 if product not in cart, 1 if product in cart, 2 if user has not login, 3 if user is the vendor
+def inCartCheck(request, po):
+    if 'UserID' not in request.session:
+        return 2
+    if request.session['isVendor'] == 1:
+        return 3
+    uID = request.session['UserID']
+    if shopcartRecord.objects.filter(aid=uID, pid=po):
+        return 1
+    else:
+        return 0
 
 
 def sort_price(fprice, lprice, allprice):

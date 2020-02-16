@@ -47,7 +47,7 @@
 
 {% for p in p_list %}
     <div class="entry">
-    <a href="{% url 'detail_link' name=p.thumbnail_image %}"><img id="image" src="{% static '' %}{{ p.thumbnail_image }}.jpg"></a>
+    <a href="{% url 'detail_link' pid=p.pid %}"><img id="image" src="{% static '' %}{{ p.thumbnail_image }}.jpg"></a>
     <h3>product name: {{ p.pname }}</h3>
     <h3>product brand: {{ p.brand }}</h3>
     <h3>product price: {{ p.price }}</h3>

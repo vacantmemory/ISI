@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+</head>
+<style>
+    .q_reduce, .q_increase, .quantity, .update_button {
+        display: inline-block;
+        width: 28px;
+        line-height: 28px;
+        text-align: center;
+        font-size: 20px;
+        cursor: pointer;
+        border: 1px solid;
+    }
+    .quantity {
+        width: 58px;
+        height: 28px;
+        border-left: 0;
+        border-right: 0;
+        cursor: auto;
+    }
+
+    .update_button {
+        width: auto;
+
+    }
+
+
+</style>
+<body>
+<h1>Products in Cart</h1>
+{% for p in pList %}
+    <div>
+        <a href="{% url 'detail_link' pid=p.0.pid.pid %}"><p>Product name: {{ p.0.pid.pname }}</p></a>
+        <p>Unit price: <span class="price">{{ p.0.pid.price }}</span></p>
+        <form action="{% url 'update_quantity_link' p.0.pid.pid %}" method="get">
+            <p>Quantity
+            <button class="q_reduce" type="button">-</button>
+            <input type="text" class="quantity" name="quan" value="{{ p.1 }}" />
+            <button class="q_increase" type="button">+</button>
+            <button  style="display: none" class="update_button" type="submit">Update</button></p>
+        </form>
+        <p>Subtotal: <span class="subtotal"></span></p>
+        <p><a href="{% url 'remove_link' pid=p.0.pid.pid %}">Remove this item</a></p>
+    </div>
+    <br/>
+{% endfor %}
+<h2>Total order amount: <span id="totalAmount"></span></h2>
+<br/>
+<a href="{% url 'checkout_link' %}"><button>Check Out</button></a>
+</body>
+<script src="{% static 'jquery-3.4.1.min.js' %}"></script>
+<script>
+    totalCalculator();
+
+    function totalCalculator() {
+        quantitySet = $('.quantity');
+        priceSet = $('.price');
+        subtotalSet = $('.subtotal');
+        num = 0;
+        var total = 0;
+        for(var subtotal of subtotalSet){
+            subtotal.innerText = parseFloat(priceSet[num].innerText)*parseFloat(quantitySet[num].value);
+            var num = num + 1;
+            total = total + parseFloat(subtotal.innerText)
+        }
+        $('#totalAmount').html(total)
+    }
+
+    $('.q_reduce').on('click', function(event){
+        var quantity = $(event.target).parent().children('.quantity');
+        if (quantity.val() > 1){
+            quantity.val(parseInt(quantity.val())-1)
+        }
+        totalCalculator()
+        $(event.target).parent().children('.update_button').css('display', '')
+    });
+
+    $('.q_increase').on('click', function(event){
+        var quantity = $(event.target).parent().children('.quantity');
+        quantity.val(parseInt(quantity.val())+1);
+        totalCalculator()
+        $(event.target).parent().children('.update_button').css('display', '')
+    })
+
+
+
+
+</script>
+</html>

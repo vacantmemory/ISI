@@ -44,16 +44,14 @@
     <br/>
 {% endfor %}
 
-
 </body>
 <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
 <script>
-    quantitySet = $('.quantity')
-    priceSet = $('.price')
-    subtotalSet = $('.subtotal')
-    num = 0
+    quantitySet = $('.quantity');
+    priceSet = $('.price');
+    subtotalSet = $('.subtotal');
+    num = 0;
     for(subtotal of subtotalSet){
-        {#subtotal.innerText(priceSet[num]*quantitySet[num]);#}
         subtotal.innerText = parseFloat(priceSet[num].innerText)*parseFloat(quantitySet[num].innerText);
         num = num + 1;
     }

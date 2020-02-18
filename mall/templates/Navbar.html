@@ -1,0 +1,5 @@
+{{ request.session.UserID }}
+<a href="{% url 'sign_out_link' %}">sign out</a>
+<p><a href="{% url 'product_link' %}">Products</a></p>
+<p><a href="{% url 'orders_link' %}">Orders</a></p>
+<p><a href="{% url 'cart_link' %}" class = "cart">Cart</a></p>

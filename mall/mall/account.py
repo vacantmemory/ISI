@@ -6,10 +6,15 @@ from ISI.models import *
 
 def login(request):
     request.session.set_expiry(0)
-    if 'UserID' in request.session:
+    if identityCheck(request):
         # return render(request, 'HomePage.html')
         return HttpResponseRedirect('/home/')
     return render(request, 'SignIn/LoginPage.html')
+
+
+def signOut(request):
+    request.session.flush()
+    return HttpResponseRedirect('/login/')
 
 
 def loginCheck(request):
@@ -33,7 +38,14 @@ def loginCheck(request):
 
 
 def home(request):
-    return render(request, 'HomePage.html')
+    identity = 0
+    if identityCheck(request) == 0:
+        identity = 0
+    if identityCheck(request) == 1:
+        identity = 1
+    if identityCheck(request) == 2:
+        identity = 2
+    return render(request, 'HomePage.html', {"identity": identity})
 
 
 def register(request):
@@ -58,3 +70,13 @@ def registerSystem(request):
     else:
         message = 'Error: User exist!'
         return HttpResponse(message)
+
+
+# return 0 if user has not done login in, 1 if user is a customer, 2 if user is the vendor
+def identityCheck(request):
+    if 'UserID' not in request.session:
+        return 0
+    if request.session['isVendor'] == 0:
+        return 1
+    else:
+        return 2

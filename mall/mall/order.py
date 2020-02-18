@@ -3,6 +3,7 @@ import datetime
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from ISI.models import *
+from mall.account import identityCheck
 
 
 def orderListing(request):
@@ -12,12 +13,12 @@ def orderListing(request):
         return orderListForVendor(request)
     uID = request.session['UserID']
     allOrderSet = purchOrder.objects.filter(aid=uID).order_by('-pDate')
-    return render(request, 'PurchaseTracking.html', {'orderSet': allOrderSet})
+    return render(request, 'Orders/PurchaseTracking.html', {'orderSet': allOrderSet})
 
 
 def orderListForVendor(request):
     orderSet = purchOrder.objects.all().order_by('-pDate')
-    return render(request, 'PurchaseOrderPageForVendor.html', {'orderSet': orderSet})
+    return render(request, 'Orders/PurchaseOrderPageForVendor.html', {'orderSet': orderSet})
 
 
 def searchOrder(request):
@@ -35,7 +36,7 @@ def orderDetail(request, PO):
         message = 'Error: Order does not exist!'
         return HttpResponse(message)
     productList = dorder.objects.filter(po=order)
-    return render(request, 'OrderDetail.html', {'order': order, 'pList': productList})
+    return render(request, 'Orders/OrderDetail.html', {'order': order, 'pList': productList})
 
 
 def shipOrder(request, PO):
@@ -46,16 +47,9 @@ def shipOrder(request, PO):
     order.specDate = datetime.datetime.now()
     order.save()
     productList = dorder.objects.filter(po=order)
-    return render(request, 'OrderDetail.html', {'order': order, 'pList': productList})
+    return render(request, 'Orders/OrderDetail.html', {'order': order, 'pList': productList})
 
 
-def identityCheck(request):
-    if 'UserID' not in request.session:
-        return 0
-    if request.session['isVendor'] == 0:
-        return 1
-    else:
-        return 2
 
 
 

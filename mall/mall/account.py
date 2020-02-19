@@ -38,7 +38,14 @@ def loginCheck(request):
 
 
 def home(request):
-    return render(request, 'HomePage.html')
+    # identity = 0
+    # if identityCheck(request) == 0:
+    #     identity = 0
+    # if identityCheck(request) == 1:
+    #     identity = 1
+    # if identityCheck(request) == 2:
+    #     identity = 2
+    return render(request, 'HomePage.html', {"identity": identityCheck(request)})
 
 
 def register(request):

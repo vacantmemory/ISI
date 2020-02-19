@@ -14,7 +14,18 @@
     <h3>product price: {{ s.price }}</h3>
     </div>
 {% endfor %}
-{% include 'product/Add-To-CartButton.html' %}
+<div id="identify">
+    {% if isInCart == 0 %}
+        <a href="{% url 'add_to_cart_link' pid=row.0.pid %}"><button>Add to Cart</button></a>
+    {% elif isInCart == 1 %}
+        <p>Already in Cart</p>
+    {% elif isInCart == 2 %}
+        <a href="{% url 'login_link' %}"><button>Add to Cart</button></a>
+    {% elif isInCart == 3 %}
+        <p></p>
+    {% endif %}
+
+</div>
 {% for d in detail %}
     <div>
         <h3>product author: {{ d.author }}</h3>
@@ -23,4 +34,20 @@
     </div>
 {% endfor %}
 </body>
+<script src="{% static 'jquery-3.4.1.min.js' %}"></script>
+<script>
+    test();
+    function test() {
+        var a = {{ identity }};
+        if(a === 0){
+            $('#identify').hide();
+        }
+        if(a === 1){
+            $('#identify').show();
+        }
+        if(a === 2){
+            $('#identify').hide();
+        }
+    }
+</script>
 </html>

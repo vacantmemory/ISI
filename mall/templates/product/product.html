@@ -5,24 +5,6 @@
     <meta charset="UTF-8">
     <title>Product</title>
     <style>
-        .paging {
-            display: inline-block;
-        }
-        .paging a {
-            color: black;
-            float: left;
-            padding: 8px 16px;
-            text-decoration: none;
-        }
-        .paging a.active {
-            background-color: #4CAF50;
-            color: white;
-            border-radius: 5px;
-        }
-        .paging a:hover:not(.active) {
-            background-color: #ddd;
-            border-radius: 5px;
-        }
         .entry {
             width:300px;
             height:auto;
@@ -44,15 +26,18 @@
     </style>
 </head>
 <body>
+<table id="table">
+    {% for p in p_list %}
+        <tr>
+            <td><a href="{% url 'detail_link' pid=p.pid %}"><img id="image" src="{% static '' %}{{ p.thumbnail_image }}.jpg"></a></td>
+            <td>product name: {{ p.pname }}</td>
+            <td>product brand: {{ p.brand }}</td>
+            <td>product price: {{ p.price }}</td>
+        </tr>
+    {% endfor %}
+</table>
+<div id="pagging"></div>
 
-{% for p in p_list %}
-    <div class="entry">
-    <a href="{% url 'detail_link' pid=p.pid %}"><img id="image" src="{% static '' %}{{ p.thumbnail_image }}.jpg"></a>
-    <h3>product name: {{ p.pname }}</h3>
-    <h3>product brand: {{ p.brand }}</h3>
-    <h3>product price: {{ p.price }}</h3>
-    </div>
-{% endfor %}
 
 
 <form action="/Search/" method="post">
@@ -62,14 +47,6 @@
         <button>Search</button>
     </div>
 </form>
-
-<div class="paging">
-  <a href="">&laquo;</a>
-  <a href="1">1</a>
-  <a href="2">2</a>
-  <a href="3">3</a>
-  <a href="">&raquo;</a>
-</div>
 
 <form action="/sort/" method="post">
     {% csrf_token %}
@@ -83,5 +60,64 @@
 </body>
 <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
 <script>
+    pagging(1, 1);
+    function pagging(pno, psize){
+        var itable = document.getElementById("table");
+        var num = itable.rows.length;
+
+        //count how many pages
+        var totalPage = countPage(num, psize);
+
+        //start & end row
+        var currentPage = pno;
+        var startRow = (currentPage - 1) * psize + 1;
+        var endRow = currentPage + psize;
+        endRow = (num > endRow) ?endRow :num;
+
+        //display & display
+        for(var i=1; i < (num+1); i++){
+            var irow = itable.rows[i - 1];
+            if(i >= startRow && i < endRow || i === startRow && i === endRow){
+                irow.style.display = "block";
+
+            } else {
+                irow.style.display = "none";
+            }
+        }
+
+        var tempStr = "";
+        if (currentPage > 1) {
+            tempStr += "<a href=\"#\" onClick=\"pagging(" + (currentPage - 1) + "," + psize + ")\">Previous&nbsp;</a>"
+            for (j = 1; j <= totalPage; j++) {
+                tempStr += "<a href=\"#\" onClick=\"pagging(" + j + "," + psize + ")\">" + j + "&nbsp;</a>"
+            }
+        } else {
+            tempStr += "Previous&nbsp;";
+            for (j = 1; j <= totalPage; j++) {
+                tempStr += "<a href=\"#\" onClick=\"pagging(" + j + "," + psize + ")\">" + j + "&nbsp;</a>"
+            }
+        }
+        if (currentPage < totalPage) {
+            tempStr += "<a href=\"#\" onClick=\"pagging(" + (currentPage + 1) + "," + psize + ")\">Next</a>";
+            for (j = 1; j <= totalPage; j++) {
+            }
+        } else {
+            tempStr += "Next";
+            for (j = 1; j <= totalPage; j++) {
+            }
+        }
+        document.getElementById("pagging").innerHTML = tempStr;
+    }
+
+
+    function countPage(num, pageSize){
+        var totalPage = 0;
+        if(num / pageSize > parseInt(num / pageSize)){
+            totalPage = parseInt(num / pageSize) + 1;
+        } else {
+            totalPage = parseInt(num / pageSize);
+        }
+        return totalPage;
+    }
 </script>
 </html>

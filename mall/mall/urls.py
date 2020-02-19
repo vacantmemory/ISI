@@ -38,8 +38,7 @@ urlpatterns = [
 
     # product
     url(r'^product/$', product_list, name='product_link'),
-    url(r'^product/(?P<id>[0-9]?)/$', paging),
-    url(r'^Search/$', filter_product),
+    url(r'^Search/$', search_product),
     url(r'productDetail/(?P<pid>[0-9]+)/$', product_detail, name="detail_link"),
     url(r'sort/$', sort_product),
 

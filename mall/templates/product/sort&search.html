@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sort</title>
+    <style>
+        .entry {
+            width:300px;
+            height:auto;
+             float:left;
+            display:inline;
+        }
+    </style>
+</head>
+<body>
+<div class="sort">
+    {% for p in sort_list %}
+        <div class="entry">
+        <a href="{% url 'detail_link' pid=p.pid %}"><img id="image" src="{% static '' %}{{ p.thumbnail_image }}.jpg"></a>
+        <h3>product name: {{ p.pname }}</h3>
+        <h3>product brand: {{ p.brand }}</h3>
+        <h3>product price: {{ p.price }}</h3>
+        </div>
+    {% endfor %}
+    {{ message }}
+</div>
+<div class="search">
+    {% for p in searchBrand %}
+        <div class="entry">
+        <a href="{% url 'detail_link' pid=p.pid %}"><img id="image" src="{% static '' %}{{ p.thumbnail_image }}.jpg"></a>
+        <h3>product name: {{ p.pname }}</h3>
+        <h3>product brand: {{ p.brand }}</h3>
+        <h3>product price: {{ p.price }}</h3>
+        </div>
+    {% endfor %}
+    {% for p in searchPid %}
+        <div class="entry">
+        <a href="{% url 'detail_link' pid=p.pid %}"><img id="image" src="{% static '' %}{{ p.thumbnail_image }}.jpg"></a>
+        <h3>product name: {{ p.pname }}</h3>
+        <h3>product brand: {{ p.brand }}</h3>
+        <h3>product price: {{ p.price }}</h3>
+        </div>
+    {% endfor %}
+    {% for p in searchPname %}
+        <div class="entry">
+        <a href="{% url 'detail_link' pid=p.pid %}"><img id="image" src="{% static '' %}{{ p.thumbnail_image }}.jpg"></a>
+        <h3>product name: {{ p.pname }}</h3>
+        <h3>product brand: {{ p.brand }}</h3>
+        <h3>product price: {{ p.price }}</h3>
+        </div>
+    {% endfor %}
+    {{ Error }}
+</div>
+</body>
+</html>

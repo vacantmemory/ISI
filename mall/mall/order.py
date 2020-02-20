@@ -11,6 +11,7 @@ def orderListing(request):
         return HttpResponse('You need to login!')
     if identityCheck(request) == 2:
         return orderListForVendor(request)
+
     uID = request.session['UserID']
     allOrderSet = purchOrder.objects.filter(aid=uID).order_by('-pDate')
     return render(request, 'Orders/PurchaseTracking.html', {'orderSet': allOrderSet})

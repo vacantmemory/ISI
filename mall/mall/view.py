@@ -27,11 +27,11 @@ def greeting(request):
 
     shopcartRecord.objects.create(pid=p1, aid=a123, quantity=10000)
 
-    po1 = purchOrder.objects.create(po='purchOrder1', aid=a123, pDate='2021-02-01', totalAmount='200', status='p',
+    po1 = purchOrder.objects.create(po='po00001', aid=a123, pDate='2021-02-01', totalAmount='200', status='p',
                                     specDate='2021-02-02', cancelledPerson='c')
-    po2 = purchOrder.objects.create(po='purchOrder2', aid=a123, pDate='2019-02-02', totalAmount='400', status='h',
+    po2 = purchOrder.objects.create(po='po00002', aid=a123, pDate='2019-02-02', totalAmount='400', status='h',
                                       specDate='2022-02-02', cancelledPerson='c')
-    po3 = purchOrder.objects.create(po='purchOrder3', aid=a123, pDate='2020-03-01', totalAmount='500', status='c',
+    po3 = purchOrder.objects.create(po='po00003', aid=a123, pDate='2020-03-01', totalAmount='500', status='c',
                                       specDate='2024-02-02', cancelledPerson='c')
 
     dorder.objects.create(po=po1, pid=p1, rName='product1', rAddress='XXXX', rQuentity=10000,

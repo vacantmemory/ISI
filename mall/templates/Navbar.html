@@ -1,5 +1,9 @@
 {{ request.session.UserID }}
-<a href="{% url 'sign_out_link' %}">sign out</a>
-<p><a href="{% url 'product_link' %}">Products</a></p>
-<p><a href="{% url 'orders_link' %}">Orders</a></p>
+{% if identity == 0 %}
+<a href="{% url 'login_link' %}">Login</a>
+{% else %}
+<a href="{% url 'sign_out_link' %}">Sign out</a>
+{% endif %}
+<p><a href="{% url 'product_link' %}" class="product">Products</a></p>
+<p><a href="{% url 'orders_link' %}" class="order">Orders</a></p>
 <p><a href="{% url 'cart_link' %}" class = "cart">Cart</a></p>

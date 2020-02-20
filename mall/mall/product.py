@@ -5,63 +5,51 @@ from mall.account import identityCheck
 
 
 def product_list(request):
-    p_list = product.objects.all()
-    return render(request, 'product/product.html', {'p_list':p_list, 'id': id})
-
-
-def paging(request, id):
-    p_list = product.objects.all()
-    return render(request, 'product/product.html', {'p_list': p_list, 'id': id})
-
-
-def search_product(request):
+    sort = request.POST.get("Sort")
+    brand = request.POST.get("brand")
     data = request.POST.get("find")
-    msg = "No Finding"
-    if identityCheck(request) == 0 or identityCheck(request) == 1:
-        searchBrand = product.objects.filter(brand=data)
-        if searchBrand:
-            return render(request, 'product/sort&search.html', {'searchBrand': searchBrand})
-        else:
-            return render(request, 'product/sort&search.html', {'Error': msg})
-    if identityCheck(request) == 2:
-        searchBrand = product.objects.filter(brand=data)
-        searchPid = product.objects.filter(pid=data)
-        searchPname = product.objects.filter(pname=data)
-        if searchPid or searchPname or searchBrand:
-            return render(request, 'product/sort&search.html', {'searchBrand': searchBrand, 'searchPid': searchPid, 'searchPname': searchPname})
-        else:
-            return render(request, 'product/sort&search.html', {'Error': msg})
-
-
-def sort_product(request):
-    fprice = decimal.Decimal(request.POST.get('fprice'))
-    lprice = decimal.Decimal(request.POST.get('lprice'))
-    allprice = product.objects.values_list('pid', 'price')
+    p_list = product.objects.all()
     msg = ''
-    sort_list = []
-    if fprice >= lprice:
-        msg = 'input error'
+    # sort
+    if sort:
+        p_list = sort_product(p_list)
+    # search_c
+    if brand:
+        p_list = search_c(brand)
+        if not p_list:
+            msg = "Not Found"
+    # search_v
+    if data:
+        p_list = search_vendor(data)
+        if not p_list:
+            msg = "Not Found"
+    return render(request, 'product/product.html', {'p_list': p_list, 'identity': identityCheck(request), 'message': msg})
+
+
+def search_c(brand):
+    searchBrand = product.objects.filter(brand=brand)
+    return searchBrand
+
+
+def search_vendor(data):
+    searchPid = product.objects.filter(pid=data)
+    searchPname = product.objects.filter(pname=data)
+    if searchPid:
+        return searchPid
     else:
-        id_list = sort_price(fprice, lprice, allprice)
-        if id_list:
-            sort_list = store_row(id_list)
-        else:
-            msg = 'No Finding'
-    return render(request, "product/sort&search.html", {'message': msg, 'sort_list': sort_list})
+        return searchPname
+
+
+def sort_product(p_list):
+    p_list = p_list.order_by("price")
+    return p_list
 
 
 def product_detail(request, pid):
     row = product.objects.filter(pid=pid)
     detail = properties.objects.filter(pid=pid)
-    identity = 0
-    if identityCheck(request) == 0:
-        identity = 0
-    if identityCheck(request) == 1:
-        identity = 1
-    if identityCheck(request) == 2:
-        identity = 2
     # add a 'isInCart' parameter to check if the product in user's cart.
-    return render(request, "product/detail.html", {'row': row, 'detail': detail, 'identity': identity, 'isInCart': inCartCheck(request, pid)})
+    return render(request, "product/detail.html", {'row': row, 'detail': detail, 'identity': identityCheck(request), 'isInCart': inCartCheck(request, pid)})
 
 
 # return 0 if product not in cart, 1 if product in cart, 2 if user has not login, 3 if user is the vendor

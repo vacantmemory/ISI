@@ -1,4 +1,4 @@
-{{ request.session.UserID }}
+<p>{{ userName }}</p>
 {% if identity == 0 %}
 <a href="{% url 'login_link' %}">Login</a>
 {% else %}

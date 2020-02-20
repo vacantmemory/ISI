@@ -2,28 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4eece36a-b60a-4ac7-9f35-e414c04da4ff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/LoginNeededPage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/product/sort&amp;search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e64f3478-ea16-42b0-a350-48fbbadc5ce6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e64f3478-ea16-42b0-a350-48fbbadc5ce6.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mall/account.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/account.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall/cart.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/cart.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mall/order.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/order.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall/product.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/product.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall/view.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/HomePage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/HomePage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/product/Add-To-CartButton.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/product/Search.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/product/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/product/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/product/sort.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/SignIn/LoginPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/SignIn/LoginPage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,6 +116,7 @@
       <updated>1582120916563</updated>
       <workItem from="1582120917824" duration="1435000" />
       <workItem from="1582122371513" duration="2352000" />
+      <workItem from="1582128217833" duration="2600000" />
     </task>
     <servers />
   </component>
@@ -138,29 +124,29 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1582124724933">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1582130819634">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1582124724933" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1582124724933">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1582130819634" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1582130819634">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1582124724933" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1582124724933">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1582130819634" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1582130819634">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1582124724933" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1582124724933">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1582130819634" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1582130819634">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1582124724933" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1582130819634" />
     <state x="461" y="163" key="SettingsEditor" timestamp="1582120955770">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1582120955770" />
-    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1582122371426">
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1582128217633">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582122371426" />
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582128217633" />
   </component>
 </project>

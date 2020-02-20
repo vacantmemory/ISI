@@ -8,7 +8,7 @@ from mall.account import identityCheck
 
 def orderListing(request):
     if identityCheck(request) == 0:
-        return HttpResponse('You need to login!')
+        return render(request, 'LoginNeededPage.html')
     if identityCheck(request) == 2:
         return orderListForVendor(request)
 

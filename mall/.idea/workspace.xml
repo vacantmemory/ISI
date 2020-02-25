@@ -2,53 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b662d2e9-f5c1-4cee-993d-3f067015bcca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/CSS/cart_style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/HELP-US-OUT.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/css/font-awesome.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/css/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/less/animated.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/less/bordered-pulled.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/less/core.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/less/fixed-width.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/less/font-awesome.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/less/icons.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/less/larger.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/less/list.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/less/mixins.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/less/path.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/less/rotated-flipped.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/less/screen-reader.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/less/stacked.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/less/variables.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/scss/_animated.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/scss/_bordered-pulled.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/scss/_core.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/scss/_fixed-width.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/scss/_icons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/scss/_larger.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/scss/_list.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/scss/_mixins.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/scss/_path.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/scss/_rotated-flipped.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/scss/_screen-reader.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/scss/_stacked.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/scss/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/font-awesome-4.7.0/scss/font-awesome.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/login_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mall/account.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/account.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/CSS/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/CSS/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/CSS/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/CSS/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Cart/CartPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Cart/CartPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/SignIn/LoginPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/SignIn/LoginPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/product/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/product/sort&amp;search.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,6 +87,7 @@
       <workItem from="1582562042245" duration="14062000" />
       <workItem from="1582613239292" duration="300000" />
       <workItem from="1582614357329" duration="14865000" />
+      <workItem from="1582650391759" duration="36000" />
     </task>
     <servers />
   </component>
@@ -141,29 +99,29 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582614496238" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1582649878961">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1582650427112">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1582649878961" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1582649878961">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1582650427112" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1582650427112">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1582649878961" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1582649878961">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1582650427112" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1582650427112">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1582649878961" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1582649878961">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1582650427112" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1582650427112">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1582649878961" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1582650427112" />
     <state x="461" y="163" key="SettingsEditor" timestamp="1582557648761">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1582557648761" />
-    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1582614357986">
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1582650391573">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582614357986" />
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582650391573" />
   </component>
 </project>

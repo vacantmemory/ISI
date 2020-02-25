@@ -5,37 +5,43 @@
     <meta charset="UTF-8">
     <title>Product</title>
     <style>
-        .entry {
-            width:300px;
+         .product {
+             width:250px;
             height:auto;
              float:left;
             display:inline;
+         }
+        #pagging {
+            position: absolute;
+            top: 380px;
         }
-        .price {
-            height: 25px;
-            width: 55px;
-            font-size: 17px;
-            text-align: center;
+        #search_c {
+            position: absolute;
+            top: 400px;
         }
-        .button{
-            height: 25px;
-            width: 75px;
-            font-size: 17px;
-            text-align: center;
+        #search_v {
+            position: absolute;
+            top: 410px;
+        }
+        #sort {
+            position: absolute;
+            top: 420px;
+            left: 20px;
         }
     </style>
 </head>
 
-<table id="table">
+<ul id="table">
     {% for p in p_list %}
-        <tr>
-            <td><a href="{% url 'detail_link' pid=p.pid %}"><img id="image" src="{% static '' %}{{ p.thumbnail_image }}.jpg"></a></td>
-            <td>product name: {{ p.pname }}</td>
-            <td>product brand: {{ p.brand }}</td>
-            <td>product price: {{ p.price }}</td>
-        </tr>
+        <li class="product">
+            <a href="{% url 'detail_link' pid=p.pid %}"><img id="image" src="{% static '' %}{{ p.thumbnail_image }}.jpg"></a>
+            <p>product name: {{ p.pname }}</p>
+            <p>product brand: {{ p.brand }}</p>
+            <p>product price: {{ p.price }}</p>
+        </li>
     {% endfor %}
-</table>
+</ul>
+
 <div id="pagging"></div>
 {{ message }}
 
@@ -60,18 +66,18 @@
 
 <form action="/product/order/" method="post">
     {% csrf_token %}
-    <button name="Sort" value="aa">Sort</button>
+    <button id="sort" name="Sort" value="aa">Sort</button>
 </form>
 
 
 </body>
 <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
 <script>
-    pagging(1, 1);
+    pagging(1, 2);
     function pagging(pno, psize){
-        var itable = document.getElementById("table");
-        var num = itable.rows.length;
 
+        var itable = $("li");
+        var num = itable.length;
         //count how many pages
         var totalPage = countPage(num, psize);
 
@@ -83,12 +89,12 @@
 
         //display & display
         for(var i=1; i < (num+1); i++){
-            var irow = itable.rows[i - 1];
+            var irow = itable.eq([i - 1]);
             if(i >= startRow && i < endRow || i === startRow && i === endRow){
-                irow.style.display = "block";
+                irow.show();
 
             } else {
-                irow.style.display = "none";
+                irow.hide();
             }
         }
 

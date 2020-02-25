@@ -1,0 +1,76 @@
+.main {
+    margin: 7% auto 0;
+    width: 35%;
+    background-color: #ffffff;
+}
+
+.login-page .container {
+    margin-top: 30px;
+    width: auto;
+}
+
+.login-page {
+    text-align: center;
+    border-style: solid;
+    border-color: #3c763d;
+    border-width: 1px;
+    border-radius: 3px;
+    background-color: #ffffff;
+}
+
+.login-head {
+    text-align: center;
+    color: #3c763d;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.div-line1 {
+    margin-left: 10%;
+    margin-right: 10%;
+    border-bottom-color: #eeeeee;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+}
+
+.login-page .container form {
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+
+.input-pswd {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.div-line2 {
+    border-bottom-color: #eeeeee;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+}
+
+.button-line {
+    height: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.register-btn {
+    float: left;
+    width: 100px;
+}
+
+.login-btn {
+    float: right;
+    width: 100px;
+}
+
+.store-link {
+    margin-right: 10%;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    float: right;
+    font-size: 12px;
+    text-decoration: underline;
+}

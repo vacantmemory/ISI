@@ -33,23 +33,19 @@ def loginCheck(request):
         return HttpResponse(message)
     request.session['UserID'] = uID
     request.session['isVendor'] = user.venderFlag
+    request.session['UserName'] = user.aname
     # return render(request, 'HomePage.html')
     return HttpResponseRedirect('/home/')
 
 
 def home(request):
     # identity = 0
-    if identityCheck(request) == 0:
-        uName = 'guest'
-    else:
-        uName = account.objects.get(aid=request.session['UserID']).aname
     # if identityCheck(request) == 1:
     #     identity = 1
     # if identityCheck(request) == 2:
     #     identity = 2
 
-    return render(request, 'HomePage.html', {"identity": identityCheck(request),
-                                             'userName': uName})
+    return render(request, 'HomePage.html', {"identity": identityCheck(request)})
 
 
 def register(request):

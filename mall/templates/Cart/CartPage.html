@@ -4,53 +4,75 @@
 <head>
     <meta charset="UTF-8">
     <title>Cart</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'cart_style.css' %}">
 </head>
-<style>
-    .q_reduce, .q_increase, .quantity, .update_button {
-        display: inline-block;
-        width: 28px;
-        line-height: 28px;
-        text-align: center;
-        font-size: 20px;
-        cursor: pointer;
-        border: 1px solid;
-    }
-    .quantity {
-        width: 58px;
-        height: 28px;
-        border-left: 0;
-        border-right: 0;
-        cursor: auto;
-    }
 
-    .update_button {
-        width: auto;
-
-    }
-
-
-</style>
-<body>
-<h1>Products in Cart</h1>
-{% for p in pList %}
-    <div>
-        <a href="{% url 'detail_link' pid=p.0.pid.pid %}"><p>Product name: {{ p.0.pid.pname }}</p></a>
-        <p>Unit price: <span class="price">{{ p.0.pid.price }}</span></p>
-        <form action="{% url 'update_quantity_link' p.0.pid.pid %}" method="get">
-            <p>Quantity
-            <button class="q_reduce" type="button">-</button>
-            <input type="text" class="quantity" name="quan" value="{{ p.1 }}" />
-            <button class="q_increase" type="button">+</button>
-            <button  style="display: none" class="update_button" type="submit">Update</button></p>
-        </form>
-        <p>Subtotal: <span class="subtotal"></span></p>
-        <p><a href="{% url 'remove_link' pid=p.0.pid.pid %}">Remove this item</a></p>
+<body id="body-style">
+{% include 'Navbar.html' %}
+<div class="main">
+    <div class="container">
+        <div class="cart-page col-sm-12">
+            <h1>Products in Cart</h1>
+            <div class="cart-list">
+                <div class="cart-data clearfix">
+                    <div>
+                        <table class="cart-table">
+                            <tbody>
+                            <tr>
+                                <th class="cart-img">Image</th>
+                                <th class="cart-name">Product Name</th>
+                                <th class="cart-uprice">Unit Price</th>
+                                <th class="cart-quantity">Quantity</th>
+                                <th class="cart-subtotal">Subtotal</th>
+                                <th class="cart-remove"></th>
+                            </tr>
+                            {% for p in pList %}
+                                <tr>
+                                    <td class="cart-img">
+                                        <a href="{% url 'detail_link' pid=p.0.pid.pid %}"><img id="image" src="
+                                                {% static '' %}{{ p.0.pid.thumbnail_image }}.jpg"></a>
+                                    </td>
+                                    <td class="cart-name">
+                                        <a href="{% url 'detail_link' pid=p.0.pid.pid %}"><p>{{ p.0.pid.pname }}</p></a>
+                                    </td>
+                                    <td class="cart-uprice"><span class="price">{{ p.0.pid.price }}</span></td>
+                                    <td class="cart-quantity">
+                                        <form action="{% url 'update_quantity_link' p.0.pid.pid %}" method="get">
+                                            <button class="q_reduce" type="button"><i class="fa fa-minus"></i></button>
+                                            <input type="text" class="quantity" name="quan" value="{{ p.1 }}"/>
+                                            <button class="q_increase" type="button"><i class="fa fa-plus"></i></button>
+                                            <button class="update_button update-disable" type="submit">
+                                                Update
+                                            </button>
+                                        </form>
+                                    </td>
+                                    <td class="cart-subtotal"><span class="subtotal"></span></td>
+                                    <td class="cart-remove">
+                                        <a href="{% url 'remove_link' pid=p.0.pid.pid %}"><i class="fa fa-times-circle fa-lg"></i></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="cart-total">
+                        <em>Total Order Amount</em>
+                        <strong>
+                            $<span id="totalAmount"></span>
+                        </strong>
+                    </div>
+                </div>
+                <a href="{% url 'checkout_link' %}">
+                    <button class="cart-checkout btn btn-primary" type="submit">Checkout <i class="fa fa-check"></i>
+                    </button>
+                </a>
+            </div>
+        </div>
     </div>
-    <br/>
-{% endfor %}
-<h2>Total order amount: <span id="totalAmount"></span></h2>
-<br/>
-<a href="{% url 'checkout_link' %}"><button>Check Out</button></a>
+</div>
 </body>
 <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
 <script>
@@ -62,31 +84,51 @@
         subtotalSet = $('.subtotal');
         num = 0;
         var total = 0;
-        for(var subtotal of subtotalSet){
-            subtotal.innerText = parseFloat(priceSet[num].innerText)*parseFloat(quantitySet[num].value);
+        for (var subtotal of subtotalSet) {
+            subtotal.innerText = parseFloat(priceSet[num].innerText) * parseFloat(quantitySet[num].value);
             var num = num + 1;
             total = total + parseFloat(subtotal.innerText)
         }
         $('#totalAmount').html(total)
     }
 
-    $('.q_reduce').on('click', function(event){
+    $('.q_reduce').on('click', function (event) {
         var quantity = $(event.target).parent().children('.quantity');
-        if (quantity.val() > 1){
-            quantity.val(parseInt(quantity.val())-1)
+        if (quantity.val() > 1) {
+            quantity.val(parseInt(quantity.val()) - 1)
         }
         totalCalculator()
-        $(event.target).parent().children('.update_button').css('display', '')
+        ableUpdate($(event.target).parent().children('.update_button'));
+
     });
 
-    $('.q_increase').on('click', function(event){
+    $('.q_increase').on('click', function (event) {
         var quantity = $(event.target).parent().children('.quantity');
-        quantity.val(parseInt(quantity.val())+1);
-        totalCalculator()
-        $(event.target).parent().children('.update_button').css('display', '')
-    })
+        quantity.val(parseInt(quantity.val()) + 1);
+        totalCalculator();
+        ableUpdate($(event.target).parent().children('.update_button'));
+    });
 
+    $('.q_reduce i').on('click', function (event) {
+        var quantity = $(event.target).parent().parent().children('.quantity');
+        if (quantity.val() > 1) {
+            quantity.val(parseInt(quantity.val()) - 1)
+        }
+        totalCalculator();
+        ableUpdate($(event.target).parent().parent().children('.update_button'));
+    });
 
+    $('.q_increase i').on('click', function (event) {
+        var quantity = $(event.target).parent().parent().children('.quantity');
+        quantity.val(parseInt(quantity.val()) + 1);
+        totalCalculator();
+        ableUpdate($(event.target).parent().parent().children('.update_button'));
+    });
+
+    function ableUpdate(t){
+        t.removeClass('update-disable');
+        t.addClass('update-able');
+    }
 
 
 </script>

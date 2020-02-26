@@ -11,6 +11,7 @@
 <p>Purchase date: {{ order.pDate }}</p>
 <p>Customer name: {{ order.aid.aname }}</p>
 {#<p>Shipping address: </p>#}
+<p>Destination address: {{ pList.0.rAddress }}</p>
 <p>Total order amount: {{ order.totalAmount }}</p>
 {% if order.status == 'p' %}
     <p>Order status: pending</p>
@@ -36,7 +37,7 @@
 {% for p in pList %}
     <div>
         <p>Product name: {{ p.rName }}</p>
-        <p>Destination address: {{ p.rAddress }}</p>
+{#        <p>Destination address: {{ p.rAddress }}</p>#}
         <p>Quantity: <span class="quantity">{{ p.rQuentity }}</span></p>
         <p>Unit price: <span class="price">{{ p.rPrice }}</span></p>
         <p>Subtotal: <span class="subtotal"></span></p>

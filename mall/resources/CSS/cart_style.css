@@ -57,7 +57,6 @@
 .cart-checkout {
     float: right;
     margin-right: 10px;
-    background: #e94d1c;
 }
 
 .q_reduce, .q_increase, .quantity, .update_button .tempbtn {

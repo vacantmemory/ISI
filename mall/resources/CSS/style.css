@@ -16,20 +16,20 @@
     margin: 8px 0;
     font-size: 24px;
     font-weight: bold;
-    color: #d40009;
+    color: #3c763d;
     text-decoration: none;
 }
 
 .header-top-left a:link {
-    color: #d40009;
+    color: #3c763d;
 }
 
 .header-top-left a:hover{
-    color: #d40009;
+    color: #3c763d;
 }
 
 .header-top-left a:visited{
-    color: #d40009;
+    color: #3c763d;
 }
 
 .header-top-right {

@@ -8,7 +8,7 @@ from mall.account import identityCheck
 
 def orderListing(request):
     if identityCheck(request) == 0:
-        return render(request, 'LoginNeededPage.html')
+        return render(request, 'MessagePage.html', {'message': 'You need to login!', 'link': 'login'})
     if identityCheck(request) == 2:
         return orderListForVendor(request)
 
@@ -30,7 +30,7 @@ def searchOrder(request):
 
 def orderDetail(request, PO):
     if identityCheck(request) == 0:
-        return HttpResponse('You need to login!')
+        return render(request, 'MessagePage.html', {'message': 'You need to login!', 'link': 'login'})
     try:
         order = purchOrder.objects.get(po=PO)
     except purchOrder.DoesNotExist:

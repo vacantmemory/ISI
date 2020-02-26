@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'login_style.css' %}">
+</head>
+<body id="body-style">
+<div class="main">
+    <div class="login-page">
+        <h1 class="message">{{ message }}</h1>
+        <p class="manual-link"><a href="">You will jump to {{ link }} page in 3 sec</a></p>
+    </div>
+</div>
+</body>
+<script>
+    {% if link == 'home' %}
+        setTimeout(function(){window.location.href="{% url 'home_link' %}"}, 3000);
+    {% elif link == 'login' %}
+        setTimeout(function(){window.location.href="{% url 'login_link' %}"}, 3000);
+    {% endif %}
+</script>
+</html>

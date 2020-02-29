@@ -4,56 +4,104 @@
 <head>
     <meta charset="UTF-8">
     <title>Order List</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'orderlist_style.css' %}">
 </head>
-<body>
-<h1>Order List</h1>
-<form action="{% url 'search_order_link' %}" method="get">
-    <h3>View by P.O. number: <input type="text" name="po">
-    <input type="submit" value="Enter"></h3>
-</form>
-<label><input checked="true" class="filter" name="filter" type="radio" value="all">All purchases</label>
-<label><input class="filter" name="filter" type="radio" value="p">Pending orders</label>
-<label><input class="filter" name="filter" type="radio" value="h">Orders on hold</label>
-<label><input class="filter" name="filter" type="radio" value="sc">Past orders</label>
-{% for order in orderSet %}
-    <div class="{{ order.status }} orders">
-        <p><a href="{% url 'order_detail_link' order.po %}">Order number: {{ order.po }}</a></p>
-        <p>Purchase date: {{ order.pDate }}</p>
-        <p>Customer names: {{ order.aid.aname }}</p>
-        <p>Total order amount: {{ order.totalAmount }}</p>
-        {% if order.status == 'p' %}
-            <p>Order status: pending</p>
-        {% elif order.status == 'h' %}
-            <p>Order status: hold</p>
-        {% elif order.status == 'c' %}
-            <p>Order status: cancelled</p>
-        {% elif order.status == 's' %}
-            <p>Order status: shipped</p>
-        {% endif %}
-    <br/>
-    </div>
+<body id="body-style">
 
-{% endfor %}
+{% include 'Navbar.html' %}
+<div class="main">
+    <div class="container">
+        <div class="order-page col-sm-12">
+            <h1 class="page-title">Order List</h1>
+            <div class="order-list">
+                <div class="container">
+                    <div class="order-filter-vendor col-sm-6">
+                        <button class="filter-btn btn filter-all filter-chosen" type="button" value="all">All Purchases</button><button class="filter-btn btn filter-p" type="button" value="p">Pending Orders</button><button class="filter-btn btn filter-h" type="button" value="h">Orders on Hold</button><button class="filter-btn btn filter-sc" type="button" value="sc">Past Purchases</button>
+                    </div>
+                    <div class="order-search col-sm-6">
+                        <form action="{% url 'search_order_link' %}" method="get">
+                            <i class="fa fa-search fa-lg search-icon"></i>
+                            <input class="search-blank" type="text" name="po" placeholder="Search by P.O. number"><input class="search-btn" type="submit" value="Enter">
+                        </form>
+                    </div>
+                </div>
+                <div class="order-data clearfix">
+                    <div>
+                        <table class="order-table">
+                            <tbody>
+                            <tr>
+                                <th class="order-num">Order Number</th>
+                                <th class="order-date">Purchase Date</th>
+                                <th class="order-customer>">Customer Name</th>
+                                <th class="order-amount">Total Order Amount</th>
+                                <th class="order-status">Order Status</th>
+                                <th class="order-entry"></th>
+                            </tr>
+                            {% for order in orderSet %}
+                                <div>
+                                    <tr class="{{ order.status }} orders">
+                                        <td class="order-num">
+                                            <a href="{% url 'order_detail_link' order.po %}">{{ order.po }}</a>
+                                        </td>
+                                        <td class="order-date">{{ order.pDate }}</td>
+                                        <td class="order-customer">{{ order.aid.aname }}</td>
+                                        <td class="order-amount">{{ order.totalAmount }}</td>
+                                        {% if order.status == 'p' %}
+                                            <td class="order-status">Pending</td>
+                                        {% elif order.status == 'h' %}
+                                            <td class="order-status">Hold</td>
+                                        {% elif order.status == 'c' %}
+                                            <td class="order-status">Cancelled</td>
+                                        {% elif order.status == 's' %}
+                                            <td class="order-status">Shipped</td>
+                                        {% endif %}
+                                        <td class="order-entry">
+                                            <a href="{% url 'order_detail_link' order.po %}">Detail >></a>
+                                        </td>
+                                    </tr>
+                                </div>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
 <script>
-    $('.filter').on('click', statusFilter);
+    {#$('.filter').on('click', statusFilter);#}
+    $('.filter-btn').on('click', statusFilter);
 
-    function statusFilter(event){
-        if(event.target.value === 'all'){
-            $('.orders').css('display', '')
+    function statusFilter(event) {
+        if (event.target.value === 'all') {
+            $('.orders').css('display', '');
+            $('.filter-all').addClass('filter-chosen');
+            $('.filter-p, .filter-h, .filter-sc').removeClass('filter-chosen');
         }
-        if(event.target.value === 'h'){
+        if (event.target.value === 'h') {
             $('.s, .p, .c').css('display', 'none');
-            $('.h').css('display', '')
+            $('.h').css('display', '');
+            $('.filter-h').addClass('filter-chosen');
+            $('.filter-p, .filter-all, .filter-sc').removeClass('filter-chosen');
         }
-        if(event.target.value === 'p'){
+        if (event.target.value === 'p') {
             $('.s, .c, .h').css('display', 'none');
-            $('.p').css('display', '')
+            $('.p').css('display', '');
+            $('.filter-p').addClass('filter-chosen');
+            $('.filter-all, .filter-h, .filter-sc').removeClass('filter-chosen');
         }
-        if(event.target.value === 'sc'){
+        if (event.target.value === 'sc') {
             $('.s, .c').css('display', '');
-            $('.p, .h').css('display', 'none')
+            $('.p, .h').css('display', 'none');
+            $('.filter-sc').addClass('filter-chosen');
+            $('.filter-p, .filter-h, .filter-all').removeClass('filter-chosen');
         }
     }
 

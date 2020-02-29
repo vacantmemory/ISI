@@ -5,6 +5,11 @@
     font: 16px "PT Sans Narrow", sans-serif
 }
 
+.page-title, .page-subtitle {
+    font: 40px "PT Sans Narrow", sans-serif;
+    color: #444444;
+}
+
 /* header style */
 .header-top {
     background-color: #f8f8f8;

@@ -2,6 +2,9 @@
 /*    background-color: #eeeeee;*/
 
 /*}*/
+.page-title {
+    margin-bottom: 30px;
+}
 
 .cart-data {
     background: #fff;
@@ -59,7 +62,7 @@
     margin-right: 10px;
 }
 
-.q_reduce, .q_increase, .quantity, .update_button .tempbtn {
+.q_reduce, .q_increase, .quantity, .update_button {
     vertical-align: middle;
     display: inline-block;
     width: 28px;
@@ -74,9 +77,10 @@
 }
 
 .update_button {
+    height: 28px;
     width: auto;
     border-radius: 3px;
-    border: 0px;
+    border: 0;
     /*visibility: hidden;*/
 }
 
@@ -90,7 +94,7 @@
 
 .update-able {
     color: #ffffff;
-    background-color: #d40009;
+    background-color: #2e6da4;
     opacity: 1;
     cursor: pointer;
     pointer-events: auto;
@@ -99,4 +103,9 @@
 .cart-remove i {
     width: 15px;
     color: red;
+}
+
+.cart {
+    color: #3c763d !important;
+    text-decoration: underline;
 }

@@ -14,12 +14,14 @@ def orderListing(request):
 
     uID = request.session['UserID']
     allOrderSet = purchOrder.objects.filter(aid=uID).order_by('-pDate')
-    return render(request, 'Orders/PurchaseTracking.html', {'orderSet': allOrderSet})
+    return render(request, 'Orders/PurchaseTracking.html', {'orderSet': allOrderSet,
+                                                            'identity': identityCheck(request)})
 
 
 def orderListForVendor(request):
     orderSet = purchOrder.objects.all().order_by('-pDate')
-    return render(request, 'Orders/PurchaseOrderPageForVendor.html', {'orderSet': orderSet})
+    return render(request, 'Orders/PurchaseOrderPageForVendor.html', {'orderSet': orderSet,
+                                                                      'identity': identityCheck(request)})
 
 
 def searchOrder(request):
@@ -37,7 +39,8 @@ def orderDetail(request, PO):
         message = 'Error: Order does not exist!'
         return HttpResponse(message)
     productList = dorder.objects.filter(po=order)
-    return render(request, 'Orders/OrderDetail.html', {'order': order, 'pList': productList})
+    return render(request, 'Orders/OrderDetail.html', {'order': order, 'pList': productList,
+                                                       'identity': identityCheck(request)})
 
 
 def shipOrder(request, PO):

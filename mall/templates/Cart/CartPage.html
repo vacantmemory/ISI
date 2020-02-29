@@ -15,7 +15,7 @@
 <div class="main">
     <div class="container">
         <div class="cart-page col-sm-12">
-            <h1>Products in Cart</h1>
+            <h1 class="page-title">Products in Cart</h1>
             <div class="cart-list">
                 <div class="cart-data clearfix">
                     <div>
@@ -42,7 +42,10 @@
                                     <td class="cart-quantity">
                                         <form action="{% url 'update_quantity_link' p.0.pid.pid %}" method="get">
                                             <button class="q_reduce" type="button"><i class="fa fa-minus"></i></button>
-                                            <input type="text" class="quantity" name="quan" value="{{ p.1 }}"/>
+                                            <input type="text" class="quantity" name="quan"
+                                                   onchange="quantityEmptyCheck(this)"
+                                                   onkeyup="value=value.replace(/[^\d]/g,'')"
+                                                   value="{{ p.1 }}"/>
                                             <button class="q_increase" type="button"><i class="fa fa-plus"></i></button>
                                             <button class="update_button update-disable" type="submit">
                                                 Update
@@ -51,7 +54,8 @@
                                     </td>
                                     <td class="cart-subtotal"><span class="subtotal"></span></td>
                                     <td class="cart-remove">
-                                        <a href="{% url 'remove_link' pid=p.0.pid.pid %}"><i class="fa fa-times-circle fa-lg"></i></a>
+                                        <a href="{% url 'remove_link' pid=p.0.pid.pid %}"><i
+                                                class="fa fa-times-circle fa-lg"></i></a>
                                     </td>
                                 </tr>
                             {% endfor %}
@@ -125,9 +129,20 @@
         ableUpdate($(event.target).parent().parent().children('.update_button'));
     });
 
-    function ableUpdate(t){
+    $('.quantity').on('input propertychange', function (event) {
+        ableUpdate($(event.target).parent().children('.update_button'));
+    });
+
+    function ableUpdate(t) {
         t.removeClass('update-disable');
         t.addClass('update-able');
+    }
+
+    function quantityEmptyCheck(input) {
+        if(input.value == '' || input.value == 0){
+            input.value = 1;
+        }
+        totalCalculator();
     }
 
 

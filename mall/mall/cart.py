@@ -29,8 +29,8 @@ def cartListing(request):
     recordList = shopcartRecord.objects.filter(aid=uID)
     productList = []
     for r in recordList:
-        productList.append([shopcartRecord.objects.get(pid=r.pid), r.quantity])
-    return render(request, 'Cart/CartPage.html', {'pList': productList})
+        productList.append([shopcartRecord.objects.get(pid=r.pid, aid=r.aid), r.quantity])
+    return render(request, 'Cart/CartPage.html', {'pList': productList, 'identity': identityCheck(request)})
 
 
 def updateQuantity(request, pid):

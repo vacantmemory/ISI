@@ -4,45 +4,140 @@
 <head>
     <meta charset="UTF-8">
     <title>Order Detail</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'orderdetail_style.css' %}">
 </head>
-<body>
-<h1>Purchase Order Detail</h1>
-<p>Order number: {{ order.po }}</p>
-<p>Purchase date: {{ order.pDate }}</p>
-<p>Customer name: {{ order.aid.aname }}</p>
-{#<p>Shipping address: </p>#}
-<p>Total order amount: {{ order.totalAmount }}</p>
-{% if order.status == 'p' %}
-    <p>Order status: pending</p>
-    {% if request.session.isVendor == 1 %}
-        <a href="{% url 'ship_order_link' order.po %}"><button>Shipped</button></a>
-    {% endif %}
-{% elif order.status == 'h' %}
-    <p>Order status: hold</p>
-{% elif order.status == 'c' %}
-    <p>Order status: cancelled</p>
-    {% if order.cancelledPerson == 'c' %}
-        <p>Cancelled by: customer</p>
-    {% else %}
-        <p>Cancelled by: vendor</p>
-    {% endif %}
-    <p>Cancel date: {{ order.specDate }}</p>
-{% elif order.status == 's' %}
-    <p>Order status: shipped</p>
-    <p>Shipment date: {{ order.specDate }}</p>
-{% endif %}
-<br/>
-<h2>Products in the order</h2>
-{% for p in pList %}
-    <div>
-        <p>Product name: {{ p.rName }}</p>
-        <p>Destination address: {{ p.rAddress }}</p>
-        <p>Quantity: <span class="quantity">{{ p.rQuentity }}</span></p>
-        <p>Unit price: <span class="price">{{ p.rPrice }}</span></p>
-        <p>Subtotal: <span class="subtotal"></span></p>
+{% include 'Navbar.html' %}
+<body id="body-style">
+<div class="main">
+    <div class="container">
+        <div class="order-detail-page col-sm-12">
+            <h1 class="page-title">Purchase Order Detail</h1>
+            <div class="order-basic-info">
+                <div class="order-basic-data clearfix">
+                    <div>
+                        <table class="order-basic-table">
+                            <tbody>
+                            <tr>
+                                <td class="order-num order-basic-left order-basic-firstrow"><span
+                                        class="order-basic-attr">Order number: </span></td>
+                                <td class="order-basic-value order-basic-firstrow">{{ order.po }}</td>
+                                <td class="order-basic-firstrow"></td>
+                                <td class="order-basic-firstrow"></td>
+                            </tr>
+                            <tr>
+                                <td class="order-customer-name order-basic-left"><span class="order-basic-attr">Customer name: </span>
+                                </td>
+                                <td class="order-basic-value">{{ order.aid.aname }}</td>
+                                <td class="order-address"><span class="order-basic-attr">Destination address: </span>
+                                </td>
+                                <td class="order-basic-value">{{ pList.0.rAddress }}</td>
+                            </tr>
+                            <tr>
+                                <td class="order-total order-basic-left"><span class="order-basic-attr">Total order amount: </span>
+                                </td>
+                                <td class="order-basic-value">{{ order.totalAmount }}</td>
+                                <td class="order-purchase-date"><span class="order-basic-attr">Purchase date: </span>
+                                </td>
+                                <td class="order-basic-value">{{ order.pDate }}</td>
+                            </tr>
+                            <tr>
+                                <td class="order-status order-basic-left">
+                                    <span class="order-basic-attr">Order status: </span></td>
+                                <td class="order-basic-value">
+                                    {% if order.status == 'p' %}
+                                        Pending
+                                    {% elif order.status == 'h' %}
+                                        Hold
+                                    {% elif order.status == 'c' %}
+                                        {% if order.cancelledPerson == 'c' %}
+                                            Cancelled by customer
+                                        {% else %}
+                                            Cancelled by vendor
+                                        {% endif %}
+                                    {% elif order.status == 's' %}
+                                        Shipped
+                                    {% endif %}
+                                </td>
+                                {% if order.status == 'p' %}
+                                    {% if request.session.isVendor == 1 %}
+                                        <td>
+                                            <a href="{% url 'ship_order_link' order.po %}">
+                                                <button class="order-shipped-btn btn btn-primary">Ship this order
+                                                </button>
+                                            </a>
+                                        </td>
+                                        <td></td>
+                                    {% else %}
+                                        <td></td>
+                                        <td></td>
+                                    {% endif %}
+                                {% elif order.status == 'c' %}
+                                    <td class="order-spec-date"><span class="order-basic-attr">Cancel date: </span></td>
+                                    <td class="order-basic-value">{{ order.specDate }}</td>
+                                {% elif order.status == 's' %}
+                                    <td class="order-spec-date">
+                                        <span class="order-basic-attr">Shipment date: </span></td>
+                                    <td class="order-basic-value">{{ order.specDate }}</td>
+                                {% else %}
+                                    <td></td>
+                                    <td></td>
+                                {% endif %}
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="order-products-page col-sm-12">
+                        <h2 class="page-subtitle">Products in the Order</h2>
+                        <div class="order-product-list">
+                            <div class="order-product-data clearfix">
+                                <div>
+                                    <table class="order-product-table">
+                                        <tbody>
+                                        <tr>
+                                            <th class="order-product-name">Product Name</th>
+                                            <th class="order-product-quantity">Quantity</th>
+                                            <th class="order-product-uprice">Unit Price</th>
+                                            <th class="order-product-subtotal">Subtotal</th>
+                                        </tr>
+                                        {% for p in pList %}
+                                            <tr>
+                                                <td class="order-product-name">{{ p.rName }}</td>
+                                                <td class="order-product-quantity"><span
+                                                        class="quantity">{{ p.rQuentity }}</span></td>
+                                                <td class="order-product-uprice"><span
+                                                        class="price">{{ p.rPrice }}</span></td>
+                                                <td class="order-product-subtotal"><span class="subtotal"></span></td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
-    <br/>
-{% endfor %}
+</div>
+
+
+{#<br/>#}
+{#<h2>Products in the order</h2>#}
+{#{% for p in pList %}#}
+{#    <div>#}
+{#        <p>Product name: {{ p.rName }}</p>#}
+{#        <p>Destination address: {{ p.rAddress }}</p>#}
+{#        <p>Quantity: <span class="quantity">{{ p.rQuentity }}</span></p>#}
+{#        <p>Unit price: <span class="price">{{ p.rPrice }}</span></p>#}
+{#        <p>Subtotal: <span class="subtotal"></span></p>#}
+{#    </div>#}
+{#    <br/>#}
+{#{% endfor %}#}
 
 </body>
 <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
@@ -51,8 +146,8 @@
     priceSet = $('.price');
     subtotalSet = $('.subtotal');
     num = 0;
-    for(subtotal of subtotalSet){
-        subtotal.innerText = parseFloat(priceSet[num].innerText)*parseFloat(quantitySet[num].innerText);
+    for (subtotal of subtotalSet) {
+        subtotal.innerText = parseFloat(priceSet[num].innerText) * parseFloat(quantitySet[num].innerText);
         num = num + 1;
     }
 </script>

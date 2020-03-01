@@ -2,7 +2,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from ISI.models import *
 
-# User id will be saved in session as 'UserID'
+# User information will be saved in session as 'UserID', 'UserName', 'isVendor'
 
 def login(request):
     request.session.set_expiry(0)
@@ -33,23 +33,19 @@ def loginCheck(request):
         return HttpResponse(message)
     request.session['UserID'] = uID
     request.session['isVendor'] = user.venderFlag
+    request.session['UserName'] = user.aname
     # return render(request, 'HomePage.html')
     return HttpResponseRedirect('/home/')
 
 
 def home(request):
     # identity = 0
-    if identityCheck(request) == 0:
-        uName = 'guest'
-    else:
-        uName = account.objects.get(aid=request.session['UserID']).aname
     # if identityCheck(request) == 1:
     #     identity = 1
     # if identityCheck(request) == 2:
     #     identity = 2
 
-    return render(request, 'HomePage.html', {"identity": identityCheck(request),
-                                             'userName': uName})
+    return render(request, 'HomePage.html', {"identity": identityCheck(request)})
 
 
 def register(request):
@@ -58,19 +54,22 @@ def register(request):
 
 def registerSystem(request):
 
-    if request.POST['UserID'] != '' and request.POST['UserPswd'] != '':
+    if request.POST['UserID'] != '' and request.POST['UserPswd'] != '' and request.POST['UserName']:
         uID = request.POST['UserID']
         uPswd = request.POST['UserPswd']
+        uName = request.POST['UserName']
     else:
-        message = 'Error: You need to fill both ID and password!'
+        message = 'Error: You need to fill in all the information!'
         return HttpResponse(message)
 
     try:
         account.objects.get(aid=uID)
     except account.DoesNotExist:
-        account.objects.create(aid=uID, password=uPswd, venderFlag=0)
+        account.objects.create(aid=uID, password=uPswd, aname=uName, venderFlag=0)
         request.session['UserID'] = uID
-        return render(request, 'SignIn/SignUpSuccessful.html')
+        request.session['isVendor'] = 0
+        request.session['UserName'] = uName
+        return render(request, 'MessagePage.html', {'message': 'Sign Up Successful!', 'link': 'home'})
     else:
         message = 'Error: User exist!'
         return HttpResponse(message)

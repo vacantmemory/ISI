@@ -10,7 +10,7 @@ orderCount = 0
 
 def addToCart(request, pid):
     if identityCheck(request) == 0:
-        return render(request, 'LoginNeededPage.html')
+        return render(request, 'MessagePage.html', {'message': 'You need to login!', 'link': 'login'})
     if identityCheck(request) == 2:
         return HttpResponse('You are vendor!')
 
@@ -21,7 +21,7 @@ def addToCart(request, pid):
 
 def cartListing(request):
     if identityCheck(request) == 0:
-        return render(request, 'LoginNeededPage.html')
+        return render(request, 'MessagePage.html', {'message': 'You need to login!', 'link': 'login'})
     if identityCheck(request) == 2:
         return HttpResponse('You are vendor!')
 
@@ -29,13 +29,13 @@ def cartListing(request):
     recordList = shopcartRecord.objects.filter(aid=uID)
     productList = []
     for r in recordList:
-        productList.append([shopcartRecord.objects.get(pid=r.pid), r.quantity])
-    return render(request, 'Cart/CartPage.html', {'pList': productList})
+        productList.append([shopcartRecord.objects.get(pid=r.pid, aid=r.aid), r.quantity])
+    return render(request, 'Cart/CartPage.html', {'pList': productList, 'identity': identityCheck(request)})
 
 
 def updateQuantity(request, pid):
     if identityCheck(request) == 0:
-        return render(request, 'LoginNeededPage.html')
+        return render(request, 'MessagePage.html', {'message': 'You need to login!', 'link': 'login'})
     if identityCheck(request) == 2:
         return HttpResponse('You are vendor!')
 
@@ -47,7 +47,7 @@ def updateQuantity(request, pid):
 
 def removeItem(request, pid):
     if identityCheck(request) == 0:
-        return render(request, 'LoginNeededPage.html')
+        return render(request, 'MessagePage.html', {'message': 'You need to login!', 'link': 'login'})
     if identityCheck(request) == 2:
         return HttpResponse('You are vendor!')
 
@@ -58,7 +58,7 @@ def removeItem(request, pid):
 def checkOut(request):
     # identity check
     if identityCheck(request) == 0:
-        return render(request, 'LoginNeededPage.html')
+        return render(request, 'MessagePage.html', {'message': 'You need to login!', 'link': 'login'})
     if identityCheck(request) == 2:
         return HttpResponse('You are vendor!')
 

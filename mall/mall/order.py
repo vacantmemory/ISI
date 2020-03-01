@@ -8,18 +8,20 @@ from mall.account import identityCheck
 
 def orderListing(request):
     if identityCheck(request) == 0:
-        return render(request, 'LoginNeededPage.html')
+        return render(request, 'MessagePage.html', {'message': 'You need to login!', 'link': 'login'})
     if identityCheck(request) == 2:
         return orderListForVendor(request)
 
     uID = request.session['UserID']
     allOrderSet = purchOrder.objects.filter(aid=uID).order_by('-pDate')
-    return render(request, 'Orders/PurchaseTracking.html', {'orderSet': allOrderSet})
+    return render(request, 'Orders/PurchaseTracking.html', {'orderSet': allOrderSet,
+                                                            'identity': identityCheck(request)})
 
 
 def orderListForVendor(request):
     orderSet = purchOrder.objects.all().order_by('-pDate')
-    return render(request, 'Orders/PurchaseOrderPageForVendor.html', {'orderSet': orderSet})
+    return render(request, 'Orders/PurchaseOrderPageForVendor.html', {'orderSet': orderSet,
+                                                                      'identity': identityCheck(request)})
 
 
 def searchOrder(request):
@@ -30,14 +32,15 @@ def searchOrder(request):
 
 def orderDetail(request, PO):
     if identityCheck(request) == 0:
-        return HttpResponse('You need to login!')
+        return render(request, 'MessagePage.html', {'message': 'You need to login!', 'link': 'login'})
     try:
         order = purchOrder.objects.get(po=PO)
     except purchOrder.DoesNotExist:
         message = 'Error: Order does not exist!'
         return HttpResponse(message)
     productList = dorder.objects.filter(po=order)
-    return render(request, 'Orders/OrderDetail.html', {'order': order, 'pList': productList})
+    return render(request, 'Orders/OrderDetail.html', {'order': order, 'pList': productList,
+                                                       'identity': identityCheck(request)})
 
 
 def shipOrder(request, PO):

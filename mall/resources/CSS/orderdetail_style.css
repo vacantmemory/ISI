@@ -1,0 +1,59 @@
+
+.page-title {
+    margin-bottom: 30px;
+}
+
+.order-basic-data {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    margin-right: 10px;
+}
+
+.order-basic-table {
+    width: 100%;
+}
+
+.order-basic-table td {
+    height: 60px;
+    width: 25%;
+    vertical-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-bottom: solid 1px #ecebeb;
+}
+
+.order-basic-firstrow {
+    border-top: solid 1px #ecebeb;
+}
+
+.order-basic-table .order-basic-attr {
+    font: 16px "PT Sans Narrow", sans-serif;
+    text-transform: uppercase;
+}
+
+.page-subtitle {
+    margin-top:50px;
+    margin-bottom: 30px;
+}
+
+.order-product-table {
+    width: 80%;
+}
+
+.order-product-table td, .order-product-table th {
+    padding-left: 20px;
+    width: 25%;
+    height: 50px;
+    border-bottom: solid 1px #ecebeb;
+    border-right: solid 1px #ecebeb;
+}
+
+.order-product-table .order-product-name {
+    border-left: solid 1px #ecebeb;
+}
+
+.order-product-table th {
+    border-top: solid 1px #ecebeb;
+}

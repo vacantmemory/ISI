@@ -4,46 +4,88 @@
 <head>
     <meta charset="UTF-8">
     <title>Purchase Order Tracking</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'orderlist_style.css' %}">
 </head>
-<body>
-<h1>Purchase Orders</h1>
-<label><input checked="true" class="filter" name="filter" type="radio" value="all">All purchases</label>
-<label><input class="filter" name="filter" type="radio" value="ph">Current purchases</label>
-<label><input class="filter" name="filter" type="radio" value="sc">Past purchases</label>
-{#should be table format#}
-{% for order in orderSet %}
-    <div class="{{ order.status }} orders">
-        <p><a href="{% url 'order_detail_link' order.po %}">Order number: {{ order.po }}</a></p>
-        <p>Purchase date: {{ order.pDate }}</p>
-        <p>Total order amount: {{ order.totalAmount }}</p>
-        {% if order.status == 'p' %}
-            <p>Order status: pending</p>
-        {% elif order.status == 'h' %}
-            <p>Order status: hold</p>
-        {% elif order.status == 'c' %}
-            <p>Order status: cancelled</p>
-        {% elif order.status == 's' %}
-            <p>Order status: shipped</p>
-        {% endif %}
+<body id="body-style">
+{% include 'Navbar.html' %}
+<div class="main">
+    <div class="container">
+        <div class="order-page col-sm-12">
+            <h1 class="page-title">Purchase Orders</h1>
+            <div class="order-list">
+                <div class="order-filter">
+                    <button class="filter-btn btn filter-all filter-chosen" type="button" value="all">All Purchases</button><button class="filter-btn btn filter-ph" type="button" value="ph">Current Purchases</button><button class="filter-btn btn filter-sc" type="button" value="sc">Past Purchases</button>
+                </div>
+                <div class="div-line1"></div>
+                <div class="order-data clearfix">
+                    <div>
+                        <table class="order-table">
+                            <tbody>
+                            <tr>
+                                <th class="order-num">Order Number</th>
+                                <th class="order-date">Purchase Date</th>
+                                <th class="order-amount">Total Order Amount</th>
+                                <th class="order-status">Order Status</th>
+                                <th class="order-entry"></th>
+                            </tr>
+                            {% for order in orderSet %}
+                                <div>
+                                    <tr class="{{ order.status }} orders">
+                                        <td class="order-num">
+                                            <a href="{% url 'order_detail_link' order.po %}">{{ order.po }}</a>
+                                        </td>
+                                        <td class="order-date">{{ order.pDate }}</td>
+                                        <td class="order-amount">{{ order.totalAmount }}</td>
+                                        {% if order.status == 'p' %}
+                                            <td class="order-status">Pending</td>
+                                        {% elif order.status == 'h' %}
+                                            <td class="order-status">Hold</td>
+                                        {% elif order.status == 'c' %}
+                                            <td class="order-status">Cancelled</td>
+                                        {% elif order.status == 's' %}
+                                            <td class="order-status">Shipped</td>
+                                        {% endif %}
+                                        <td class="order-entry">
+                                            <a href="{% url 'order_detail_link' order.po %}">Detail >></a>
+                                        </td>
+                                    </tr>
+                                </div>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <br/>
-{% endfor %}
+</div>
+
 </body>
 <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
 <script>
-    $('.filter').on('click', statusFilter);
 
-    function statusFilter(event){
-        if(event.target.value === 'all'){
-            $('.orders').css('display', '')
+    $('.filter-btn').on('click', statusFilter);
+
+    function statusFilter(event) {
+        if (event.target.value === 'all') {
+            $('.orders').css('display', '');
+            $('.filter-all').addClass('filter-chosen');
+            $('.filter-ph, .filter-sc').removeClass('filter-chosen')
         }
-        if(event.target.value === 'ph'){
+        if (event.target.value === 'ph') {
             $('.s, .c').css('display', 'none');
-            $('.p, .h').css('display', '')
+            $('.p, .h').css('display', '');
+            $('.filter-ph').addClass('filter-chosen');
+            $('.filter-all, .filter-sc').removeClass('filter-chosen')
         }
-        if(event.target.value === 'sc'){
+        if (event.target.value === 'sc') {
             $('.s, .c').css('display', '');
-            $('.p, .h').css('display', 'none')
+            $('.p, .h').css('display', 'none');
+            $('.filter-sc').addClass('filter-chosen');
+            $('.filter-ph, .filter-all').removeClass('filter-chosen')
         }
     }
 </script>

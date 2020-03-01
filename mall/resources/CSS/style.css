@@ -1,26 +1,67 @@
 #body-style {
+    background-color: #eeeeee;
     line-height: 24px;
     letter-spacing: 0.5px;
+    font: 16px "PT Sans Narrow", sans-serif
+}
+
+.page-title, .page-subtitle {
+    font: 40px "PT Sans Narrow", sans-serif;
+    color: #444444;
 }
 
 /* header style */
 .header-top {
-    background: #f2f2f2;
-    font-size: 13px;
+    background-color: #f8f8f8;
+    font-size: 14px;
 }
 
-.header-text {
+.header-top-left {
+    float: left;
     margin: 8px 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #3c763d;
+    text-decoration: none;
 }
-.header-top li {
-    padding: 0 20px;
+
+.header-top-left a:link {
+    color: #3c763d;
+}
+
+.header-top-left a:hover{
+    color: #3c763d;
+}
+
+.header-top-left a:visited{
+    color: #3c763d;
+}
+
+.header-top-right {
+    float: right;
+    margin: 13px 0;
+}
+
+.header-top-right li {
+    padding: 0 10px;
     border-left: 1px solid #bbb;
     line-height: 11px;
     display: inline;
-    cursor: pointer;
+    text-decoration : none;
+}
+
+.header-top-right a:link {
+    color: #808080;
+}
+
+.header-top-right a:visited {
+    color: #808080;
+}
+
+.header-top-right a:hover {
+    color: #333333;
 }
 
 .header-top-right > li:first-child {
     border-left: none;
 }
-

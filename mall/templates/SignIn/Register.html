@@ -1,15 +1,52 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'login_style.css' %}">
 </head>
-<body>
-<form name="UserForm" action="/user_sign_up/" method="post">
-    {% csrf_token %}
-    <h3>User ID: <input type="text" name="UserID"></h3>
-    <h3>Password: <input type="password" name="UserPswd"></h3>
-    <input type="submit" value="Sign up">
-</form>
+<body id="body-style">
+{#<form name="UserForm" action="/user_sign_up/" method="post">#}
+{#    {% csrf_token %}#}
+{#    <h3>User ID: <input type="text" name="UserID"></h3>#}
+{#    <h3>Name: <input type="text" name="UserName"></h3>#}
+{#    <h3>Password: <input type="password" name="UserPswd"></h3>#}
+{#    <input type="submit" value="Sign up">#}
+{#</form>#}
+<div class="main">
+
+        <div class="login-page">
+            <div class="login-head">
+                <h1>Sign Up</h1>
+            </div>
+            <div class="div-line1"></div>
+            <div class="container">
+                <form name="UserForm" action="/user_sign_up/" method="post">
+                    {% csrf_token %}
+                    <div class="input-group margin-bottom-sm">
+                        <span class="input-group-addon text-before-input">Your ID</span>
+                        <input class="form-control register-form" type="text" placeholder="User ID" name="UserID">
+                    </div>
+                    <div class="input-group  input-name">
+                        <span class="input-group-addon text-before-input">Your Name</span>
+                        <input class="form-control register-form" type="text" placeholder="Your Name" name="UserName">
+                    </div>
+                    <div class="input-group  input-pswd">
+                        <span class="text-before-input input-group-addon">Password</span>
+                        <input class="form-control register-form" type="password" placeholder="Password" name="UserPswd">
+                    </div>
+                    <div class="div-line2"></div>
+                    <div class="button-line">
+                    <input class="login-btn btn btn-success" type="submit" value="Sign up">
+                    </div>
+                </form>
+            <a class="store-link" href="{% url 'login_link' %}">Already have a account? Login here.</a>
+            </div>
+        </div>
+</div>
 </body>
 </html>

@@ -1,23 +1,31 @@
-<!--
-<p>{{ userName }}</p>
-{% if identity == 0 %}
-<a href="{% url 'login_link' %}">Login</a>
-{% else %}
-<a href="{% url 'sign_out_link' %}">Sign out</a>
-{% endif %}
-<p><a href="{% url 'product_link' %}" class="product">Products</a></p>
-<p><a href="{% url 'orders_link' %}" class="order">Orders</a></p>
-<p><a href="{% url 'cart_link' %}" class = "cart">Cart</a></p>
--->
-
 <header id="header">
     <div class="header-top">
         <div class="container">
-          <ul class="header-text text-right">
-            <li class="account"><a href="#">My Account</a></li>
-            <li class="sitemap"><a href="#">Sitemap</a></li>
-            <li class="cart"><a href="#">My Cart</a></li>
-          </ul>
+            <div class="col-sm-6">
+                <p class="header-top-left">
+                    <a href="{% url 'product_link' %}">Macao Mall</a>
+                </p>
+            </div>
+            <div class="col-sm-6">
+                <ul class="header-top-right text-right">
+                    {% if identity == 0 %}
+                    <li><a href="{% url 'login_link' %}">Login</a></li>
+                    <li><a href="{% url 'product_link' %}" class="product">Products</a></li>
+                    {% elif identity == 1 %}
+                    <li>Hello, {{ request.session.UserName }}</li>
+                    <li><a href="{% url 'product_link' %}" class="product">Products</a></li>
+                    <li><a href="{% url 'orders_link' %}" class="order">Orders</a></li>
+                    <li><a href="{% url 'cart_link' %}" class = "cart">Cart</a></li>
+                    <li><a href="{% url 'sign_out_link' %}">Sign out</a></li>
+                    {% else %}
+                    <li>Hello, {{ request.session.UserName }}</li>
+                    <li><a href="{% url 'product_link' %}" class="product">Products</a></li>
+                    <li><a href="{% url 'orders_link' %}" class="order">Orders</a></li>
+                    <li><a href="{% url 'sign_out_link' %}">Sign out</a></li>
+                    {% endif %}
+                </ul>
+            </div>
         </div>
     </div>
+
 </header>

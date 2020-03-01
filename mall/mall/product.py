@@ -5,17 +5,22 @@ from mall.account import identityCheck
 
 
 def product_list(request):
-    sort = request.POST.get("Sort")
+    ascending = request.POST.get("Ascending")
+    descending = request.POST.get("Descending")
     brand = request.POST.get("brand")
     data = request.POST.get("find")
     p_list = product.objects.all()
     msg = ''
+    ss = ''
     # sort
-    if sort:
-        p_list = sort_product(p_list)
+    if ascending:
+        p_list = ascending_product(p_list)
+    if descending:
+        p_list = descending_product(p_list)
     # search_c
     if brand:
         p_list = search_c(brand)
+        ss = 'a'
         if not p_list:
             msg = "Not Found"
     # search_v
@@ -23,7 +28,7 @@ def product_list(request):
         p_list = search_vendor(data)
         if not p_list:
             msg = "Not Found"
-    return render(request, 'product/product.html', {'p_list': p_list, 'identity': identityCheck(request), 'message': msg})
+    return render(request, 'product/product.html', {'p_list': p_list, 'identity': identityCheck(request), 'message': msg, 'ss':ss})
 
 
 def search_c(brand):
@@ -40,8 +45,13 @@ def search_vendor(data):
         return searchPname
 
 
-def sort_product(p_list):
+def ascending_product(p_list):
     p_list = p_list.order_by("price")
+    return p_list
+
+
+def descending_product(p_list):
+    p_list = p_list.order_by("-price")
     return p_list
 
 
@@ -65,19 +75,6 @@ def inCartCheck(request, po):
         return 0
 
 
-
-
-
-def sort_price(fprice, lprice, allprice):
-    id_list = []
-    for i in allprice:
-        if i[1] > fprice and i[1] <= lprice:
-            id_list.append(i[0])
-        else:
-            continue
-    return id_list
-
-
 def store_row(id_list):
     sort_list = []
     for id in id_list:
@@ -85,6 +82,10 @@ def store_row(id_list):
         sort_list.append(po)
     return sort_list
 
+
+def practice(request):
+    p_list = product.objects.filter(pid=1)
+    return render(request, "product/practice.html", {"p_list": p_list})
 
 
 

@@ -10,81 +10,155 @@
             height:auto;
              float:left;
             display:inline;
+             text-align: center;
+             font-size: 18px;
          }
+         .product {
+            position: relative;
+            overflow: hidden;
+            background: #F0EFEF;
+             padding-top: 20px;
+            border-radius: 0.4rem;
+             margin-right: 20px;
+        }
+        p {
+            margin: 8px;
+            margin-bottom: 0;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        h2 + div {
+            overflow: auto;
+        }
+        h2 {
+            margin-bottom: 0;
+        }
         #pagging {
-            position: absolute;
-            top: 380px;
+            padding:10px;
+            padding-left: 35px;
         }
         #search_c {
-            position: absolute;
-            top: 400px;
+            padding-left: 35px;
         }
-        #search_v {
-            position: absolute;
-            top: 410px;
+        #search_c select {
+            width: auto;
+            height: 28px;
+            font-size: 15px;
         }
-        #sort {
-            position: absolute;
-            top: 420px;
-            left: 20px;
+        #search_c button {
+            width: auto;
+            height: 28px;
+            font-size: 14px;
+        }
+        .sort {
+            padding-left: 35px;
+            padding-top: 15px;
+        }
+        .sort button {
+            width: 93px;
+            height: 28px;
+            font-size: 14px;
+            text-align: center;
+        }
+        .return {
+            padding-left: 35px;
+            padding-top: 15px;
+        }
+        .return button {
+            width: 93px;
+            height: 28px;
+            font-size: 14px;
+            text-align: center;
         }
     </style>
 </head>
+<body>
+<h2>Product</h2>
+<div>
+    <ul id="table">
+        {% for p in p_list %}
+            <li class="product">
+                <a href="{% url 'detail_link' pid=p.pid %}">
+                    <div class="card-item">
+                        <img id="image" src="{% static '' %}{{ p.thumbnail_image }}.png" alt>
+                    </div>
+                    <p>{{ p.pname }}</p>
+                    <p>{{ p.brand }}</p>
+                    <p>{{ p.price }}$</p>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
 
-<ul id="table">
-    {% for p in p_list %}
-        <li class="product">
-            <a href="{% url 'detail_link' pid=p.pid %}"><img id="image" src="{% static '' %}{{ p.thumbnail_image }}.jpg"></a>
-            <p>product name: {{ p.pname }}</p>
-            <p>product brand: {{ p.brand }}</p>
-            <p>product price: {{ p.price }}</p>
-        </li>
-    {% endfor %}
-</ul>
-
-<div id="pagging"></div>
-{{ message }}
+<div>
+    <div id="pagging"></div>
+    {{ message }}
 
 
-<form action="/product/search_vendor/" method="post" id="search_v">
-    {% csrf_token %}
-    <div>
-         <input name="find" id="search" value="bible">
-        <button>Search</button>
+    <form action="/product/search_vendor/" method="post" id="search_v">
+        {% csrf_token %}
+        <div>
+            <input name="find" id="search" value="bible">
+            <button>Search</button>
+        </div>
+    </form>
+
+    <form action="/product/search/" method="post">
+        {% csrf_token %}
+        <div id="search_c">
+            <select name="brand">
+                <option value="Education">Education</option>
+                <option value="Fiction">Fiction</option>
+                <option value="Reference">Reference</option>
+                <option value="Biography">Biography</option>
+            </select>
+                <button>Submit</button>
+        </div>
+    </form>
+    <div id="showReturn" style="display: none">{{ ss }}</div>
+    <div class="return">
+        <a href="/product/"><button id="show">Return</button></a>
     </div>
-</form>
 
-<form action="/product/search/" method="post" id="search_c">
-    {% csrf_token %}
-    <select name="brand">
-        <option value="Education">Education</option>
-        <option value="Fiction">Fiction</option>
-        <option value="Reference">Reference</option>
-    </select>
-    <button>Submit</button>
-</form>
+    <div>
+        <form action="/product/ascending/" method="post">
+            {% csrf_token %}
+            <div class="sort">
+                <button name="Ascending" value="aa">Ascending</button>
+            </div>
+        </form>
 
-<form action="/product/order/" method="post">
-    {% csrf_token %}
-    <button id="sort" name="Sort" value="aa">Sort</button>
-</form>
+        <form action="/product/descending/" method="post">
+            {% csrf_token %}
+            <div class="sort">
+                <button name="Descending" value="aa">Descending</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 
 
 </body>
 <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
 <script>
-    pagging(1, 2);
+    pagging(1, 4);
+    show();
     function pagging(pno, psize){
 
         var itable = $("li");
         var num = itable.length;
+        var size = psize;
         //count how many pages
-        var totalPage = countPage(num, psize);
+        var totalPage = countPage(num, size);
 
         //start & end row
         var currentPage = pno;
-        var startRow = (currentPage - 1) * psize + 1;
-        var endRow = currentPage + psize;
+        var startRow = (currentPage - 1) * size + 1;
+        var endRow = currentPage + size;
         endRow = (num > endRow) ?endRow :num;
 
         //display & display
@@ -92,7 +166,6 @@
             var irow = itable.eq([i - 1]);
             if(i >= startRow && i < endRow || i === startRow && i === endRow){
                 irow.show();
-
             } else {
                 irow.hide();
             }
@@ -100,22 +173,24 @@
 
         var tempStr = "";
         if (currentPage > 1) {
-            tempStr += "<a href=\"#\" onClick=\"pagging(" + (currentPage - 1) + "," + psize + ")\">Previous&nbsp;</a>"
+            tempStr += "<a href=\"#\" onClick=\"pagging(" + (currentPage - 1) + "," + psize + ")\">" +
+                "<img src=\"{% static '' %}previous.png\" alt>" + "&nbsp;</a>";
             for (j = 1; j <= totalPage; j++) {
-                tempStr += "<a href=\"#\" onClick=\"pagging(" + j + "," + psize + ")\">" + j + "&nbsp;</a>"
+                tempStr += "<a href=\"#\" onClick=\"pagging(" + j + "," + psize + ")\">" + "<img src=\"{% static '' %}"+ j +".png\" alt>" + "&nbsp;</a>"
             }
         } else {
-            tempStr += "Previous&nbsp;";
+            tempStr += "<img src=\"{% static '' %}previous.png\" alt>&nbsp;";
             for (j = 1; j <= totalPage; j++) {
-                tempStr += "<a href=\"#\" onClick=\"pagging(" + j + "," + psize + ")\">" + j + "&nbsp;</a>"
+                tempStr += "<a href=\"#\" onClick=\"pagging(" + j + "," + psize + ")\">" + "<img src=\"{% static '' %}"+ j +".png\" alt>" + "&nbsp;</a>"
             }
         }
         if (currentPage < totalPage) {
-            tempStr += "<a href=\"#\" onClick=\"pagging(" + (currentPage + 1) + "," + psize + ")\">Next</a>";
+            tempStr += "<a href=\"#\" onClick=\"pagging(" + (currentPage + 1) + "," + psize + ")\">" +
+                "<img src=\"{% static '' %}next.png\" alt>" + "</a>";
             for (j = 1; j <= totalPage; j++) {
             }
         } else {
-            tempStr += "Next";
+            tempStr += "<img src=\"{% static '' %}next.png\" alt>";
             for (j = 1; j <= totalPage; j++) {
             }
         }
@@ -146,6 +221,15 @@
         }
         if(a === 2){
             $('#search_v').show();
+        }
+    }
+
+    function show() {
+        var data = $('#showReturn').html();
+        if (data){
+            $('#show').show();
+        } else{
+            $('#show').hide();
         }
     }
 </script>

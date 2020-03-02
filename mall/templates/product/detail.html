@@ -5,34 +5,56 @@
     <meta charset="UTF-8">
     <title>Product Detail</title>
 </head>
-<body>
-{% for s in row %}
-    <div>
-    <img src="{% static ''%}{{ s.thumbnail_image }}.jpg">
-    <h3>product name: {{ s.pname }}</h3>
-    <h3>product brand: {{ s.brand }}</h3>
-    <h3>product price: {{ s.price }}</h3>
-    </div>
-{% endfor %}
-<div id="identify">
-    {% if isInCart == 0 %}
-        <a href="{% url 'add_to_cart_link' pid=row.0.pid %}"><button>Add to Cart</button></a>
-    {% elif isInCart == 1 %}
-        <p>Already in Cart</p>
-    {% elif isInCart == 2 %}
-        <a href="{% url 'login_link' %}"><button>Add to Cart</button></a>
-    {% elif isInCart == 3 %}
-        <p></p>
-    {% endif %}
+    <style>
+        .product {
+             width:250px;
+            height:auto;
+             float:left;
+            display:inline;
+             text-align: center;
+             font-size: 16px;
+         }
 
-</div>
-{% for d in detail %}
-    <div>
-        <h3>product author: {{ d.author }}</h3>
-        <h3>product numPage: {{ d.numPage }}</h3>
-        <h3>product publisher: {{ d.publisher }}</h3>
+        .product {
+            position: relative;
+            overflow: hidden;
+            background: #F0EFEF;
+             padding-top: 20px;
+            border-radius: 0.4rem;
+             margin-right: 20px;
+        }
+    </style>
+<body>
+<div class="product">
+    {% for s in row %}
+        <div>
+            <img src="{% static ''%}{{ s.thumbnail_image }}.png">
+            <h3>product name: {{ s.pname }}</h3>
+            <h3>product brand: {{ s.brand }}</h3>
+            <h3>product price: {{ s.price }}</h3>
+        </div>
+    {% endfor %}
+
+    <div id="identify">
+        {% if isInCart == 0 %}
+            <a href="{% url 'add_to_cart_link' pid=row.0.pid %}"><button>Add to Cart</button></a>
+        {% elif isInCart == 1 %}
+            <p>Already in Cart</p>
+        {% elif isInCart == 2 %}
+            <a href="{% url 'login_link' %}"><button>Add to Cart</button></a>
+        {% elif isInCart == 3 %}
+            <p></p>
+        {% endif %}
     </div>
-{% endfor %}
+    {% for d in detail %}
+        <div>
+            <h3>product author: {{ d.author }}</h3>
+            <h3>product numPage: {{ d.numPage }}</h3>
+            <h3>product publisher: {{ d.publisher }}</h3>
+        </div>
+    {% endfor %}
+</div>
+
 </body>
 <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
 <script>

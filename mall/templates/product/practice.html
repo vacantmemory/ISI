@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .card-item--light {
+            position: relative;
+            padding: 1.25rem;
+            overflow: hidden;
+            background: #f8f8f8;
+            border-radius: 0.4rem;
+        }
+        p {
+            margin: 8px;
+            margin-bottom: 0;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        .btn {
+            background-color: #ffffff;
+            border-color: #f7b926;
+            color: #f7b926;
+        }
+
+        .btn{
+            border: 1px solid;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+<ul id="table">
+    {% for p in p_list %}
+        <div class="card-item--light">
+            <li>
+                <a href="{% url 'detail_link' pid=p.pid %}">
+                    <div class="card-item__bg">
+                        <img id="image" src="{% static '' %}{{ p.thumbnail_image }}.png">
+                    </div>
+                    <p>product name: {{ p.pname }}</p><p>product brand: {{ p.brand }}</p>
+                    <p>product price: {{ p.price }}</p>
+                    <div>
+                        <a href="#" class="btn">Add to cart</a>
+                    </div>
+                </a>
+            </li>
+        </div>
+
+    {% endfor %}
+</ul>
+
+</body>
+</html>

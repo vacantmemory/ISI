@@ -38,7 +38,8 @@ urlpatterns = [
 
     # product
     url(r'^product/$', product_list, name='product_link'),
-    url(r'^product/order/$', product_list),
+    url(r'^product/ascending/$', product_list),
+    url(r'^product/descending/$', product_list),
     url(r'^product/search/$', product_list),
     url(r'^product/search_vendor/$', product_list),
     url(r'productDetail/(?P<pid>[0-9]+)/$', product_detail, name="detail_link"),
@@ -60,5 +61,8 @@ urlpatterns = [
 
     # test url
     url(r'^test/$', test),
+
+    # practice
+    url(r'^practice/$', practice)
 
 ]

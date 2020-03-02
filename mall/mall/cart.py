@@ -12,7 +12,7 @@ def addToCart(request, pid):
     if identityCheck(request) == 0:
         return render(request, 'MessagePage.html', {'message': 'You need to login!', 'link': 'login'})
     if identityCheck(request) == 2:
-        return HttpResponse('You are vendor!')
+        return render(request, 'MessagePage.html', {'message': 'You are vendor', 'link': 'previous'})
 
     shopcartRecord.objects.create(pid=product.objects.get(pid=pid),
                                   aid=account.objects.get(aid=request.session['UserID']), quantity=1)
@@ -23,7 +23,7 @@ def cartListing(request):
     if identityCheck(request) == 0:
         return render(request, 'MessagePage.html', {'message': 'You need to login!', 'link': 'login'})
     if identityCheck(request) == 2:
-        return HttpResponse('You are vendor!')
+        return render(request, 'MessagePage.html', {'message': 'You are vendor', 'link': 'previous'})
 
     uID = request.session['UserID']
     recordList = shopcartRecord.objects.filter(aid=uID)
@@ -37,7 +37,7 @@ def updateQuantity(request, pid):
     if identityCheck(request) == 0:
         return render(request, 'MessagePage.html', {'message': 'You need to login!', 'link': 'login'})
     if identityCheck(request) == 2:
-        return HttpResponse('You are vendor!')
+        return render(request, 'MessagePage.html', {'message': 'You are vendor', 'link': 'previous'})
 
     record = shopcartRecord.objects.get(aid=request.session['UserID'], pid=pid)
     record.quantity = request.GET['quan']
@@ -49,7 +49,7 @@ def removeItem(request, pid):
     if identityCheck(request) == 0:
         return render(request, 'MessagePage.html', {'message': 'You need to login!', 'link': 'login'})
     if identityCheck(request) == 2:
-        return HttpResponse('You are vendor!')
+        return render(request, 'MessagePage.html', {'message': 'You are vendor', 'link': 'previous'})
 
     shopcartRecord.objects.get(aid=request.session['UserID'], pid=pid).delete()
     return HttpResponseRedirect('/cart/')
@@ -60,13 +60,13 @@ def checkOut(request):
     if identityCheck(request) == 0:
         return render(request, 'MessagePage.html', {'message': 'You need to login!', 'link': 'login'})
     if identityCheck(request) == 2:
-        return HttpResponse('You are vendor!')
+        return render(request, 'MessagePage.html', {'message': 'You are vendor', 'link': 'previous'})
 
     # cart check
     uID = request.session['UserID']
     productList = shopcartRecord.objects.filter(aid=uID)
     if not productList:
-        return HttpResponse('Your cart is empty')
+        return render(request, 'MessagePage.html', {'message': 'Your cart is empty!', 'link': 'previous'})
 
     # database po number check
     global orderCount

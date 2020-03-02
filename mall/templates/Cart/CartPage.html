@@ -29,6 +29,7 @@
                                 <th class="cart-subtotal">Subtotal</th>
                                 <th class="cart-remove"></th>
                             </tr>
+                            {% if pList %}
                             {% for p in pList %}
                                 <tr>
                                     <td class="cart-img">
@@ -55,10 +56,17 @@
                                     <td class="cart-subtotal"><span class="subtotal"></span></td>
                                     <td class="cart-remove">
                                         <a href="{% url 'remove_link' pid=p.0.pid.pid %}"><i
-                                                class="fa fa-times-circle fa-lg"></i></a>
+                                                class="fa fa-remove fa-lg"></i></a>
                                     </td>
                                 </tr>
                             {% endfor %}
+                            {% else %}
+                            <tr>
+                                <td colspan="6" class="cart-empty-message">
+                                    Your cart is empty!
+                                </td>
+                            </tr>
+                            {% endif %}
                             </tbody>
                         </table>
                     </div>

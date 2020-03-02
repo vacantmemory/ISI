@@ -12,15 +12,23 @@
 <div class="main">
     <div class="login-page">
         <h1 class="message">{{ message }}</h1>
-        <p class="manual-link"><a href="">You will jump to {{ link }} page in 3 sec</a></p>
+        <p class="manual-link">You will jump to {{ link }} page in 3 sec.</p>
     </div>
 </div>
 </body>
 <script>
     {% if link == 'home' %}
-        setTimeout(function(){window.location.href="{% url 'home_link' %}"}, 3000);
+        setTimeout(function () {
+            window.location.href = "{% url 'home_link' %}"
+        }, 3000);
     {% elif link == 'login' %}
-        setTimeout(function(){window.location.href="{% url 'login_link' %}"}, 3000);
+        setTimeout(function () {
+            window.location.href = "{% url 'login_link' %}"
+        }, 3000);
+    {% elif link == 'previous' %}
+        setTimeout(function () {
+            window.history.back(-1)
+        }, 3000);
     {% endif %}
 </script>
 </html>

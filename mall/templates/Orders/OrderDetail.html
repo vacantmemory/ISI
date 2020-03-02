@@ -24,16 +24,9 @@
                                 <td class="order-num order-basic-left order-basic-firstrow"><span
                                         class="order-basic-attr">Order number: </span></td>
                                 <td class="order-basic-value order-basic-firstrow">{{ order.po }}</td>
-                                <td class="order-basic-firstrow"></td>
-                                <td class="order-basic-firstrow"></td>
-                            </tr>
-                            <tr>
-                                <td class="order-customer-name order-basic-left"><span class="order-basic-attr">Customer name: </span>
+                                <td class="order-customer-name order-basic-firstrow"><span class="order-basic-attr">Customer name: </span>
                                 </td>
-                                <td class="order-basic-value">{{ order.aid.aname }}</td>
-                                <td class="order-address"><span class="order-basic-attr">Destination address: </span>
-                                </td>
-                                <td class="order-basic-value">{{ pList.0.rAddress }}</td>
+                                <td class="order-basic-value order-basic-firstrow">{{ order.aid.aname }}</td>
                             </tr>
                             <tr>
                                 <td class="order-total order-basic-left"><span class="order-basic-attr">Total order amount: </span>
@@ -86,11 +79,16 @@
                                     <td></td>
                                 {% endif %}
                             </tr>
+                            <tr>
+                                <td class="order-address order-basic-left"><span class="order-basic-attr">Destination address: </span>
+                                </td>
+                                <td colspan="3" class="order-basic-value">{{ pList.0.rAddress }}</td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="order-products-page col-sm-12">
-                        <h2 class="page-subtitle">Products in the Order</h2>
+                        <h2 class="page-subtitle">Products in the Order:</h2>
                         <div class="order-product-list">
                             <div class="order-product-data clearfix">
                                 <div>

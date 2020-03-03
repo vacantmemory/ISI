@@ -105,6 +105,11 @@
     color: red;
 }
 
+.cart-empty-message {
+    text-align: center;
+    font-size: 24px;
+}
+
 .cart {
     color: #3c763d !important;
     text-decoration: underline;

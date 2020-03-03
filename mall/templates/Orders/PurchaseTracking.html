@@ -40,13 +40,13 @@
                                         <td class="order-date">{{ order.pDate }}</td>
                                         <td class="order-amount">{{ order.totalAmount }}</td>
                                         {% if order.status == 'p' %}
-                                            <td class="order-status">Pending</td>
+                                            <td class="order-status"><i class="fa fa-clock-o fa-fw"></i> Pending</td>
                                         {% elif order.status == 'h' %}
-                                            <td class="order-status">Hold</td>
+                                            <td class="order-status"><i class="fa fa-hourglass-half fa-fw"></i> Hold</td>
                                         {% elif order.status == 'c' %}
-                                            <td class="order-status">Cancelled</td>
+                                            <td class="order-status"><i class="fa fa-ban fa-fw"></i> Cancelled</td>
                                         {% elif order.status == 's' %}
-                                            <td class="order-status">Shipped</td>
+                                            <td class="order-status"><i class="fa fa-truck fa-fw"></i> Shipped</td>
                                         {% endif %}
                                         <td class="order-entry">
                                             <a href="{% url 'order_detail_link' order.po %}">Detail >></a>

@@ -2,7 +2,17 @@
     background-color: #eeeeee;
     line-height: 24px;
     letter-spacing: 0.5px;
+<<<<<<< HEAD
     font: 16px "Arial", sans-serif;
+=======
+    /*font: 16px "PT Sans Narrow", sans-serif;*/
+    font: 16px "Arial", sans-serif;
+}
+
+.btn {
+    font-size: 16px;
+    width: auto;
+>>>>>>> 54dd2e4de915696981841af9f7247d8674ead21c
 }
 
 .page-title, .page-subtitle {
@@ -13,7 +23,7 @@
 /* header style */
 .header-top {
     background-color: #f8f8f8;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .header-top-left {
@@ -21,20 +31,24 @@
     margin: 8px 0;
     font-size: 24px;
     font-weight: bold;
-    color: #3c763d;
+    color: #1F9A77;
     text-decoration: none;
 }
 
+.nav-left-img {
+    height: 30px;
+}
+
 .header-top-left a:link {
-    color: #3c763d;
+    color: #1F9A77;
 }
 
 .header-top-left a:hover{
-    color: #3c763d;
+    color: #1F9A77;
 }
 
 .header-top-left a:visited{
-    color: #3c763d;
+    color: #1F9A77;
 }
 
 .header-top-right {

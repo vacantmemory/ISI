@@ -26,7 +26,7 @@ def orderListForVendor(request):
 
 def searchOrder(request):
     if identityCheck(request) != 2:
-        return HttpResponse('You are not vendor!')
+        return render(request, 'MessagePage.html', {'message': 'You are not vendor!', 'link': 'previous'})
     return orderDetail(request, request.GET['po'])
 
 
@@ -36,8 +36,7 @@ def orderDetail(request, PO):
     try:
         order = purchOrder.objects.get(po=PO)
     except purchOrder.DoesNotExist:
-        message = 'Error: Order does not exist!'
-        return HttpResponse(message)
+        return render(request, 'MessagePage.html', {'message': 'Order does not exist!', 'link': 'previous'})
     productList = dorder.objects.filter(po=order)
     return render(request, 'Orders/OrderDetail.html', {'order': order, 'pList': productList,
                                                        'identity': identityCheck(request)})
@@ -45,7 +44,7 @@ def orderDetail(request, PO):
 
 def shipOrder(request, PO):
     if identityCheck(request) != 2:
-        return HttpResponse('You are not vendor!')
+        return render(request, 'MessagePage.html', {'message': 'You are not vendor!', 'link': 'previous'})
     order = purchOrder.objects.get(po=PO)
     order.status = 's'
     order.specDate = datetime.datetime.now()

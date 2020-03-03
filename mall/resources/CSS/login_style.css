@@ -1,6 +1,6 @@
 .main {
     margin: 7% auto 0;
-    width: 25%;
+    width: 400px;
     background-color: #ffffff;
 }
 
@@ -12,7 +12,7 @@
 .login-page {
     text-align: center;
     border-style: solid;
-    border-color: #3c763d;
+    border-color: #1F9A77;
     border-width: 1px;
     border-radius: 3px;
     background-color: #ffffff;
@@ -20,9 +20,13 @@
 
 .login-head {
     text-align: center;
-    color: #3c763d;
+    color: #1F9A77;
     margin: 0 auto;
     padding: 20px;
+}
+
+.logo-img {
+    margin: 20px 0;
 }
 
 .div-line1 {
@@ -63,12 +67,12 @@
 
 .register-btn {
     float: left;
-    width: 100px;
+    width: 45%;
 }
 
 .login-btn {
     float: right;
-    width: 100px;
+    width: 45%;
 }
 
 .store-link {
@@ -76,7 +80,7 @@
     margin-top: 10px;
     margin-bottom: 30px;
     float: right;
-    font-size: 12px;
+    font-size: 14px;
     text-decoration: underline;
 }
 
@@ -95,7 +99,7 @@
 
 .message {
     text-align: center;
-    color: #3c763d;
+    color: #1F9A77;
     margin: 30px auto;
     padding: 20px;
 }

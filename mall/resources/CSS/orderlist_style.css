@@ -27,13 +27,13 @@
 
 .search-icon {
     background-color: #eeeeee;
-    color: #3c763d;
+    color: #1F9A77;
 }
 
 .search-btn {
-    color: #3c763d;
-    border-bottom-left-radius: 0px;
-    border-top-left-radius: 0px;
+    color: #1F9A77;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
 }
 
 .order-search span {
@@ -41,19 +41,19 @@
 }
 
 .filter-btn {
-    width: 150px;
-    height: 30px;
+    width: 160px;
+    height: 32px;
     color: #5e5e5e;
     background-color: #ffffff;
     margin: 20px 0;
     border-style: solid;
     border-width: 1px;
-    border-color: #3c763d;
+    border-color: #1F9A77;
     border-radius: 0;
 }
 
 .order-filter-vendor .filter-btn {
-    width: 125px
+    width: 135px;
 }
 
 .filter-all {
@@ -68,7 +68,7 @@
 
 .filter-chosen {
     color: #ffffff;
-    background-color: #3c763d;
+    background-color: #1F9A77;
 }
 
 .order-data {
@@ -96,7 +96,19 @@
     border-bottom: solid 1px #ecebeb;
 }
 
+.p .order-status, .h .order-status {
+    color: #2e6da4;
+}
+
+.c .order-status {
+    color: #888888;
+}
+
+.s .order-status {
+    color: #4cae4c;
+}
+
 .order {
-    color: #3c763d !important;
+    color: #1F9A77 !important;
     text-decoration: underline;
 }

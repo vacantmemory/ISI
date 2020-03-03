@@ -34,7 +34,7 @@
                                 <tr>
                                     <td class="cart-img">
                                         <a href="{% url 'detail_link' pid=p.0.pid.pid %}"><img id="image" src="
-                                                {% static '' %}{{ p.0.pid.thumbnail_image }}.jpg"></a>
+                                                {% static '' %}{{ p.0.pid.thumbnail_image }}.png"></a>
                                     </td>
                                     <td class="cart-name">
                                         <a href="{% url 'detail_link' pid=p.0.pid.pid %}"><p>{{ p.0.pid.pname }}</p></a>
@@ -85,6 +85,7 @@
         </div>
     </div>
 </div>
+{% include 'Footer.html' %}
 </body>
 <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
 <script>

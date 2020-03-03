@@ -1,6 +1,6 @@
 
 .page-title {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 .order-basic-data {
@@ -9,6 +9,7 @@
     margin-bottom: 20px;
     overflow-x: auto;
     margin-right: 10px;
+    border-radius: 25px;
 }
 
 .order-basic-table {
@@ -37,25 +38,49 @@
     font: 30px "PT Sans Narrow", sans-serif;
     text-transform: uppercase;
     margin-top: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 .order-product-table {
     width: 80%;
+    margin-bottom: 30px;
 }
 
-.order-product-table td, .order-product-table th {
+.order-product-table td {
     padding-left: 20px;
     width: 25%;
     height: 50px;
-    border-bottom: solid 1px #ecebeb;
-    border-right: solid 1px #ecebeb;
+    background-color: #eeeeee;
+    border-bottom: solid 1px #bbbbbb;
 }
 
-.order-product-table .order-product-name {
-    border-left: solid 1px #ecebeb;
+.order-product-table tr:last-child td {
+    border-bottom: none;
 }
 
 .order-product-table th {
-    border-top: solid 1px #ecebeb;
+    padding-left: 20px;
+    width: 25%;
+    height: 50px;
+    color: #ffffff;
+    background-color: #1F9A77;
 }
+
+.order-product-table th.order-product-name {
+    border-top-left-radius: 20px;
+}
+
+.order-product-table th.order-product-subtotal {
+    border-top-right-radius: 20px;
+}
+
+.order-product-table tr:last-child .order-product-name {
+    border-bottom-left-radius: 20px;
+}
+
+.order-product-table tr:last-child .order-product-subtotal {
+     border-bottom-right-radius: 20px;
+}
+
+
+

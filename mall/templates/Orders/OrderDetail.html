@@ -41,17 +41,17 @@
                                     <span class="order-basic-attr">Order status: </span></td>
                                 <td class="order-basic-value">
                                     {% if order.status == 'p' %}
-                                        Pending
+                                        Pending <i class="fa fa-clock-o fa-fw"></i>
                                     {% elif order.status == 'h' %}
-                                        Hold
+                                        Hold <i class="fa fa-hourglass-half fa-fw"></i>
                                     {% elif order.status == 'c' %}
                                         {% if order.cancelledPerson == 'c' %}
-                                            Cancelled by customer
+                                            Cancelled by customer <i class="fa fa-ban fa-fw"></i>
                                         {% else %}
-                                            Cancelled by vendor
+                                            Cancelled by vendor <i class="fa fa-ban fa-fw"></i>
                                         {% endif %}
                                     {% elif order.status == 's' %}
-                                        Shipped
+                                        Shipped <i class="fa fa-truck fa-fw"></i>
                                     {% endif %}
                                 </td>
                                 {% if order.status == 'p' %}
@@ -122,21 +122,7 @@
         </div>
     </div>
 </div>
-
-
-{#<br/>#}
-{#<h2>Products in the order</h2>#}
-{#{% for p in pList %}#}
-{#    <div>#}
-{#        <p>Product name: {{ p.rName }}</p>#}
-{#        <p>Destination address: {{ p.rAddress }}</p>#}
-{#        <p>Quantity: <span class="quantity">{{ p.rQuentity }}</span></p>#}
-{#        <p>Unit price: <span class="price">{{ p.rPrice }}</span></p>#}
-{#        <p>Subtotal: <span class="subtotal"></span></p>#}
-{#    </div>#}
-{#    <br/>#}
-{#{% endfor %}#}
-
+{% include 'Footer.html' %}
 </body>
 <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
 <script>

@@ -1,9 +1,6 @@
-/*.main {*/
-/*    background-color: #eeeeee;*/
 
-/*}*/
 .page-title {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 .cart-data {
@@ -12,6 +9,7 @@
     margin-bottom: 20px;
     overflow-x: auto;
     margin-right: 10px;
+    border-radius: 25px;
 }
 
 .cart-table {

@@ -1,0 +1,75 @@
+{% load static %}
+<footer id="footer">
+    <div class="end-line-field">
+        <div class="end-line"><span class="end-line-text">End</span></div>
+    </div>
+    <div class="footer-page">
+        <div class="container">
+            <div class="footer-content clearfix">
+                <div>
+                    <ul class="end-nav">
+
+                        {% if identity == 0 %}
+                            <li>——&nbsp;&nbsp;&nbsp;</li>
+                            <li class="end-nav-link"><a class="end-nav-link-a" href="{% url 'login_link' %}">Login</a></li>
+                            <li>&nbsp;&nbsp;——&nbsp;</li>
+                            <li class="end-nav-link"><a class="end-nav-link-a" href="{% url 'product_link' %}">Products</a></li>
+                            <li>&nbsp;——</li>
+                        {% elif identity == 1 %}
+                            <li>——&nbsp;</li>
+                            <li class="end-nav-link"><a class="end-nav-link-a" href="{% url 'product_link' %}">Products</a></li>
+                            <li>&nbsp;——&nbsp;&nbsp;</li>
+                            <li class="end-nav-link"><a class="end-nav-link-a" href="{% url 'orders_link' %}">Orders</a></li>
+                            <li>&nbsp;&nbsp;——&nbsp;&nbsp;&nbsp;</li>
+                            <li class="end-nav-link"><a class="end-nav-link-a" href="{% url 'cart_link' %}">Cart</a></li>
+                            <li>&nbsp;&nbsp;——</li>
+                        {% else %}
+                            <li>——&nbsp;</li>
+                            <li class="end-nav-link"><a class="end-nav-link-a" href="{% url 'product_link' %}">Products</a></li>
+                            <li>&nbsp;——&nbsp;&nbsp;</li>
+                            <li class="end-nav-link"><a class="end-nav-link-a" href="{% url 'orders_link' %}">Orders</a></li>
+                            <li>&nbsp;&nbsp;——</li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="end-div-line"></div>
+                <div class="end-icons">
+                    <i class="fa fa-twitter fa-2x"></i>
+                    <i class="fa fa-weibo  fa-2x"></i>
+                    <i class="fa fa-facebook-square  fa-2x"></i>
+                    <i class="fa fa-mail-forward  fa-2x"></i>
+                </div>
+                <div class="end-info">
+                    <div class="end-left">
+                        <a href="{% url 'product_link' %}">
+                        <img src="{% static 'MacaoMall_logo.png' %}">
+                        </a>
+                    </div>
+                    <div class="end-right">
+                        <div class="end-address">
+                            <p>
+                                <strong>
+                                    Address:
+                                </strong>
+                            </p>
+                            <p>
+                                R. de Luís Gonzaga Gomes,
+                            </p>
+                            <p>
+                                Macao
+                            </p>
+                        </div>
+                    </div>
+                    <div class="end-right-btn">
+                        <a href="http://www.ipm.edu.mo/">
+                        <button class="end-btn btn">
+                            Contact Us
+                        </button>
+                        </a>
+                    </div>
+                </div>
+                <div class="end-div-line"></div>
+            </div>
+        </div>
+    </div>
+</footer>

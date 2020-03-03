@@ -16,10 +16,11 @@ def greeting(request):
 
     p1 = product.objects.create(pid='1', pname='Bible', brand='Education', price=120, thumbnail_image='bible')
     p2 = product.objects.create(pid='2', pname='Harry Potter', brand='Fiction', price=75, thumbnail_image='fiction')
-    product.objects.create(pid='3', pname='Dictionary', brand='Reference', price=240, thumbnail_image='dictionary')
+    product.objects.create(pid='3', pname='Oxford', brand='Reference', price=240, thumbnail_image='oxford')
     product.objects.create(pid='4', pname='Steve Jobs', brand='Biography', price=170, thumbnail_image='Steve')
     product.objects.create(pid='5', pname='Albert Einstein', brand='Biography', price=150, thumbnail_image='Einstein')
-
+    product.objects.create(pid="6", pname="Cambridge", brand='Reference', price=279, thumbnail_image='cambridge')
+    product.objects.create(pid="7", pname="WinterStory", brand='Story', price=90, thumbnail_image='winterStory')
     properties.objects.create(pid=p1, author='Derek', numPage=2000, publisher='xxxxx')
 
     a123 = account.objects.create(aid='account1', aname='Bowie', eaddress='P123366@ipm.edu.mo', password='44455666',

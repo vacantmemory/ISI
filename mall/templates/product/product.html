@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <title>Product</title>
     <style>
-         .product {
+        h2 {
+            margin-bottom: 20px;
+        }
+        .book {
              width:250px;
             height:auto;
              float:left;
@@ -13,133 +16,165 @@
              text-align: center;
              font-size: 18px;
          }
-         .product {
+        .book {
             position: relative;
             overflow: hidden;
-            background: #F0EFEF;
+            background: white;
              padding-top: 20px;
             border-radius: 0.4rem;
              margin-right: 20px;
+             margin-top: 20px;
         }
-        p {
-            margin: 8px;
-            margin-bottom: 0;
+        #image {
+            margin-bottom: 10px;
         }
         a {
             text-decoration: none;
             color: black;
         }
-        h2 + div {
-            overflow: auto;
-        }
         h2 {
-            margin-bottom: 0;
+            margin-left: 35px;
         }
         #pagging {
-            padding:10px;
-            padding-left: 35px;
+            padding-top: 20px;
+            text-align: center;
+        }
+        .search {
+            display: inline;
+            float: left;
         }
         #search_c {
             padding-left: 35px;
         }
         #search_c select {
             width: auto;
-            height: 28px;
-            font-size: 15px;
+            height: 34px;
+            font-size: 14px;
         }
         #search_c button {
+            background: #1F9A77;
+            color: white;
+            text-align: center;
+        }
+        #search_v {
+            padding-left: 35px;
+            padding-top: 62px;
+        }
+        #search_v input {
             width: auto;
-            height: 28px;
+            height: 34px;
+            font-size: 15px;
+        }
+        #search_v button {
+            text-align: center;
+            background: #1F9A77;
+            color: white;
+         }
+        .sort1, .sort2 {
+            display: inline;
+            float: right;
+            padding-top: 62px;
+        }
+        .sort1 {
+            margin-right: 40px;
+        }
+        .sort1 button, .sort2 button {
+            text-align: center;
+            background: #1F9A77;
+            color: white;
+            padding: 6px 12px 6px 12px;
             font-size: 14px;
+            width: auto;
+            height: 34px;
+            border-style: solid;
+            border-color: black;
         }
-        .sort {
+        #return {
             padding-left: 35px;
-            padding-top: 15px;
+            padding-top: 20px;
         }
-        .sort button {
+        #return button {
             width: 93px;
             height: 28px;
             font-size: 14px;
             text-align: center;
+
         }
-        .return {
-            padding-left: 35px;
-            padding-top: 15px;
+        .clear {
+            clear: both;
         }
-        .return button {
-            width: 93px;
-            height: 28px;
-            font-size: 14px;
-            text-align: center;
-        }
+
     </style>
+     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
 </head>
-<body>
-<h2>Product</h2>
-<div>
-    <ul id="table">
-        {% for p in p_list %}
-            <li class="product">
-                <a href="{% url 'detail_link' pid=p.pid %}">
-                    <div class="card-item">
-                        <img id="image" src="{% static '' %}{{ p.thumbnail_image }}.png" alt>
-                    </div>
-                    <p>{{ p.pname }}</p>
-                    <p>{{ p.brand }}</p>
-                    <p>{{ p.price }}$</p>
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
-</div>
+<body id="body-style">
+{% include 'Navbar.html' %}
+<div class="main">
+    <div class="container">
+        <div class="search">
+            <h2>Book</h2>
+            <form action="/product/search/" method="post">
+                {% csrf_token %}
+                <div id="search_c">
+                    <select name="brand">
+                        <option value="Education">Education</option>
+                        <option value="Fiction">Fiction</option>
+                        <option value="Reference">Reference</option>
+                        <option value="Biography">Biography</option>
+                        <option value="Story">Story</option>
+                    </select>
+                    <button class="btn" type="submit">Submit</button>
+                </div>
+            </form>
+            <div id="showReturn" style="display: none">{{ ss }}</div>
+        </div>
+        <div class="search">
+            <form action="/product/search_vendor/" method="post" id="search_v">
+                {% csrf_token %}
+                    <input name="find" id="search" value="">
+                    <button class="btn" type="submit">Search</button>
+            </form>
+        </div>
 
-<div>
-    <div id="pagging"></div>
-    {{ message }}
-
-
-    <form action="/product/search_vendor/" method="post" id="search_v">
-        {% csrf_token %}
         <div>
-            <input name="find" id="search" value="bible">
-            <button>Search</button>
-        </div>
-    </form>
-
-    <form action="/product/search/" method="post">
-        {% csrf_token %}
-        <div id="search_c">
-            <select name="brand">
-                <option value="Education">Education</option>
-                <option value="Fiction">Fiction</option>
-                <option value="Reference">Reference</option>
-                <option value="Biography">Biography</option>
-            </select>
-                <button>Submit</button>
-        </div>
-    </form>
-    <div id="showReturn" style="display: none">{{ ss }}</div>
-    <div class="return">
-        <a href="/product/"><button id="show">Return</button></a>
-    </div>
-
-    <div>
-        <form action="/product/ascending/" method="post">
-            {% csrf_token %}
-            <div class="sort">
+            <form action="/product/ascending/" method="post" class="sort1">
+                {% csrf_token %}
                 <button name="Ascending" value="aa">Ascending</button>
-            </div>
-        </form>
-
-        <form action="/product/descending/" method="post">
-            {% csrf_token %}
-            <div class="sort">
+            </form>
+            <form action="/product/descending/" method="post" class="sort2">
+                {% csrf_token %}
                 <button name="Descending" value="aa">Descending</button>
-            </div>
-        </form>
+            </form>
+        </div>
+
+        <div class="clear">
+            <ul id="table">
+                {% for p in p_list %}
+                    <li class="book">
+                        <a href="{% url 'detail_link' pid=p.pid %}">
+                            <div class="card-item">
+                                <img id="image" src="{% static '' %}{{ p.thumbnail_image }}.png" alt>
+                            </div>
+                            <p>{{ p.pname }}</p>
+                            <p>{{ p.brand }}</p>
+                            <p>{{ p.price }}$</p>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="clear">
+            <div id="pagging"></div>
+            {{ message }}
+        </div>
+        <div id="return">
+                <a href="/product/"><button id="show">Return</button></a>
+        </div>
     </div>
 </div>
-
 
 
 </body>
@@ -149,7 +184,7 @@
     show();
     function pagging(pno, psize){
 
-        var itable = $("li");
+        var itable = $(".book");
         var num = itable.length;
         var size = psize;
         //count how many pages
@@ -158,13 +193,13 @@
         //start & end row
         var currentPage = pno;
         var startRow = (currentPage - 1) * size + 1;
-        var endRow = currentPage + size;
-        endRow = (num > endRow) ?endRow :num;
+        var endRow = currentPage * size + 1;
+        endRow = ((num+1)> endRow) ?endRow :num+1;
 
         //display & display
         for(var i=1; i < (num+1); i++){
             var irow = itable.eq([i - 1]);
-            if(i >= startRow && i < endRow || i === startRow && i === endRow){
+            if((i >= startRow && i < endRow) || (i === startRow && i === endRow)){
                 irow.show();
             } else {
                 irow.hide();

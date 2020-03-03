@@ -2,11 +2,11 @@
     background-color: #eeeeee;
     line-height: 24px;
     letter-spacing: 0.5px;
-    font: 16px "PT Sans Narrow", sans-serif
+    font: 16px "Arial", sans-serif;
 }
 
 .page-title, .page-subtitle {
-    font: 40px "PT Sans Narrow", sans-serif;
+    font: 40px "Arial", sans-serif;
     color: #444444;
 }
 

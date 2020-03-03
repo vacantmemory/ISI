@@ -58,6 +58,11 @@ def descending_product(p_list):
 def product_detail(request, pid):
     row = product.objects.filter(pid=pid)
     detail = properties.objects.filter(pid=pid)
+    row = row[0]
+    if detail:
+        detail = detail[0]
+    else:
+        detail = []
     # add a 'isInCart' parameter to check if the product in user's cart.
     return render(request, "product/detail.html", {'row': row, 'detail': detail, 'identity': identityCheck(request), 'isInCart': inCartCheck(request, pid)})
 

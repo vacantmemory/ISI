@@ -33,10 +33,6 @@
             border-bottom: solid 1px #ecebeb;
             text-align: left;
         }
-        #identify button {
-            margin: 20px 100px 0px 0px;
-            float: right;
-        }
         .show_detail {
             display: inline;
             float: left;
@@ -45,6 +41,32 @@
             padding-right: 300px;
             width: 120%;
             height: 120%;
+        }
+        #identify #cart {
+            padding-right: 10px;
+            display: inline;
+            float: left;
+        }
+        #identify .btn {
+            background: #1F9A77;
+            color: white;
+            margin: 20px 0 0 20px;
+            font-size: 18px;
+            width: 160px;
+        }
+        #identify .btn p {
+            padding-top: 8px;
+            margin-bottom: 0;
+        }
+        #identify #inCart {
+            background: white;
+            color: #1F9A77;
+            margin-left: 10px;
+            border-style: solid;
+            border-width: 2px;
+            border-color: green;
+            width: 160px;
+            height: 50px;
         }
     </style>
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
@@ -85,11 +107,11 @@
             </div>
             <div id="identify">
                 {% if isInCart == 0 %}
-                    <a href="{% url 'add_to_cart_link' pid=row.pid %}"><button class="fa fa-shopping-cart fa-3x" aria-hidden="true"></button></a>
+                    <a href="{% url 'add_to_cart_link' pid=row.pid %}"><button type="button" class="btn"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true" id="cart"></i><p>Add to Cart</p></button></a>
                 {% elif isInCart == 1 %}
-                    <p>Already in Cart</p>
+                    <p><button type="button" class="btn" id="inCart">Already in Cart</button></p>
                 {% elif isInCart == 2 %}
-                    <a href="{% url 'login_link' %}"><button class="fa fa-shopping-cart" aria-hidden="true"></button></a>
+                    <p></p>
                 {% elif isInCart == 3 %}
                     <p></p>
                 {% endif %}

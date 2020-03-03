@@ -61,8 +61,4 @@ urlpatterns = [
 
     # test url
     url(r'^test/$', test),
-
-    # practice
-    url(r'^practice/$', practice)
-
 ]

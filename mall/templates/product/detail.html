@@ -4,57 +4,99 @@
 <head>
     <meta charset="UTF-8">
     <title>Product Detail</title>
-</head>
     <style>
-        .product {
-             width:250px;
+        .book {
             height:auto;
              float:left;
             display:inline;
              text-align: center;
-             font-size: 16px;
+            font-size: 20px;
          }
 
-        .product {
+        .book {
             position: relative;
             overflow: hidden;
-            background: #F0EFEF;
-             padding-top: 20px;
+            background: white;
+            padding: 20px;
             border-radius: 0.4rem;
-             margin-right: 20px;
+            margin-top: 100px;
+            margin-left: 240px;
+        }
+        .book_table td {
+            padding: 20px 100px 20px 0;
+            border-bottom: solid 1px #ecebeb;
+            text-align: right;
+            font-weight: bold;
+        }
+        .book_variable td {
+            padding: 20px 100px 20px 0;
+            border-bottom: solid 1px #ecebeb;
+            text-align: left;
+        }
+        #identify button {
+            margin: 20px 100px 0px 0px;
+            float: right;
+        }
+        .show_detail {
+            display: inline;
+            float: left;
+        }
+        .show_detail img {
+            padding-right: 300px;
+            width: 120%;
+            height: 120%;
         }
     </style>
-<body>
-<div class="product">
-    {% for s in row %}
-        <div>
-            <img src="{% static ''%}{{ s.thumbnail_image }}.png">
-            <h3>product name: {{ s.pname }}</h3>
-            <h3>product brand: {{ s.brand }}</h3>
-            <h3>product price: {{ s.price }}</h3>
-        </div>
-    {% endfor %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+</head>
 
-    <div id="identify">
-        {% if isInCart == 0 %}
-            <a href="{% url 'add_to_cart_link' pid=row.0.pid %}"><button>Add to Cart</button></a>
-        {% elif isInCart == 1 %}
-            <p>Already in Cart</p>
-        {% elif isInCart == 2 %}
-            <a href="{% url 'login_link' %}"><button>Add to Cart</button></a>
-        {% elif isInCart == 3 %}
-            <p></p>
-        {% endif %}
-    </div>
-    {% for d in detail %}
-        <div>
-            <h3>product author: {{ d.author }}</h3>
-            <h3>product numPage: {{ d.numPage }}</h3>
-            <h3>product publisher: {{ d.publisher }}</h3>
+<body id="body-style">
+{% include 'Navbar.html' %}
+<div class="main">
+        <div class="book">
+            <div class="show_detail">
+                <img src="{% static ''%}{{ row.thumbnail_image }}.png">
+            </div>
+            <div class="show_detail">
+                <table class="book_table">
+                    <tr><td>Name:</td></tr>
+                    <tr><td>Brand:</td></tr>
+                    <tr><td>Price:</td></tr>
+                    {% if detail %}
+                        <tr><td>Author:</td></tr>
+                        <tr><td>NumPage:</td></tr>
+                        <tr><td>Publisher:</td></tr>
+                    {% endif %}
+                </table>
+            </div>
+            <div class="show_detail">
+                <table class="book_variable">
+                    <tr><td>{{ row.pname }}</td></tr>
+                    <tr><td>{{ row.brand }}</td></tr>
+                    <tr><td>{{ row.price }}</td></tr>
+                    {% if detail %}
+                        <tr><td>{{ detail.author }}</td></tr>
+                        <tr><td>{{ detail.numPage }}</td></tr>
+                        <tr><td>{{ detail.publisher }}</td></tr>
+                    {% endif %}
+                </table>
+            </div>
+            <div id="identify">
+                {% if isInCart == 0 %}
+                    <a href="{% url 'add_to_cart_link' pid=row.pid %}"><button class="fa fa-shopping-cart fa-3x" aria-hidden="true"></button></a>
+                {% elif isInCart == 1 %}
+                    <p>Already in Cart</p>
+                {% elif isInCart == 2 %}
+                    <a href="{% url 'login_link' %}"><button class="fa fa-shopping-cart" aria-hidden="true"></button></a>
+                {% elif isInCart == 3 %}
+                    <p></p>
+                {% endif %}
+            </div>
         </div>
-    {% endfor %}
 </div>
-
+{% include 'Footer.html' %}
 </body>
 <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
 <script>

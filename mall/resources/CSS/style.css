@@ -1,14 +1,23 @@
+html, body {
+    height: 75%;
+}
+
 #body-style {
     background-color: #eeeeee;
     line-height: 24px;
     letter-spacing: 0.5px;
-    /*font: 16px "PT Sans Narrow", sans-serif;*/
     font: 16px "Arial", sans-serif;
+}
+
+.main {
+    min-height: 100%;
+
 }
 
 .btn {
     font-size: 16px;
     width: auto;
+
 }
 
 .page-title, .page-subtitle {
@@ -78,6 +87,8 @@
 
 /* footer style */
 #footer {
+    height: 25%;
+    clear: both;
     text-align: center;
 }
 

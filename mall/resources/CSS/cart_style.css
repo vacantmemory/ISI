@@ -56,8 +56,13 @@
 }
 
 .cart-checkout {
+    background-color: #1F9A77;
     float: right;
     margin-right: 10px;
+}
+
+.cart-checkout:hover {
+    background-color: #1f7b58;
 }
 
 .q_reduce, .q_increase, .quantity, .update_button {

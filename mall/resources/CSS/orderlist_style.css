@@ -18,7 +18,7 @@
     float: right;
     text-align: right;
     height: 30px;
-    margin: 20px 0;
+    margin: 5px 0 20px;
 }
 
 .search-blank, .search-btn, .search-icon {
@@ -50,6 +50,20 @@
     border-width: 1px;
     border-color: #1F9A77;
     border-radius: 0;
+}
+
+.filter-btn:active {
+    border-color: #1F9A77;
+    color: #ffffff;
+}
+
+.filter-btn:focus {
+    border-color: #1F9A77;
+    color: #ffffff;
+}
+
+.filter-chosen:hover {
+    color: #ffffff;
 }
 
 .order-filter-vendor .filter-btn {

@@ -10,14 +10,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'login_style.css' %}">
 </head>
 <body id="body-style">
-{#<form name="UserForm" action="/user_sign_up/" method="post">#}
-{#    {% csrf_token %}#}
-{#    <h3>User ID: <input type="text" name="UserID"></h3>#}
-{#    <h3>Name: <input type="text" name="UserName"></h3>#}
-{#    <h3>Password: <input type="password" name="UserPswd"></h3>#}
-{#    <input type="submit" value="Sign up">#}
-{#</form>#}
-<div class="main">
+<div class="main main-register">
 
         <div class="login-page">
             <div class="login-head">
@@ -38,6 +31,14 @@
                     <div class="input-group  input-pswd">
                         <span class="text-before-input input-group-addon">Password</span>
                         <input class="form-control register-form" type="password" placeholder="Password" name="UserPswd">
+                    </div>
+                    <div class="input-group  input-email">
+                        <span class="text-before-input input-group-addon">Email</span>
+                        <input class="form-control register-form" type="text" placeholder="Email" name="UserEmail">
+                    </div>
+                    <div class="input-group  input-addr">
+                        <span class="text-before-input input-group-addon">Address</span>
+                        <textarea class="form-control register-form" placeholder="Shipping address" name="UserAddr"></textarea>
                     </div>
                     <div class="div-line2"></div>
                     <div class="button-line">

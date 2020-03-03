@@ -43,10 +43,12 @@ def register(request):
 
 
 def registerSystem(request):
-    if request.POST['UserID'] != '' and request.POST['UserPswd'] != '' and request.POST['UserName']:
+    if request.POST['UserID'] and request.POST['UserPswd'] and request.POST['UserName'] and request.POST['UserEmail'] and request.POST['UserAddr']:
         uID = request.POST['UserID']
         uPswd = request.POST['UserPswd']
         uName = request.POST['UserName']
+        uEmail = request.POST['UserEmail']
+        uAddr = request.POST['UserAddr']
     else:
         return render(request, 'MessagePage.html',
                       {'message': 'You need to fill in all the information!', 'link': 'previous'})
@@ -54,7 +56,7 @@ def registerSystem(request):
     try:
         account.objects.get(aid=uID)
     except account.DoesNotExist:
-        account.objects.create(aid=uID, password=uPswd, aname=uName, venderFlag=0)
+        account.objects.create(aid=uID, password=uPswd, aname=uName, eaddress=uEmail, saddress=uAddr, venderFlag=0)
         request.session['UserID'] = uID
         request.session['isVendor'] = 0
         request.session['UserName'] = uName

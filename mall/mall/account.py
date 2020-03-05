@@ -8,7 +8,7 @@ from ISI.models import *
 def login(request):
     request.session.set_expiry(0)
     if identityCheck(request):
-        return HttpResponseRedirect('/home/')
+        return HttpResponseRedirect('/product/')
     return render(request, 'SignIn/LoginPage.html')
 
 
@@ -31,7 +31,7 @@ def loginCheck(request):
     request.session['UserID'] = uID
     request.session['isVendor'] = user.venderFlag
     request.session['UserName'] = user.aname
-    return HttpResponseRedirect('/home/')
+    return HttpResponseRedirect('/product/')
 
 
 def home(request):

@@ -40,9 +40,10 @@
                                 <th class="order-status">Order Status</th>
                                 <th class="order-entry"></th>
                             </tr>
+                            {% if orderSet %}
                             {% for order in orderSet %}
                                 <div>
-                                    <tr class="{{ order.status }} orders">
+                                    <tr class="{{ order.status }} orders order-table-vendor">
                                         <td class="order-num">
                                             <a href="{% url 'order_detail_link' order.po %}">{{ order.po }}</a>
                                         </td>
@@ -64,6 +65,13 @@
                                     </tr>
                                 </div>
                             {% endfor %}
+                            {% else %}
+                            <tr>
+                                <td colspan="6" class="order-empty-message">
+                                    No order here!
+                                </td>
+                            </tr>
+                            {% endif %}
                             </tbody>
                         </table>
                     </div>

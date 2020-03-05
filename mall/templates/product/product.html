@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <title>Product</title>
     <style>
+        .product {
+            color: #1F9A77 !important;
+            text-decoration: underline;
+        }
         h2 {
             margin-bottom: 20px;
         }
@@ -90,14 +94,13 @@
             border-color: black;
         }
         #return {
-            padding-left: 35px;
-            padding-top: 20px;
+            margin-left: 15px;
+            margin-top: 62px;
         }
         #return button {
-            width: 93px;
-            height: 28px;
-            font-size: 14px;
             text-align: center;
+            background: #1F9A77;
+            color: white;
 
         }
         .clear {
@@ -125,15 +128,20 @@
                         <option value="Biography">Biography</option>
                         <option value="Story">Story</option>
                     </select>
-                    <button class="btn" type="submit">Submit</button>
+                    <button class="btn" type="submit">Filter by Brand</button>
                 </div>
             </form>
             <div id="showReturn" style="display: none">{{ ss }}</div>
         </div>
+
+         <div id="return" class="search">
+                <a href="/product/"><button id="show" class="btn">List All</button></a>
+        </div>
+
         <div class="search">
             <form action="/product/search_vendor/" method="post" id="search_v">
                 {% csrf_token %}
-                    <input name="find" id="search" value="">
+                    <input name="find" id="search" value=""  placeholder="Search by id or name">
                     <button class="btn" type="submit">Search</button>
             </form>
         </div>
@@ -170,9 +178,7 @@
             <div id="pagging"></div>
             {{ message }}
         </div>
-        <div id="return">
-                <a href="/product/"><button id="show">Return</button></a>
-        </div>
+
     </div>
 </div>
 

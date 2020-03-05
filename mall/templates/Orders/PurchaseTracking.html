@@ -31,6 +31,7 @@
                                 <th class="order-status">Order Status</th>
                                 <th class="order-entry"></th>
                             </tr>
+                            {% if orderSet %}
                             {% for order in orderSet %}
                                 <div>
                                     <tr class="{{ order.status }} orders">
@@ -54,6 +55,13 @@
                                     </tr>
                                 </div>
                             {% endfor %}
+                            {% else %}
+                            <tr>
+                                <td colspan="5" class="order-empty-message">
+                                    You have no order!
+                                </td>
+                            </tr>
+                            {% endif %}
                             </tbody>
                         </table>
                     </div>

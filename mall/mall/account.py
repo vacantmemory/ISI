@@ -60,7 +60,7 @@ def registerSystem(request):
         request.session['UserID'] = uID
         request.session['isVendor'] = 0
         request.session['UserName'] = uName
-        return render(request, 'MessagePage.html', {'message': 'Sign Up Successful!', 'link': 'home'})
+        return render(request, 'MessagePage.html', {'message': 'Sign Up Successful!', 'link': 'product'})
     else:
         return render(request, 'MessagePage.html',
                       {'message': 'User already exists!', 'link': 'previous'})

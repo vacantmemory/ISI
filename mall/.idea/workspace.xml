@@ -1,17 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6442c7f0-843e-45f1-815f-e522245ec8de" name="Default Changelist" comment="">
+    <list default="true" id="b3664bde-53e6-429f-8db9-df0ca83bd0c6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mall/account.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/account.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/CSS/login_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/CSS/login_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/SignIn/Register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/SignIn/Register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/MessagePage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/MessagePage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/product/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/detail.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
@@ -19,7 +49,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1YcoVSx7BWRe1Zk24bFsm9XxrWm" />
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="D:\gitspace\ISI\mall\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Yd4GPaKwZbJ3GP311iO3yhVr67" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -62,13 +99,13 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6442c7f0-843e-45f1-815f-e522245ec8de" name="Default Changelist" comment="" />
-      <created>1583251266509</created>
+      <changelist id="b3664bde-53e6-429f-8db9-df0ca83bd0c6" name="Default Changelist" comment="" />
+      <created>1583259040708</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1583251266509</updated>
-      <workItem from="1583251268823" duration="569000" />
-      <workItem from="1583251950618" duration="2937000" />
+      <updated>1583259040708</updated>
+      <workItem from="1583259043071" duration="1280000" />
+      <workItem from="1583322459853" duration="1049000" />
     </task>
     <servers />
   </component>
@@ -76,29 +113,29 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1583258968029">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1583326121914">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583258968029" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1583258968028">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583326121914" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1583326121914">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583258968028" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1583258968028">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583326121914" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1583326121914">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583258968028" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1583258968028">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583326121914" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1583326121914">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583258968028" />
-    <state x="461" y="163" key="SettingsEditor" timestamp="1583251281315">
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583326121914" />
+    <state x="461" y="163" key="SettingsEditor" timestamp="1583259054409">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1583251281315" />
-    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1583251950505">
+    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1583259054409" />
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1583322492481">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583251950505" />
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583322492481" />
   </component>
 </project>

@@ -25,6 +25,10 @@
         setTimeout(function () {
             window.location.href = "{% url 'login_link' %}"
         }, 3000);
+    {% elif link == 'product' %}
+        setTimeout(function () {
+            window.location.href = "{% url 'product_link' %}"
+        }, 3000);
     {% elif link == 'previous' %}
         setTimeout(function () {
             window.history.back(-1)

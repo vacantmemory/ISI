@@ -62,6 +62,7 @@
 }
 
 .input-addr, .input-addr textarea {
+    resize: none;
     height: 70px;
 }
 
@@ -78,6 +79,12 @@
 }
 
 .register-btn {
+    float: left;
+    width: 45%;
+}
+
+.empty-field-message {
+    color: #c9302c;
     float: left;
     width: 45%;
 }
@@ -118,4 +125,45 @@
 
 .manual-link {
     margin: 30px 20px;
+}
+
+.email-format-tag {
+    text-align: center;
+    color: #c9302c;
+    border-radius: 5px;
+    margin: 12px 0 10px 100px;
+    width: 220px;
+    height: 30px;
+    border: 1px solid #c9302c;
+    position: relative;
+    background-color: #FFF;
+}
+
+.email-format-tag-text {
+    font-size: 16px;
+    margin: 5px auto;
+}
+
+.email-format-tag em {
+    display: block;
+    border-width: 10px;
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    border-style: solid dashed dashed;
+    border-color: transparent transparent #c9302c;
+    font-size: 0;
+    line-height: 0;
+}
+
+.email-format-tag span {
+    display: block;
+    border-width: 10px;
+    position: absolute;
+    top: -19px;
+    left: 10px;
+    border-style: solid dashed dashed;
+    border-color: transparent transparent #FFF;
+    font-size: 0;
+    line-height: 0;
 }

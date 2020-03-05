@@ -18,30 +18,40 @@
             </div>
             <div class="div-line1"></div>
             <div class="container">
-                <form name="UserForm" action="/user_sign_up/" method="post">
+                <form name="UserForm" action="/user_sign_up/" method="post" onsubmit="return submitCheck()">
                     {% csrf_token %}
                     <div class="input-group margin-bottom-sm">
                         <span class="input-group-addon text-before-input">Your ID</span>
-                        <input class="form-control register-form" type="text" placeholder="User ID" name="UserID">
+                        <input class="form-control register-form" type="text" placeholder="User ID" name="UserID" onchange="boxshadowOff(this)">
                     </div>
                     <div class="input-group  input-name">
                         <span class="input-group-addon text-before-input">Your Name</span>
-                        <input class="form-control register-form" type="text" placeholder="Your Name" name="UserName">
+                        <input class="form-control register-form" type="text" placeholder="Your Name" name="UserName" onchange="boxshadowOff(this)">
                     </div>
                     <div class="input-group  input-pswd">
                         <span class="text-before-input input-group-addon">Password</span>
-                        <input class="form-control register-form" type="password" placeholder="Password" name="UserPswd">
+                        <input class="form-control register-form" type="password" placeholder="Password" name="UserPswd" onchange="boxshadowOff(this)">
                     </div>
                     <div class="input-group  input-email">
                         <span class="text-before-input input-group-addon">Email</span>
-                        <input class="form-control register-form" type="text" placeholder="Email" name="UserEmail">
+                        <input class="form-control register-form" type="text" placeholder="Email" name="UserEmail" onchange="emailFixCheck(this)">
                     </div>
+
+                    <div class="email-format-tag" style="display: none">
+                        <em></em>
+                        <span></span>
+                        <div class="email-format-tag-text">
+                        <i class="fa fa-exclamation-circle"></i> Incorrect Email format!
+                        </div>
+                    </div>
+
                     <div class="input-group  input-addr">
                         <span class="text-before-input input-group-addon">Address</span>
-                        <textarea class="form-control register-form" placeholder="Shipping address" name="UserAddr"></textarea>
+                        <textarea class="form-control register-form" placeholder="Shipping address" name="UserAddr" onchange="boxshadowOff(this)"></textarea>
                     </div>
                     <div class="div-line2"></div>
                     <div class="button-line">
+                    <em class="empty-field-message" style="display: none">You need to fill in all the information!</em>
                     <input class="login-btn btn btn-success" type="submit" value="Sign up">
                     </div>
                 </form>
@@ -50,4 +60,62 @@
         </div>
 </div>
 </body>
+<script src="{% static 'jquery-3.4.1.min.js' %}"></script>
+<script>
+    function submitCheck(){
+        return (emptyCheck() && emailCheck() );
+    }
+
+    function emailCheck(){
+        var field = $('.input-email input');
+        var reg = /^([a-zA-Z]|[0-9])+@[a-zA-Z0-9]+(\.([a-zA-Z]{2,4}))+$/;
+        if(reg.test(field.val())){
+            return true;
+        }
+        else {
+            $('.input-email').css('margin-bottom', 0);
+            field.css('box-shadow', '0 0 5px #c9302c');
+            $('.email-format-tag').css('display', '');
+            return false;
+        }
+    }
+
+    function emailFixCheck(e) {
+        var reg = /^([a-zA-Z]|[0-9])+@[a-zA-Z0-9]+(\.([a-zA-Z]{2,4}))+$/;
+        if(reg.test(e.value)){
+            $('.input-email').css('margin-bottom', 30);
+            $('.email-format-tag').css('display', 'none');
+            e.style.boxShadow = '';
+        }
+        else {
+            $('.input-email').css('margin-bottom', 0);
+            e.style.boxShadow = '0 0 5px #c9302c';
+            $('.email-format-tag').css('display', '');
+        }
+    }
+
+    function emptyCheck(){
+        var checkFlag = 0;
+        for(var i of $('.input-group input, .input-group textarea')){
+            {#console.log(i.value);#}
+            if(i.value == ''){
+                {#console.log('wrong');#}
+                i.style.boxShadow = '0 0 5px #c9302c';
+                checkFlag = 1;
+            }
+        }
+        if(checkFlag == 0){
+            return true
+        }
+        else {
+            $('.empty-field-message').css('display', '');
+            return false
+        }
+    }
+
+    function boxshadowOff(i){
+        $('.empty-field-message').css('display', 'none');
+        i.style.boxShadow = '';
+    }
+</script>
 </html>

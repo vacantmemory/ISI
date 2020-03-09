@@ -146,7 +146,7 @@
             <form action="/product/search_vendor/" method="post" id="search_v">
                 {% csrf_token %}
                     <input name="find" id="search" value=""  placeholder="Search by id or name">
-                    <button class="btn" type="submit">Search</button>
+                    <button class="btn" type="submit" id="button_v">Search</button>
             </form>
         </div>
 
@@ -295,11 +295,22 @@
 
         var option = $("#select").find("option");
         for (var i = 0; i < option.length; i++){
-            if(option[0].value === brand){
+            if(option[0].value == brand){
                document.getElementById("ss").value = "Johnny Bravo";
             }
         }
 
+    }{% endcomment %}
+
+   {% comment %} $("#button_v").on("click", getInput());
+    function getInput() {
+        document.cookie = $("#input").value;
+    }
+
+    setInput();
+    function setInput() {
+        var a = document.cookie;
+        document.getElementById("#input").value = a;
     }{% endcomment %}
 </script>
 </html>

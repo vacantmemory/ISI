@@ -1,23 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cf36fb98-fa13-4e86-b071-e061c0d9d415" name="Default Changelist" comment="">
-<<<<<<< HEAD
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mall.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mall.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ebc97993-5f4b-4fd9-b85e-627a9fe4fd4b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ISI/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ISI/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall/view.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/product/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/product.html" afterDir="false" />
-=======
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/CSS/login_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/CSS/login_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/SignIn/LoginPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/SignIn/LoginPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/SignIn/Register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/SignIn/Register.html" afterDir="false" />
->>>>>>> 28124508af02ce9c45f73a7ede16cd6bee21f5cd
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,56 +15,8 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-      </path>
-    </expand>
-    <select />
-  </component>
-  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
-    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
-  </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/product/product.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="681">
-              <caret line="302" column="21" lean-forward="true" selection-start-line="302" selection-start-column="21" selection-end-line="302" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>product</find>
-    </findStrings>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -82,16 +24,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/product/product.html" />
+        <option value="$PROJECT_DIR$/ISI/models.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
-  <component name="ProjectId" id="1YhT6ybkfIVOwrVqadqquSIBxKu" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -107,22 +47,7 @@
             <path>
               <item name="mall" type="b2602c69:ProjectViewProjectNode" />
               <item name="mall" type="462c0819:PsiDirectoryNode" />
-              <item name="mall" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mall" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mall" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="product" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="ISI" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -131,16 +56,8 @@
       <pane id="Scope" />
     </panes>
   </component>
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
   <component name="PropertiesComponent">
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -161,9 +78,10 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_MODEL_SETTINGS" value="mall.settings" />
         <env name="DJANGO_SETTINGS_MODULE" value="mall.settings" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -185,27 +103,20 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="cf36fb98-fa13-4e86-b071-e061c0d9d415" name="Default Changelist" comment="" />
-      <created>1583393654020</created>
+      <changelist id="ebc97993-5f4b-4fd9-b85e-627a9fe4fd4b" name="Default Changelist" comment="" />
+      <created>1583739592196</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1583393654020</updated>
-      <workItem from="1583393655338" duration="2719000" />
-<<<<<<< HEAD
-      <workItem from="1583408874163" duration="7026000" />
-=======
-      <workItem from="1583408764638" duration="2593000" />
-      <workItem from="1583413201716" duration="6707000" />
->>>>>>> 28124508af02ce9c45f73a7ede16cd6bee21f5cd
+      <updated>1583739592196</updated>
+      <workItem from="1583739596857" duration="3187000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7026000" />
+    <option name="totallyTimeSpent" value="3187000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
@@ -214,7 +125,7 @@
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Terminal" weight="0.32902467" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -233,56 +144,11 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="WindowStateProjectService">
-    <state width="1877" height="283" key="GridCell.Tab.0.bottom" timestamp="1583420863674">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="283" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583420863674" />
-    <state width="1877" height="283" key="GridCell.Tab.0.center" timestamp="1583420863674">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="283" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583420863674" />
-    <state width="1877" height="283" key="GridCell.Tab.0.left" timestamp="1583420863674">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="283" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583420863674" />
-    <state width="1877" height="283" key="GridCell.Tab.0.right" timestamp="1583420863674">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="283" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583420863674" />
-    <state x="461" y="163" key="SettingsEditor" timestamp="1583393671443">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1583393671443" />
-    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1583408764657">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583408764657" />
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mall/view.py">
+    <entry file="file://$PROJECT_DIR$/ISI/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mall/product.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/product/product.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="681">
-          <caret line="302" column="21" lean-forward="true" selection-start-line="302" selection-start-column="21" selection-end-line="302" selection-end-column="21" />
+        <state relative-caret-position="411">
+          <caret line="65" column="46" lean-forward="true" selection-start-line="65" selection-start-column="46" selection-end-line="65" selection-end-column="46" />
         </state>
       </provider>
     </entry>

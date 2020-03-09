@@ -99,6 +99,7 @@
                                             <th class="order-product-quantity">Quantity</th>
                                             <th class="order-product-uprice">Unit Price</th>
                                             <th class="order-product-subtotal">Subtotal</th>
+                                            <th></th>
                                         </tr>
                                         {% for p in pList %}
                                             <tr>
@@ -108,8 +109,48 @@
                                                 <td class="order-product-uprice"><span
                                                         class="price">{{ p.rPrice }}</span></td>
                                                 <td class="order-product-subtotal"><span class="subtotal"></span></td>
+                                                <td class="order-product-review">
+                                                    <div>
+                                                        <span class="review-expander closed">Write review
+                                                            <span>
+                                                                <i class="fa fa-chevron-down"></i>
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="review-form-tr">
+                                                <td colspan="5">
+                                                    <div class="review-slide-form" style="display: none">
+                                                        <div class="review-form-div">
+                                                            <form>
+                                                                <div class="review-rating"><label>Rating</label>
+                                                                    <div class="rating-star-group">
+                                                                        <span><i class="rating-star fa fa-star-o fa-lg star1"></i></span><span><i class="rating-star fa fa-star-o fa-lg star2"></i></span><span><i class="rating-star fa fa-star-o fa-lg star3"></i></span><span><i class="rating-star fa fa-star-o fa-lg star4"></i></span><span><i class="rating-star fa fa-star-o fa-lg star5"></i></span>
+                                                                            <input class="star-value" style="display: none" value="3">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="review-review-field"><label>Review</label>
+
+                                                                    <textarea
+                                                                            placeholder="Write your review here."></textarea>
+
+                                                                </div>
+                                                                <div class="submit-btn">
+                                                                    <button class="btn btn-success">
+                                                                        POST
+                                                                    </button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </td>
                                             </tr>
                                         {% endfor %}
+                                        <tr>
+                                            <td colspan="5"></td>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -126,6 +167,10 @@
 </body>
 <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
 <script>
+
+    starCheck();
+
+    //subtotal calculator
     quantitySet = $('.quantity');
     priceSet = $('.price');
     subtotalSet = $('.subtotal');
@@ -133,6 +178,62 @@
     for (subtotal of subtotalSet) {
         subtotal.innerText = parseFloat(priceSet[num].innerText) * parseFloat(quantitySet[num].innerText);
         num = num + 1;
+    }
+
+    //click 'write review' to expend or close review row
+    $('.review-expander').on('click', function () {
+        $(this).parent().parent().parent().next().children().find('.review-slide-form').slideToggle();
+        var icon = $(this).children().find('i');
+        if (icon.hasClass('fa-rotate-180')) {
+            icon.removeClass('fa-rotate-180')
+        } else {
+            icon.addClass('fa-rotate-180')
+        }
+    });
+
+    //click star to rate
+    $('.rating-star').on('click', function () {
+        if ($(this).hasClass('star1')) {
+            $(this).parent().parent().children('input').val('1');
+        }
+        if ($(this).hasClass('star2')) {
+            $(this).parent().parent().children('input').val('2');
+        }
+        if ($(this).hasClass('star3')) {
+            $(this).parent().parent().children('input').val('3');
+        }
+        if ($(this).hasClass('star4')) {
+            $(this).parent().parent().children('input').val('4');
+        }
+        if ($(this).hasClass('star5')) {
+            $(this).parent().parent().children('input').val('5');
+        }
+    });
+
+    //star hover
+    $('.rating-star').hover(function () {
+        $(this).addClass('star-selected').removeClass('fa-star-o').addClass('fa-star');
+        $(this).parent().prevAll().children().addClass('star-selected').removeClass('fa-star-o').addClass('fa-star');
+        $(this).parent().nextAll().children().removeClass('star-selected').addClass('fa-star-o').removeClass('fa-star');
+    }, function () {
+        starCheck();
+    });
+
+    //check which star is selected
+    function starCheck() {
+        for (var v of $('.star-value')) {
+            var value = v.value;
+            var vParent = v.parentNode;
+            for (var i = 5; i > 0; i--) {
+                if (i <= value) {
+                    vParent.children[i - 1].children[0].classList.add('star-selected', 'fa-star');
+                    vParent.children[i - 1].children[0].classList.remove('fa-star-o');
+                } else {
+                    vParent.children[i - 1].children[0].classList.remove('star-selected', 'fa-star');
+                    vParent.children[i - 1].children[0].classList.add('fa-star-o');
+                }
+            }
+        }
     }
 </script>
 </html>

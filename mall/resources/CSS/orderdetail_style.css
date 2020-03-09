@@ -48,39 +48,117 @@
 
 .order-product-table td {
     padding-left: 20px;
-    width: 25%;
+    width: 20%;
     height: 50px;
-    background-color: #eeeeee;
+    background-color: #f2f2f2;
     border-bottom: solid 1px #bbbbbb;
 }
 
 .order-product-table tr:last-child td {
+    height: 20px;
     border-bottom: none;
 }
 
 .order-product-table th {
     padding-left: 20px;
-    width: 25%;
+    width: 20%;
     height: 50px;
     color: #ffffff;
     background-color: #1F9A77;
 }
 
-.order-product-table th.order-product-name {
+.order-product-table th:first-child {
     border-top-left-radius: 20px;
 }
 
-.order-product-table th.order-product-subtotal {
+.order-product-table th:last-child {
     border-top-right-radius: 20px;
 }
 
-.order-product-table tr:last-child .order-product-name {
+.order-product-table tr:last-child td:first-child {
     border-bottom-left-radius: 20px;
 }
 
-.order-product-table tr:last-child .order-product-subtotal {
+.order-product-table tr:last-child td:last-child {
      border-bottom-right-radius: 20px;
 }
+
+/*review field*/
+.review-expander {
+    cursor: pointer;
+    font-weight: bold;
+    color: #1F9A77;
+}
+
+.review-form-div {
+    padding-left: 20px;
+    border-left: solid 5px #1F9A77;
+    border-right: solid 5px gray;
+    margin: 20px 28px 20px 20px;
+}
+
+.review-form-tr {
+    padding: 0;
+}
+
+.review-form-tr td {
+    height: auto;
+    background-color: #e8e8e8;
+}
+
+.review-rating {
+    margin-bottom: 10px;
+}
+
+.review-review-field span {
+    vertical-align: top;
+}
+
+.review-review-field textarea {
+    margin-right: 20px;
+    display: inline;
+    resize: none;
+    width: 640px;
+    height: 100px;
+}
+
+.review-form-tr label {
+    font-weight: normal;
+    font-style: normal;
+    vertical-align: top;
+    display: inline-block;
+    width: 50px;
+    text-align: left;
+    padding-right: 0;
+    margin-right: 10px;
+}
+
+.rating-star-group {
+    color: gray;
+    display: inline;
+}
+
+.submit-btn {
+    text-align: right;
+}
+
+.submit-btn button {
+    background-color: #1F9A77;
+    height: 32px;
+    width: 80px;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.submit-btn button:hover {
+    background-color: #1f7b58;
+}
+
+.star-selected {
+    color: orange;
+}
+
+
 
 
 

@@ -37,7 +37,8 @@ def orderDetail(request, PO):
         order = purchOrder.objects.get(po=PO)
     except purchOrder.DoesNotExist:
         return render(request, 'MessagePage.html', {'message': 'Order does not exist!', 'link': 'previous'})
-    productList = dorder.objects.filter(po=order)
+    productList = list(dorder.objects.filter(po=order))
+
     return render(request, 'Orders/OrderDetail.html', {'order': order, 'pList': productList,
                                                        'identity': identityCheck(request)})
 

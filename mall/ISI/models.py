@@ -71,3 +71,15 @@ class dorder(models.Model):
         db_table = 'dorder_info'
         unique_together = ('po', 'pid')
 
+
+class review(models.Model):
+    rid = models.CharField(max_length=10)
+    pid = models.ForeignKey(product, on_delete=models.CASCADE)
+    po = models.ForeignKey(purchOrder, on_delete=models.CASCADE)
+    rating = models.DecimalField(max_digits=2, decimal_places=1)
+    review = models.TextField()
+    create_date = models.DateTimeField(blank=True)
+    modify_date = models.DateTimeField(null=True)
+    class Meta:
+        db_table = 'review_info'
+

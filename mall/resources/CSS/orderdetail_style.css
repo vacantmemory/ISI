@@ -143,15 +143,31 @@
 }
 
 .submit-btn button {
+    color: white;
     background-color: #1F9A77;
     height: 32px;
-    width: 80px;
+    width: 100px;
     margin-top: 10px;
     margin-right: 20px;
 }
 
 .submit-btn button:hover {
+    color: white;
     background-color: #1f7b58;
+}
+
+.submit-btn button.update-disabled {
+    background-color: #e8e8e8;
+    color: #1F9A77;
+    border: solid 1px #1F9A77;
+    cursor: default;
+}
+
+.rating-empty-message {
+    float: left;
+    color: #c9302c;
+    width: 300px;
+    margin: 20px 0 10px 60px;
 }
 
 .star-selected {

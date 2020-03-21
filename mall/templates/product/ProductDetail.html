@@ -1,0 +1,237 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'productdetail_style.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+</head>
+<body id="body-style">
+{% include 'Navbar.html' %}
+<div class="main">
+    <div class="container">
+        <div class="product-detail-page container">
+            <div class="prodcut-info clearfix">
+
+                <!-- information about product -->
+
+                <div class="product-img">
+                    <div class="product-img-container">
+                        <img src="{% static '' %}{{ row.thumbnail_image }}.png">
+                    </div>
+                </div>
+                <div class="product-data {% if isInCart == 2 or isInCart == 3 %}no-btn{% endif %}">
+                    <div class="product-name-price">
+                        <p>{{ row.pname }}</p>
+                        <p>{{ row.price }}</p>
+                    </div>
+
+                    <div class="div-line"></div>
+
+                    <div class="product-data-table">
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td>Author:</td>
+                                <td>{{ detail.author }}</td>
+                            </tr>
+                            <tr>
+                                <td>Brand:</td>
+                                <td>{{ row.brand }}</td>
+                            </tr>
+                            <tr>
+                                <td>Publisher</td>
+                                <td>{{ detail.publisher }}</td>
+                            </tr>
+                            <tr>
+                                <td>Total pages:</td>
+                                <td>{{ detail.numPage }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="div-line"></div>
+
+                    <div class="product-btn-div">
+                        {% if isInCart == 0 %}
+                            <a href="{% url 'add_to_cart_link' pid=row.pid %}">
+                                <button type="button" class="btn"><i class="fa fa-cart-plus fa-lg" aria-hidden="true"
+                                                                     id="cart"></i> Add to Cart
+                                </button>
+                            </a>
+                        {% elif isInCart == 1 %}
+                            <p>
+                                <button type="button" class="btn inCart">Already in Cart</button>
+                            </p>
+                        {% elif isInCart == 2 %}
+                            <p></p>
+                        {% elif isInCart == 3 %}
+                            <p></p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="div-line-middle"></div>
+
+                <!-- reviews table -->
+
+                <div class="review-title-line">
+                    <div class="review-title">
+                        <p>Customer reviews</p>
+                    </div>
+                    <ul class="total-rating">
+                        <li class="total-rating-score">
+                            4.0
+                        </li>
+                        <li class="total-rating-star-group">
+                            <span><i class="fa fa-star-o fa-2x s1"></i></span>
+                            <span><i class="fa fa-star-o fa-2x s2"></i></span>
+                            <span><i class="fa fa-star-o fa-2x s3"></i></span>
+                            <span><i class="fa fa-star-o fa-2x s4"></i></span>
+                            <span><i class="fa fa-star-o fa-2x s5"></i></span>
+                            <span class="average-number-of-star" style="display: none"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="review-page">
+                    <div class="clearfix">
+                        <div class="review-table">
+                            <table>
+                                <tbody>
+
+                                {% if reviewList %}
+                                    {% for review in reviewList %}
+                                        <tr>
+                                            <td>
+                                                <div class="reviewer-info">
+                                                    <div class="review-star-group">
+                                                        <span><i class="fa fa-star-o fa-lg"></i></span>
+                                                        <span><i class="fa fa-star-o fa-lg"></i></span>
+                                                        <span><i class="fa fa-star-o fa-lg"></i></span>
+                                                        <span><i class="fa fa-star-o fa-lg"></i></span>
+                                                        <span><i class="fa fa-star-o fa-lg"></i></span>
+                                                        <span class="number-of-star"
+                                                              style="display: none">{{ review.rating }}</span>
+                                                    </div>
+                                                    <p>by {{ review.po.aid.aname }}</p>
+                                                    {% if review.modify_date %}
+                                                        <p>Edited on {{ review.modify_date|date:"F j, Y" }}</p>
+                                                    {% else %}
+                                                        <p>{{ review.create_date|date:"F j, Y" }}</p>
+                                                    {% endif %}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    {% if review.review %}
+                                                    "{{ review.review }}"
+                                                    {% else %}
+                                                    <em>The user did not fill in the review.</em>
+                                                    {% endif %}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+
+                                {% else %}
+                                    <tr>
+                                        <td colspan="2" class="no-review-message">
+                                            No review yet.
+                                        </td>
+                                    </tr>
+                                {% endif %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'Footer.html' %}
+</body>
+<script src="{% static 'jquery-3.4.1.min.js' %}"></script>
+<script>
+
+    starCheck();
+
+    function starCheck() {
+        var numberOfReview = 0;
+        var totalRating = 0;
+
+        for (var r of $('.number-of-star')){
+            numberOfReview += 1;
+            totalRating += starLighten(r, 'sub')
+        }
+
+        // review exist check
+        if (numberOfReview === 0){
+            $('.total-rating').css('display','none')
+        }
+
+        var averageRating = totalRating/numberOfReview;
+
+        if ( averageRating < 2.5 ){
+            $('.total-rating-score').addClass('score-bad');
+            $('.total-rating-score').html('Bad: '+averageRating.toFixed(1));
+        }
+        if ( averageRating < 4 && averageRating >= 2.5){
+            $('.total-rating-score').addClass('score-average');
+            $('.total-rating-score').html('Average: '+averageRating.toFixed(1));
+        }
+        if ( averageRating >= 4 ){
+            $('.total-rating-score').addClass('score-good');
+            $('.total-rating-score').html('Good: '+averageRating.toFixed(1));
+        }
+
+        var averageRatingObj = $('.average-number-of-star');
+        averageRatingObj.html(averageRating.toFixed(3));
+        starLighten(averageRatingObj[0], 'total');
+    }
+
+    function starLighten(r, ratingType) {
+        var value = parseFloat(r.innerHTML);
+        var rParent = r.parentNode;
+
+        // stars of each review
+        if (ratingType === 'sub') {
+            for (var i = 5; i > 0; i--) {
+                if (i <= value) {
+                    rParent.children[i - 1].children[0].classList.remove('fa-star-o');
+                    rParent.children[i - 1].children[0].classList.add('fa-star', 'star-selected');
+                }
+            }
+            return value;
+        }
+
+        // stars of average rating
+        if (ratingType === 'total'){
+            for (var i = 4; i >= 0; i--) {
+                var testValue = value - i;
+                if (testValue > 0.7) {
+                    rParent.children[4 - i].children[0].classList.remove('fa-star-o');
+                    rParent.children[4 - i].children[0].classList.add('fa-star', 'star-selected');
+                }
+                if (testValue > 0.3 && testValue <= 0.7) {
+                    rParent.children[4 - i].children[0].classList.remove('fa-star-o');
+                    rParent.children[4 - i].children[0].classList.add('fa-star-half-o', 'star-selected', 'fa-flip-horizontal');
+                }
+                if (testValue <= 0.3) {
+                    rParent.children[4 - i].children[0].classList.add('star-selected');
+                }
+            }
+        }
+
+
+
+    }
+
+
+</script>
+</html>

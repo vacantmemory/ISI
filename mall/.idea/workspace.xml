@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="42d49ab5-c334-4f85-a7c7-4126eb14ad1a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mall/review.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/CSS/productdetail_style.css" afterDir="false" />
+    <list default="true" id="28ddc210-feee-4176-99da-cb2abe88655f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ISI/migrations/0009_review.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ISI/migrations/0010_auto_20200309_0834.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/product/ProductDetail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ISI/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ISI/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mall/order.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/order.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall/product.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/product.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall/review.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/review.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mall/view.py" beforeDir="false" afterPath="$PROJECT_DIR$/mall/view.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/CSS/orderdetail_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/CSS/orderdetail_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/CSS/productdetail_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/CSS/productdetail_style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Orders/OrderDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Orders/OrderDetail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/product.html" afterDir="false" />
@@ -55,22 +62,14 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
-        <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="D:\gitspace\ISI\mall\.idea" />
-      </set>
-    </option>
-  </component>
-  <component name="ProjectId" id="1YiNOGv7zEPTk8NTFBU9Au6GTGp" />
+  <component name="ProjectId" id="1YtDT9LFPwh7GIn85UQ3uzu5l28" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -78,9 +77,9 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager">
@@ -114,16 +113,17 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="42d49ab5-c334-4f85-a7c7-4126eb14ad1a" name="Default Changelist" comment="" />
-      <created>1583421420926</created>
+      <changelist id="28ddc210-feee-4176-99da-cb2abe88655f" name="Default Changelist" comment="" />
+      <created>1583753001280</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1583421420926</updated>
-      <workItem from="1583421423333" duration="245000" />
-      <workItem from="1583422429771" duration="685000" />
-      <workItem from="1583484927381" duration="1252000" />
-      <workItem from="1583658311339" duration="13285000" />
-      <workItem from="1583752724342" duration="139000" />
+      <updated>1583753001280</updated>
+      <workItem from="1583753002524" duration="2319000" />
+      <workItem from="1583829919558" duration="998000" />
+      <workItem from="1583832948676" duration="60000" />
+      <workItem from="1583833158314" duration="27433000" />
+      <workItem from="1583998603832" duration="1808000" />
+      <workItem from="1584776743874" duration="143000" />
     </task>
     <servers />
   </component>
@@ -131,29 +131,29 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1583752862506">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1584776886263">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583752862506" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1583752862506">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584776886263" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1584776886263">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583752862506" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1583752862506">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584776886263" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1584776886263">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583752862506" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1583752862506">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584776886263" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1584776886263">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583752862506" />
-    <state x="461" y="163" key="SettingsEditor" timestamp="1583421436223">
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584776886263" />
+    <state x="461" y="163" key="SettingsEditor" timestamp="1583753033563">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1583421436223" />
-    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1583484969966">
+    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1583753033563" />
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1584776744054">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583484969966" />
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584776744054" />
   </component>
 </project>

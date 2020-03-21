@@ -21,6 +21,7 @@ from django.views.generic import RedirectView
 from mall.view import *
 from mall.product import *
 from mall.cart import *
+from mall.review import *
 
 urlpatterns = [
     path(r'admin/', admin.site.urls),
@@ -42,11 +43,12 @@ urlpatterns = [
     url(r'^product/descending/$', product_list),
     url(r'^product/search/$', product_list),
     url(r'^product/search_vendor/$', product_list),
-    url(r'productDetail/(?P<pid>[0-9]+)/$', product_detail, name="detail_link"),
+    url(r'^productDetail/(?P<pid>[0-9]+)/$', product_detail, name="detail_link"),
 
     # order
     url(r'^orders/$', orderListing, name='orders_link'),
     url(r'^order_detail/([A-Za-z0-9]+)/$', orderDetail, name='order_detail_link'),
+    url(r'^review_update/$', reviewUpdate),
 
     # order for vendor
     url(r'^ship_order/([A-Za-z0-9]+)/$', shipOrder, name='ship_order_link'),

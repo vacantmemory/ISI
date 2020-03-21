@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from ISI.models import product, properties, shopcartRecord
+from ISI.models import product, properties, shopcartRecord, review
 import decimal
 from mall.account import identityCheck
 
@@ -28,6 +28,29 @@ def product_list(request):
         p_list = search_vendor(data)
         if not p_list:
             msg = "Not Found"
+
+    # add rating for each product
+    if p_list:
+        ratingList = []
+        for p in p_list:
+            totalRating = 0
+            n = 0
+            reviewSet = review.objects.filter(pid=p)
+            if reviewSet:
+                for r in reviewSet:
+                    n += 1
+                    totalRating += r.rating
+                ratingList.append(totalRating/n)
+            else:
+                ratingList.append('')
+        n = 0
+
+        # convert p_list to array
+        p_list = list(p_list)
+        for r in ratingList:
+            p_list[n] = [p_list[n], str(r)[0:3]]
+            n += 1
+
     return render(request, 'product/product.html', {'p_list': p_list, 'identity': identityCheck(request), 'message': msg, 'ss':ss})
 
 
@@ -63,9 +86,11 @@ def product_detail(request, pid):
         detail = detail[0]
     else:
         detail = []
-    # add a 'isInCart' parameter to check if the product in user's cart.
-    return render(request, "product/detail.html", {'row': row, 'detail': detail, 'identity': identityCheck(request), 'isInCart': inCartCheck(request, pid)})
 
+    # add a 'isInCart' parameter to check if the product in user's cart.
+    return render(request, "product/ProductDetail.html", {'row': row, 'detail': detail, 'identity': identityCheck(request),
+                                                   'isInCart': inCartCheck(request, pid),
+                                                   'reviewList': review.objects.filter(pid=row).order_by('create_date')})
 
 # return 0 if product not in cart, 1 if product in cart, 2 if user has not logged in, 3 if user is the vendor
 def inCartCheck(request, po):

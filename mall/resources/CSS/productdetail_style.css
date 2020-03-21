@@ -1,0 +1,238 @@
+
+.container .container{
+    width: 80%;
+}
+
+.product-detail-page {
+    border-radius: 20px;
+    margin-top: 70px;
+    background-color: white;
+}
+
+/* img on left */
+.product-img, .product-data {
+    margin-top: 30px;
+}
+
+.product-img {
+    text-align: center;
+    width: 50%;
+    height: 330px;
+    float: left;
+
+    /* push the div line */
+    margin-bottom: 30px;
+
+}
+
+.product-img-container {
+    height: 100%;
+    margin: 0 20px;
+    border-radius: 20px;
+    border: solid 1px #cccccc;
+}
+
+.product-img img {
+    margin-top: 15px;
+    height: 90%;
+}
+
+/* basic info on right */
+.product-data {
+    text-align: left;
+    width: 50%;
+    float: right;
+}
+
+.product-name-price {
+    margin-left: 20px;
+}
+
+/* product name */
+.product-name-price p:first-child {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* product price */
+.product-name-price p:last-child {
+    font-size: 24px;
+}
+
+.div-line {
+    height: 0;
+    margin: 10px 20px;
+    border-top: solid 1px #1F9A77;
+}
+
+/* other information of product shown in table*/
+.product-data-table {
+    margin-left: 20px;
+}
+
+.product-data-table table {
+    width: 100%;
+}
+
+.product-data-table td {
+    font-size: 20px;
+    width: 50%;
+    padding: 10px 0;
+}
+
+/* attributes of data */
+.product-data-table td:first-child {
+    font-weight: bold;
+}
+
+/* if no btn */
+.no-btn .product-name-price p {
+    margin-bottom: 15px;
+}
+
+.no-btn td {
+    padding: 13px 0;
+}
+
+/* add to cart btn */
+.product-btn-div {
+    text-align: center;
+    margin: 20px 20px;
+}
+
+.product-btn-div button {
+    font-size: 19px;
+    background-color: #1F9A77;
+    color: white;
+    width: 80%;
+    height: 40px;
+}
+
+.product-btn-div button:hover {
+    color: white;
+}
+
+.product-btn-div button.inCart {
+    background-color: white;
+    color: #1F9A77;
+    cursor: default;
+    border: solid 2px #1F9A77;
+}
+
+.div-line-middle {
+    clear: both;
+    margin: 20px;
+    border-top: solid 1px #1F9A77;
+}
+
+/* review title line */
+.review-title-line {
+    margin: 40px 20px 10px;
+}
+
+.review-title {
+    float: left;
+    font-size: 30px;
+    text-transform: uppercase;
+
+    /* push the review table */
+    margin-bottom: 10px;
+}
+
+.total-rating {
+    text-align: right;
+    width: 50%;
+    float: right;
+}
+
+.total-rating .total-rating-score {
+    display: inline;
+    font-size: 30px;
+}
+
+.total-rating .total-rating-star-group {
+    display: inline;
+
+}
+
+/* review page */
+.review-page {
+    clear: both;
+    margin: 20px 20px 30px;
+    border-radius: 20px;
+    border: solid 1px #1F9A77;
+}
+
+/* review table setting */
+.review-table {
+    margin: 20px;
+}
+
+.review-table table {
+    width: 100%;
+}
+
+.review-table tr>td:first-child {
+    text-align: left;
+    vertical-align: top;
+    width: 30%;
+}
+
+.review-table tr>td:last-child {
+    vertical-align: center;
+    width: 70%;
+}
+
+.review-table tr>td {
+    padding: 20px 0;
+    border-bottom: solid 1px #1F9A77;
+}
+
+.review-table tr:last-child>td {
+    border-bottom: none;
+}
+
+/* reviewer cell */
+.reviewer-info {
+    margin-left: 25px;
+}
+
+.reviewer-info p {
+    font-size: 16px;
+    margin: 10px 0 0 0;
+}
+
+.reviewer-info p:last-child {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* rating stars and score */
+/* score */
+.score-good {
+    color: green;
+}
+
+.score-average {
+    color: darkorange;
+}
+
+.score-bad {
+    color: #c9302c;
+}
+
+/* star */
+.fa-star-o {
+    color: grey;
+}
+
+.star-selected {
+    color: orange;
+}
+
+
+.no-review-message {
+    text-align: center !important;
+    font-size: 24px;
+}
+

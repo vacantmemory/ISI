@@ -99,57 +99,85 @@
                                             <th class="order-product-quantity">Quantity</th>
                                             <th class="order-product-uprice">Unit Price</th>
                                             <th class="order-product-subtotal">Subtotal</th>
+                                            {% if request.session.isVendor == 0 and order.status == 's'%}
                                             <th></th>
+                                            {% endif %}
                                         </tr>
                                         {% for p in pList %}
                                             <tr>
-                                                <td class="order-product-name">{{ p.rName }}</td>
+                                                <td class="order-product-name">{{ p.0.rName }}</td>
                                                 <td class="order-product-quantity"><span
-                                                        class="quantity">{{ p.rQuentity }}</span></td>
+                                                        class="quantity">{{ p.0.rQuentity }}</span></td>
                                                 <td class="order-product-uprice"><span
-                                                        class="price">{{ p.rPrice }}</span></td>
+                                                        class="price">{{ p.0.rPrice }}</span></td>
                                                 <td class="order-product-subtotal"><span class="subtotal"></span></td>
+                                                {% if request.session.isVendor == 0 and order.status == 's'%}
                                                 <td class="order-product-review">
                                                     <div>
-                                                        <span class="review-expander closed">Write review
+                                                        <span class="review-expander closed">
+                                                            {% if p.1 %}
+                                                                &nbsp;&nbsp;Edit review
+                                                            {% else %}
+                                                                Write review
+                                                            {% endif %}
                                                             <span>
                                                                 <i class="fa fa-chevron-down"></i>
                                                             </span>
                                                         </span>
                                                     </div>
                                                 </td>
+                                                {% endif %}
                                             </tr>
+
+                                            {% if request.session.isVendor == 0 and order.status == 's' %}
+                                            <!-- review field -->
 
                                             <tr class="review-form-tr">
                                                 <td colspan="5">
                                                     <div class="review-slide-form" style="display: none">
                                                         <div class="review-form-div">
-                                                            <form>
-                                                                <div class="review-rating"><label>Rating</label>
+                                                            <form name="ReviewForm" action="/review_update/" method="post" onsubmit="return ratingCheck(this)">
+                                                            {% csrf_token %}
+                                                            <input value="{{ p.0.pid.pid }}" name="PID" style="display: none">
+                                                            <input value="{{ p.0.po.po }}" name="PO" style="display: none">
+                                                                <div class="review-rating">
+                                                                    <label>Rating</label>
                                                                     <div class="rating-star-group">
                                                                         <span><i class="rating-star fa fa-star-o fa-lg star1"></i></span><span><i class="rating-star fa fa-star-o fa-lg star2"></i></span><span><i class="rating-star fa fa-star-o fa-lg star3"></i></span><span><i class="rating-star fa fa-star-o fa-lg star4"></i></span><span><i class="rating-star fa fa-star-o fa-lg star5"></i></span>
-                                                                            <input class="star-value" style="display: none" value="3">
+                                                                        <input class="star-value" style="display: none" value="{% if p.1 %}{{ p.1.rating }}{% else %}0{% endif %}" name="Rating">
                                                                     </div>
                                                                 </div>
                                                                 <div class="review-review-field"><label>Review</label>
 
-                                                                    <textarea
-                                                                            placeholder="Write your review here."></textarea>
+                                                                    <textarea placeholder="Write your review here." name="Review" onchange="ableUpdatebtn(this)">{{ p.1.review }}</textarea>
 
                                                                 </div>
                                                                 <div class="submit-btn">
-                                                                    <button class="btn btn-success">
-                                                                        POST
-                                                                    </button>
+
+                                                                    {% if p.1 %}
+                                                                    <button class="btn update-disabled" type="button">UPDATE</button>
+                                                                    {% else %}
+                                                                    <button class="btn btn-success" type="submit">POST</button>
+                                                                    {% endif %}
+
+                                                                    <em class="rating-empty-message" style="display: none">
+                                                                        You need to fill rating!
+                                                                    </em>
                                                                 </div>
+
                                                             </form>
                                                         </div>
                                                     </div>
                                                 </td>
                                             </tr>
+                                            {% endif %}
                                         {% endfor %}
                                         <tr>
+                                            {% if request.session.isVendor == 0 and order.status == 's'%}
                                             <td colspan="5"></td>
+                                            {% else %}
+                                            <td colspan="4"></td>
+                                            {% endif %}
                                         </tr>
                                         </tbody>
                                     </table>
@@ -208,6 +236,8 @@
         if ($(this).hasClass('star5')) {
             $(this).parent().parent().children('input').val('5');
         }
+        $(this).parents('form').find('.rating-empty-message').css('display', 'none');
+        $(this).parents('form').find('.update-disabled').attr('type', 'submit').removeClass('update-disabled');
     });
 
     //star hover
@@ -235,5 +265,22 @@
             }
         }
     }
+
+    function ratingCheck(f) {
+        var v = f.getElementsByClassName('star-value')[0].value;
+        if(v >= 1 && v <= 5){
+            return true
+        }else {
+            f.getElementsByClassName('rating-empty-message')[0].style.display = '';
+            return false
+        }
+
+    }
+
+    function ableUpdatebtn(i) {
+        i.parentNode.nextElementSibling.children[0].classList.remove('update-disabled');
+        i.parentNode.nextElementSibling.children[0].setAttribute('type', 'submit');
+    }
+
 </script>
 </html>

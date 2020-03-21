@@ -39,6 +39,16 @@ def orderDetail(request, PO):
         return render(request, 'MessagePage.html', {'message': 'Order does not exist!', 'link': 'previous'})
     productList = list(dorder.objects.filter(po=order))
 
+    # search reviews for each product and combine them into an array
+    n = 0
+    for p in productList:
+        pReview = review.objects.filter(pid=p.pid, po=p.po)
+        if pReview:
+            productList[n] = [p, pReview[0]]
+            n += 1
+        else:
+            productList[n] = [p, '']
+            n += 1
     return render(request, 'Orders/OrderDetail.html', {'order': order, 'pList': productList,
                                                        'identity': identityCheck(request)})
 
@@ -50,8 +60,7 @@ def shipOrder(request, PO):
     order.status = 's'
     order.specDate = datetime.datetime.now()
     order.save()
-    productList = dorder.objects.filter(po=order)
-    return render(request, 'Orders/OrderDetail.html', {'order': order, 'pList': productList})
+    return HttpResponseRedirect('/order_detail/' + PO)
 
 
 

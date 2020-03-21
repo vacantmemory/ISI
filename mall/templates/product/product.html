@@ -9,79 +9,96 @@
         h2 {
             margin-bottom: 20px;
         }
+
         .book {
-             width:250px;
-            height:auto;
-             float:left;
-            display:inline;
-             text-align: center;
-             font-size: 18px;
-         }
+            width: 250px;
+            height: auto;
+            float: left;
+            display: inline;
+            text-align: center;
+            font-size: 18px;
+        }
+
         .book {
             position: relative;
             overflow: hidden;
             background: white;
-             padding-top: 20px;
+            padding-top: 20px;
             border-radius: 0.4rem;
-             margin-right: 20px;
-             margin-top: 20px;
+            margin-right: 20px;
+            margin-top: 20px;
         }
-        .book a{
+
+        .book a {
             color: black;
             text-decoration: none;
         }
+
         #image {
             margin-bottom: 10px;
         }
+
         h2 {
             margin-left: 35px;
         }
+
         #pagging {
             padding-top: 20px;
             text-align: center;
         }
-        #pagging a{
+
+        #pagging a {
             text-decoration: none;
         }
+
         .search {
             display: inline;
             float: left;
         }
+
         #search_c {
             padding-left: 35px;
         }
+
         #search_c select {
             width: auto;
             height: 34px;
             font-size: 14px;
         }
+
         #search_c button {
             background: #1F9A77;
             color: white;
             text-align: center;
         }
+
         #search_v {
             padding-left: 35px;
             padding-top: 62px;
         }
+
         #search_v input {
             width: auto;
             height: 34px;
             font-size: 15px;
         }
+
         #search_v button {
             text-align: center;
             background: #1F9A77;
             color: white;
-         }
+        }
+
         .sort1, .sort2 {
             display: inline;
             float: right;
             padding-top: 62px;
         }
+
         .sort1 {
             margin-right: 40px;
         }
+
         .sort1 button, .sort2 button {
             text-align: center;
             background: #1F9A77;
@@ -93,27 +110,48 @@
             border-style: solid;
             border-color: white;
         }
+
         #return {
             margin-left: 15px;
             margin-top: 62px;
         }
+
         #return button {
             text-align: center;
             background: #1F9A77;
             color: white;
 
         }
+
         .clear {
             clear: both;
         }
+
         #message {
             margin-top: 20px;
             text-align: center;
             font-size: 28px;
         }
+
+        .fa-star-o, .fa-star, .fa-star-half-o {
+            color: orange;
+        }
+
+        .star-bad {
+            color: red !important;
+        }
+
+        .star-value {
+            color: #333333;
+        }
+
+        .no-rating-message {
+            font-size: 16px;
+            color: grey;
+        }
     </style>
-     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
-     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
 </head>
 <body id="body-style">
@@ -138,15 +176,17 @@
             <div id="showReturn" style="display: none">{{ ss }}</div>
         </div>
 
-         <div id="return" class="search">
-                <a href="/product/"><button id="show" class="btn">List All</button></a>
+        <div id="return" class="search">
+            <a href="/product/">
+                <button id="show" class="btn">List All</button>
+            </a>
         </div>
 
         <div class="search">
             <form action="/product/search_vendor/" method="post" id="search_v">
                 {% csrf_token %}
-                    <input name="find" id="search" value=""  placeholder="Search by id or name">
-                    <button class="btn" type="submit">Search</button>
+                <input name="find" id="search" value="" placeholder="Search by id or name">
+                <button class="btn" type="submit" id="button_v">Search</button>
             </form>
         </div>
 
@@ -165,13 +205,26 @@
             <ul id="table">
                 {% for p in p_list %}
                     <li class="book">
-                        <a href="{% url 'detail_link' pid=p.pid %}">
+                        <a href="{% url 'detail_link' pid=p.0.pid %}">
                             <div class="card-item">
-                                <img id="image" src="{% static '' %}{{ p.thumbnail_image }}.png" alt>
+                                <img id="image" src="{% static '' %}{{ p.0.thumbnail_image }}.png" alt>
                             </div>
-                            <p>{{ p.pname }}</p>
-                            <p>{{ p.brand }}</p>
-                            <p>{{ p.price }}$</p>
+                            <p>{{ p.0.pname }}</p>
+                            <p>{{ p.0.brand }}</p>
+                            <p>{{ p.0.price }}$</p>
+                            {% if p.1 %}
+                            <div>
+                            <p><span><i class="fa fa-star-o"></i></span><span><i
+                                    class="fa fa-star-o"></i></span><span><i class="fa fa-star-o"></i></span><span><i
+                                    class="fa fa-star-o"></i></span><span><i class="fa fa-star-o"></i></span>
+                                <span class="star-value"> {{ p.1 }}</span>
+                            </p>
+                            </div>
+                            {% else %}
+                            <div>
+                            <p><span><i class="fa fa-star" style="color: grey"></i></span> <em class="no-rating-message">No rating yet</em></p>
+                            </div>
+                            {% endif %}
                         </a>
                     </li>
                 {% endfor %}
@@ -184,7 +237,7 @@
                 {{ message }}
             </div>
         </div>
-    <p id="ss"></p>
+        <p id="ss"></p>
     </div>
 </div>
 
@@ -194,7 +247,9 @@
 <script>
     pagging(1, 4);
     show();
-    function pagging(pno, psize){
+    starCheck();
+
+    function pagging(pno, psize) {
 
         var itable = $(".book");
         var num = itable.length;
@@ -206,19 +261,19 @@
         var currentPage = pno;
         var startRow = (currentPage - 1) * size + 1;
         var endRow = currentPage * size + 1;
-        endRow = ((num+1)> endRow) ?endRow :num+1;
+        endRow = ((num + 1) > endRow) ? endRow : num + 1;
 
         //display & display
-        for(var i=1; i < (num+1); i++){
+        for (var i = 1; i < (num + 1); i++) {
             var irow = itable.eq([i - 1]);
-            if((i >= startRow && i < endRow) || (i === startRow && i === endRow)){
+            if ((i >= startRow && i < endRow) || (i === startRow && i === endRow)) {
                 irow.show();
             } else {
                 irow.hide();
             }
         }
 
-        if(num !== 0){
+        if (num !== 0) {
             tempStr = pagging_sign(currentPage, psize, totalPage);
         }
 
@@ -226,9 +281,9 @@
     }
 
 
-    function countPage(num, pageSize){
+    function countPage(num, pageSize) {
         var totalPage = 0;
-        if(num / pageSize > parseInt(num / pageSize)){
+        if (num / pageSize > parseInt(num / pageSize)) {
             totalPage = parseInt(num / pageSize) + 1;
         } else {
             totalPage = parseInt(num / pageSize);
@@ -242,12 +297,12 @@
             tempStr += "<a href=\"#\" onClick=\"pagging(" + (currentPage - 1) + "," + psize + ")\">" +
                 "<img src=\"{% static '' %}previous.png\" alt>" + "&nbsp;</a>";
             for (j = 1; j <= totalPage; j++) {
-                tempStr += "<a href=\"#\" onClick=\"pagging(" + j + "," + psize + ")\">" + "<img src=\"{% static '' %}"+ j +".png\" alt>" + "&nbsp;</a>"
+                tempStr += "<a href=\"#\" onClick=\"pagging(" + j + "," + psize + ")\">" + "<img src=\"{% static '' %}" + j + ".png\" alt>" + "&nbsp;</a>"
             }
         } else {
             tempStr += "<img src=\"{% static '' %}previous.png\" alt>&nbsp;";
             for (j = 1; j <= totalPage; j++) {
-                tempStr += "<a href=\"#\" onClick=\"pagging(" + j + "," + psize + ")\">" + "<img src=\"{% static '' %}"+ j +".png\" alt>" + "&nbsp;</a>"
+                tempStr += "<a href=\"#\" onClick=\"pagging(" + j + "," + psize + ")\">" + "<img src=\"{% static '' %}" + j + ".png\" alt>" + "&nbsp;</a>"
             }
         }
         if (currentPage < totalPage) {
@@ -265,41 +320,85 @@
 
     //search_c hide and show
     test();
+
     function test() {
         var a = {{ identity }};
-        if(a === 0){
+        if (a === 0) {
             $('#search_v').hide();
         }
-        if(a === 1){
+        if (a === 1) {
             $('#search_v').hide();
         }
-        if(a === 2){
+        if (a === 2) {
             $('#search_v').show();
         }
     }
 
     function show() {
         var data = $('#showReturn').html();
-        if (data){
+        if (data) {
             $('#show').show();
-        } else{
+        } else {
             $('#show').hide();
         }
     }
 
-    //make search_c keep at chosen site
-   {% comment %} setBrand();
-    function setBrand() {
-        var books = {{ p_list }};
-        var brand = books[0].brand;
+    function starCheck() {
+        for (var r of $('.star-value')){
+            starLighten(r)
+        }
+    }
 
-        var option = $("#select").find("option");
-        for (var i = 0; i < option.length; i++){
-            if(option[0].value === brand){
-               document.getElementById("ss").value = "Johnny Bravo";
+    function starLighten(r) {
+        var value = parseFloat(r.innerHTML);
+        var rParent = r.parentNode;
+        for (var i = 4; i >= 0; i--) {
+                var testValue = value - i;
+                if (testValue > 0.7) {
+                    rParent.children[4 - i].children[0].classList.remove('fa-star-o');
+                    rParent.children[4 - i].children[0].classList.add('fa-star');
+                }
+                if (testValue > 0.3 && testValue <= 0.7) {
+                    rParent.children[4 - i].children[0].classList.remove('fa-star-o');
+                    rParent.children[4 - i].children[0].classList.add('fa-star-half-o','fa-flip-horizontal');
+                }
+            }
+        if ( value < 2.5 ){
+            for (var i = 0; i <= 4; i ++){
+                rParent.children[i].children[0].classList.add('star-bad')
             }
         }
+    }
 
-    }{% endcomment %}
+
+    //make search_c keep at chosen site
+    {% comment %} setBrand();
+     function setBrand() {
+         var books = {{ p_list }};
+         var brand = books[0].brand;
+
+         var option = $("#select").find("option");
+         for (var i = 0; i < option.length; i++){
+
+             if(option[0].value == brand){
+
+                document.getElementById("ss").value = "Johnny Bravo";
+             }
+         }
+
+     }{% endcomment %}
+
+
+    {% comment %} $("#button_v").on("click", getInput());
+     function getInput() {
+         document.cookie = $("#input").value;
+     }
+
+     setInput();
+     function setInput() {
+         var a = document.cookie;
+         document.getElementById("#input").value = a;
+     }{% endcomment %}
+
 </script>
 </html>

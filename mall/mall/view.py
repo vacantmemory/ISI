@@ -21,6 +21,9 @@ def greeting(request):
     p5 = product.objects.create(pid='5', pname='Albert Einstein', brand='Biography', price=150, thumbnail_image='Einstein')
     p6 = product.objects.create(pid="6", pname="Cambridge", brand='Reference', price=279, thumbnail_image='cambridge')
     p7 = product.objects.create(pid="7", pname="WinterStory", brand='Story', price=90, thumbnail_image='winterStory')
+    p8 = product.objects.create(pid="8", pname="russianStory", brand='Story', price=190, thumbnail_image='russianStory')
+    p9 = product.objects.create(pid="9", pname="bibleStory", brand='Story', price=290, thumbnail_image='bibleStory')
+    p10 = product.objects.create(pid="10", pname="animal", brand='Story', price=280, thumbnail_image='animal')
 
     properties.objects.create(pid=p1, author='Derek', numPage=2000, publisher='xxxxx')
     properties.objects.create(pid=p2, author='Bowie', numPage=1900, publisher='ppp')
@@ -29,6 +32,9 @@ def greeting(request):
     properties.objects.create(pid=p5, author='Franz', numPage=2450, publisher='sss')
     properties.objects.create(pid=p6, author='Kidney', numPage=1360, publisher='cc')
     properties.objects.create(pid=p7, author='Bob', numPage=1230, publisher='zz')
+    properties.objects.create(pid=p8, author='Cindy', numPage=1120, publisher='dd')
+    properties.objects.create(pid=p9, author='Dandy', numPage=1340, publisher='ee')
+    properties.objects.create(pid=p10, author='Lisa', numPage=1890, publisher='ff')
 
     a123 = account.objects.create(aid='account1', aname='Bowie', eaddress='P123366@ipm.edu.mo', password='44455666',
                            saddress='XXXXXXX', venderFlag=0)
@@ -38,7 +44,7 @@ def greeting(request):
 
     shopcartRecord.objects.create(pid=p1, aid=a123, quantity=10000)
 
-    po1 = purchOrder.objects.create(po='po00001', aid=a123, pDate='2021-02-01', totalAmount='200', status='p',
+    po1 = purchOrder.objects.create(po='po00001', aid=a123, pDate='2020-02-01', totalAmount='200', status='p',
                                     specDate='2021-02-02', cancelledPerson='c')
     po2 = purchOrder.objects.create(po='po00002', aid=a123, pDate='2019-02-02', totalAmount='400', status='h',
                                       specDate='2022-02-02', cancelledPerson='c')

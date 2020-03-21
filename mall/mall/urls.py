@@ -21,7 +21,7 @@ from django.views.generic import RedirectView
 from mall.view import *
 from mall.product import *
 from mall.cart import *
-
+from mall.analysis import *
 urlpatterns = [
     path(r'admin/', admin.site.urls),
 
@@ -59,6 +59,11 @@ urlpatterns = [
     url(r'^checkout/$', checkOut, name='checkout_link'),
     url(r'^cart_update/(?P<pid>[0-9]+)/$', updateQuantity, name='update_quantity_link'),
 
+    # analysis
+    url(r'^analysis/quantity/$', analysis, name="analysis_url"),
+    url(r'^analysis/amount/$', analysis),
+    url(r'^analysis/quantity/choose_time', analysis),
+    url(r'analysis/amount/choose_time', analysis),
     # test url
     url(r'^test/$', test),
 ]

@@ -1,0 +1,78 @@
+
+#container{
+    width:770px;
+    height: 560px;
+    margin: 25px auto;
+    text-align: center;
+}
+#container text{
+    font-family: "Arial", sans-serif;
+}
+
+#container tspan{
+    font: 12px "Arial", sans-serif;
+    font-weight: bold;
+}
+
+#container .highcharts-drilldown-axis-label text{
+    font: 13px "Arial", sans-serif;
+}
+
+#container .highcharts-title tspan {
+    font: 20px "Arial", sans-serif;
+}
+
+#container .highcharts-subtitle tspan{
+    font: 15px "Arial", sans-serif;
+}
+
+#button {
+    display: inline;
+    float: left;
+    text-align: center;
+    background: #1F9A77;
+    color: white;
+    margin: 30px 0 30px 60px;
+}
+
+.choose_time {
+    display: inline;
+    float:right;
+}
+
+#time {
+    margin: 30px 185px 30px 0;
+}
+
+#time input {
+    height: 36px;
+    width:  60px;
+    margin-right: 4px;
+    text-align: center;
+}
+
+#time button{
+    text-align: center;
+    background: #1F9A77;
+    color: white;
+}
+
+.clear {
+    clear: both;
+}
+
+#atable{
+    background-color: white;
+    text-align: center;
+    margin-left: 310px;
+    height: auto;
+}
+
+#atable tr th{
+    padding: 20px 60px 10px 61px;
+    font-size: 19px;
+}
+
+#atable tr td{
+    padding-bottom: 10px;
+}

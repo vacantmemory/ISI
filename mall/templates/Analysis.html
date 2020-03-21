@@ -1,0 +1,229 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analysis</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'analysis.css' %}">
+</head>
+{% include 'Navbar.html' %}
+<body id="body-style">
+    <div class="main">
+        <div class="container">
+            <div>
+                <form action="/analysis/amount/" method="post" id="alter">
+                    {% csrf_token %}
+                    <button name="alter" value="aa" id="button" class="btn">Go to Amount</button>
+                </form>
+            </div>
+            <div class="choose_time">
+                <form action="/analysis/quantity/choose_time" method="post" id="time">
+                    {% csrf_token %}
+                    <input type="number" value="30" id="choose_time" name="time"><button type="submit" class="btn" id="choose">Submit</button>
+                </form>
+            </div>
+            <div id="container" class="clear"></div>
+            <div id="check" style="display: none">{{ check }}</div>
+            <div id="restore"></div>
+            <div>
+                <table id="atable">
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Sales Quantity</th>
+                    </tr>
+
+                    {% for i in total %}
+                        <tr>
+                            <td>{{ i.name }}</td>
+                            <td>{{ i.sum}}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% include 'Footer.html' %}
+</body>
+<script language="JavaScript">
+$(document).ready(function() {
+
+    // Create the chart
+    Highcharts.chart('container', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Macao Mall'
+        },
+        subtitle: {
+            text: 'online book shopping mall'
+        },
+        accessibility: {
+            announceNewData: {
+                enabled: true
+            }
+        },
+        xAxis: {
+            type: 'category'
+        },
+        yAxis: {
+            title: {
+                text: '{{ text }}'
+            }
+
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            series: {
+                borderWidth: 0,
+                dataLabels: {
+                    enabled: true,
+                }
+            }
+        },
+
+        tooltip: {
+            headerFormat: '<span style="font-size:15px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b><br/>'
+        },
+
+        series: [
+            {
+                name: "Browsers",
+                colorByPoint: true,
+                data: [
+                    {
+                        name: "{% autoescape off %}{{ list_sum.1.name }} {% endautoescape %}",
+                        y: {{ list_sum.1.sum }},
+                        drilldown: "{% autoescape off %}{{ list_sum.1.name }} {% endautoescape %}",
+                    },
+                    {
+                        name: "{% autoescape off %}{{ list_sum.2.name }} {% endautoescape %}",
+                        y: {{ list_sum.2.sum }},
+                        drilldown: "{% autoescape off %}{{ list_sum.2.name }} {% endautoescape %}",
+                    },
+                    {
+                        name: "{% autoescape off %}{{ list_sum.3.name }} {% endautoescape %}",
+                        y: {{ list_sum.3.sum }},
+                        drilldown: "{% autoescape off %}{{ list_sum.3.name }} {% endautoescape %}",
+                    },
+                    {
+                        name: "{% autoescape off %}{{ list_sum.4.name }} {% endautoescape %}",
+                        y: {{ list_sum.4.sum }},
+                        drilldown: "{% autoescape off %}{{ list_sum.4.name }} {% endautoescape %}",
+                    },
+                    {
+                        name: "{% autoescape off %}{{ list_sum.5.name }} {% endautoescape %}",
+                        y: {{ list_sum.5.sum }},
+                        drilldown: "{% autoescape off %}{{ list_sum.5.name }} {% endautoescape %}",
+                    },
+                    {
+                        name: "{% autoescape off %}{{ list_sum.6.name }} {% endautoescape %}",
+                        y: {{ list_sum.6.sum }},
+                        drilldown: "{% autoescape off %}{{ list_sum.6.name }} {% endautoescape %}",
+                    },
+                    {
+                        name: "{% autoescape off %}{{ list_sum.7.name }} {% endautoescape %}",
+                        y: {{ list_sum.7.sum }},
+                        drilldown: "{% autoescape off %}{{ list_sum.7.name }} {% endautoescape %}",
+                    },
+                    {
+                        name: "{% autoescape off %}{{ list_sum.8.name }} {% endautoescape %}",
+                        y: {{ list_sum.8.sum }},
+                        drilldown: "{% autoescape off %}{{ list_sum.8.name }} {% endautoescape %}",
+                    }
+                ]
+            }
+        ],
+        drilldown: {
+            series: [
+                {
+                    name: "{% autoescape off %}{{ list_sum.1.name }} {% endautoescape %}",
+                    id: "{% autoescape off %}{{ list_sum.1.name }} {% endautoescape %}",
+                    data: {% autoescape off %}{{ list_sum.1.list }}{% endautoescape %},
+                },
+                {
+                    name: "{% autoescape off %}{{ list_sum.2.name }} {% endautoescape %}",
+                    id: "{% autoescape off %}{{ list_sum.2.name }} {% endautoescape %}",
+                    data: {% autoescape off %}{{ list_sum.2.list }}{% endautoescape %},
+                },
+                {
+                    name: "{% autoescape off %}{{ list_sum.3.name }} {% endautoescape %}",
+                    id: "{% autoescape off %}{{ list_sum.3.name }} {% endautoescape %}",
+                    data: {% autoescape off %}{{ list_sum.3.list }}{% endautoescape %},
+                },
+                {
+                    name: "{% autoescape off %}{{ list_sum.4.name }} {% endautoescape %}",
+                    id: "{% autoescape off %}{{ list_sum.4.name }} {% endautoescape %}",
+                    data: {% autoescape off %}{{ list_sum.4.list }}{% endautoescape %},
+                },
+                {
+                    name: "{% autoescape off %}{{ list_sum.5.name }} {% endautoescape %}",
+                    id: "{% autoescape off %}{{ list_sum.5.name }} {% endautoescape %}",
+                    data: {% autoescape off %}{{ list_sum.5.list }}{% endautoescape %},
+                },
+                {
+                    name: "{% autoescape off %}{{ list_sum.6.name }} {% endautoescape %}",
+                    id: "{% autoescape off %}{{ list_sum.6.name }} {% endautoescape %}",
+                    data: {% autoescape off %}{{ list_sum.6.list }}{% endautoescape %},
+                },
+                {
+                    name:"{% autoescape off %}{{ list_sum.7.name }} {% endautoescape %}",
+                    id: "{% autoescape off %}{{ list_sum.7.name }} {% endautoescape %}",
+                    data: {% autoescape off %}{{ list_sum.7.list }}{% endautoescape %},
+                },
+                {
+                     name: "{% autoescape off %}{{ list_sum.8.name }} {% endautoescape %}",
+                    id: "{% autoescape off %}{{ list_sum.8.name }} {% endautoescape %}",
+                    data: {% autoescape off %}{{ list_sum.8.list }}{% endautoescape %},
+                }
+            ]
+        }
+    });
+});
+    check();
+    function check() {
+        var check = $("#check").html();
+        if (check == 'amount') {
+            $("#button").html("Go to Quantity");
+            $("#alter").attr("action", "/analysis/quantity/");
+            $("#button").attr("value", '');
+            $("#atable tr").find("th:eq(1)").html("Sales Amount");
+            $(".choose_time").hide();
+        }
+        if (check == 'quantity') {
+            $("#button").html("Go to Amount");
+            $("#alter").attr("action", "/analysis/amount/");
+        }
+    }
+
+
+
+     $('#choose').on('click', () => {
+         var time = document.getElementById("choose_time").value;
+         $("#restore").html(time);
+     });
+
+    {% comment %}compare();
+    function compare() {
+        {% autoescape off %}
+        var p = {{ total }}
+        {% endautoescape %}
+        p.sort(cmp);
+    }
+    function cmp(p1, p2) {
+        if(p1.sum < p2.sum) return -1;
+        if(p1.sum > p2.sum) return 1;
+        return 0;
+    }{% endcomment %}
+</script>
+</html>

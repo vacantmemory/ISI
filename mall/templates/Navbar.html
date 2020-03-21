@@ -10,19 +10,20 @@
             <div class="col-sm-8">
                 <ul class="header-top-right text-right">
                     {% if identity == 0 %}
-                    <li><a href="{% url 'login_link' %}">Login</a></li>
-                    <li><a href="{% url 'product_link' %}" class="product">Products</a></li>
+                        <li><a href="{% url 'login_link' %}">Login</a></li>
+                        <li><a href="{% url 'product_link' %}" class="product">Products</a></li>
                     {% elif identity == 1 %}
-                    <li>Hello, {{ request.session.UserName }}</li>
-                    <li><a href="{% url 'product_link' %}" class="product">Products</a></li>
-                    <li><a href="{% url 'orders_link' %}" class="order">Orders</a></li>
-                    <li><a href="{% url 'cart_link' %}" class = "cart">Cart</a></li>
-                    <li><a href="{% url 'sign_out_link' %}">Sign out</a></li>
+                        <li>Hello, {{ request.session.UserName }}</li>
+                        <li><a href="{% url 'product_link' %}" class="product">Products</a></li>
+                        <li><a href="{% url 'orders_link' %}" class="order">Orders</a></li>
+                        <li><a href="{% url 'cart_link' %}" class = "cart">Cart</a></li>
+                        <li><a href="{% url 'sign_out_link' %}">Sign out</a></li>
                     {% else %}
-                    <li>Hello, {{ request.session.UserName }}</li>
-                    <li><a href="{% url 'product_link' %}" class="product">Products</a></li>
-                    <li><a href="{% url 'orders_link' %}" class="order">Orders</a></li>
-                    <li><a href="{% url 'sign_out_link' %}">Sign out</a></li>
+                        <li>Hello, {{ request.session.UserName }}</li>
+                        <li><a href="{% url 'product_link' %}" class="product">Products</a></li>
+                        <li><a href="{% url 'orders_link' %}" class="order">Orders</a></li>
+                        <li><a href="{% url 'analysis_url' %}" class="analysis">Analysis</a></li>
+                        <li><a href="{% url 'sign_out_link' %}">Sign out</a></li>
                     {% endif %}
                 </ul>
             </div>

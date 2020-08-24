@@ -76,3 +76,8 @@
 #atable tr td{
     padding-bottom: 10px;
 }
+
+.analysis {
+    color: #1F9A77 !important;
+    text-decoration: underline;
+}

@@ -8,7 +8,10 @@ def product_list(request):
     ascending = request.POST.get("Ascending")
     descending = request.POST.get("Descending")
     brand = request.POST.get("brand")
-    data = request.POST.get("find")
+    if "find" in request.GET:
+        data = request.GET["find"]
+    else:
+        data = None
     p_list = product.objects.all()
     msg = ''
     ss = ''
@@ -51,7 +54,8 @@ def product_list(request):
             p_list[n] = [p_list[n], str(r)[0:3]]
             n += 1
 
-    return render(request, 'product/product.html', {'p_list': p_list, 'identity': identityCheck(request), 'message': msg, 'ss':ss})
+    return render(request, 'product/product.html', {'p_list': p_list, 'identity': identityCheck(request),
+                                                    'message': msg, 'ss': ss, 'brand': brand, 'data': data})
 
 
 def search_c(brand):

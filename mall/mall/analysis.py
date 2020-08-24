@@ -54,7 +54,8 @@ def analysis(request):
             total_group['sum'] = sum
             total.append(total_group)
             i += 1
-    return render(request, "Analysis.html", {"list_sum":list_sum, "text":text, "check": check, 'total': total})
+    return render(request, "Analysis.html", {"list_sum":list_sum, "text":text,
+                                             "check": check, 'total': total, 'time': time})
 
 
 def quantity(name, time):

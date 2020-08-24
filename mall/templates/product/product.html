@@ -108,7 +108,8 @@
             width: auto;
             height: 34px;
             border-style: solid;
-            border-color: white;
+            border-color: #eeeeee;
+            border-radius: 5px;
         }
 
         #return {
@@ -149,6 +150,46 @@
             font-size: 16px;
             color: grey;
         }
+
+        .page-button {
+            user-select: none;
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 20px;
+            font-family: "Arial", sans-serif;
+            font-weight: bold;
+            color: #1F9A77;
+            padding: 0 6px;
+        }
+
+        .page-arrow {
+            border-color: #eeeeee;
+            border-width: 3px;
+            border-style: solid;
+        }
+
+        .page-number {
+            border-width: 3px;
+            border-style: solid;
+            border-radius: 5px;
+            border-color: #eeeeee;
+        }
+
+        .page-number-current {
+            text-decoration: none;
+            background-color: #1F9A77;
+            color: white;
+            border-color: #1F9A77;
+        }
+
+        .clickable {
+            cursor: pointer
+        }
+
+        .product {
+        color: #1F9A77 !important;
+        text-decoration: underline;
+        }
     </style>
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
@@ -164,6 +205,7 @@
                 {% csrf_token %}
                 <div id="search_c">
                     <select name="brand" id="select">
+                        <option value="">All</option>
                         <option value="Education">Education</option>
                         <option value="Fiction">Fiction</option>
                         <option value="Reference">Reference</option>
@@ -183,8 +225,8 @@
         </div>
 
         <div class="search">
-            <form action="/product/search_vendor/" method="post" id="search_v">
-                {% csrf_token %}
+            <form action="/product/search_vendor/" method="get" id="search_v">
+{#                {% csrf_token %}#}
                 <input name="find" id="search" value="" placeholder="Search by id or name">
                 <button class="btn" type="submit" id="button_v">Search</button>
             </form>
@@ -245,6 +287,8 @@
 </body>
 <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
 <script>
+    setBrand();
+    setSearch();
     pagging(1, 4);
     show();
     starCheck();
@@ -274,7 +318,9 @@
         }
 
         if (num !== 0) {
-            tempStr = pagging_sign(currentPage, psize, totalPage);
+            tempStr = pagging_sign2(currentPage, psize, totalPage);
+        } else {
+            tempStr = ''
         }
 
         document.getElementById("pagging").innerHTML = tempStr;
@@ -315,6 +361,33 @@
             for (j = 1; j <= totalPage; j++) {
             }
         }
+        return tempStr;
+    }
+
+    function pagging_sign2(currentPage, psize, totalPage) {
+        var tempStr = "";
+        if (currentPage > 1) {
+            tempStr += "<span class=\"page-button page-arrow clickable\" onClick=\"pagging(" + (currentPage-1) + ","
+                + psize + ")\"><i class=\"fa fa-chevron-left\"></i></span>";
+        } else {
+            tempStr += "<span class=\"page-button page-arrow\"><i class=\"fa fa-chevron-left\"></i></span>";
+        }
+        for (j = 1; j <= totalPage; j++) {
+            if (j != currentPage) {
+                tempStr += "<span class=\"page-button page-number clickable\" onClick=\"pagging(" + j + "," + psize + ")\">"
+                    + j.toString() + "</span>"
+            } else {
+                tempStr += "<span class=\"page-button page-number page-number-current\">"
+                    + j.toString() + "</span>"
+            }
+        }
+        if (currentPage < totalPage) {
+            tempStr += "<span class=\"page-button page-arrow clickable\" onClick=\"pagging(" + (currentPage+1) + ","
+                + psize + ")\"><i class=\"fa fa-chevron-right\"></i></span>";
+        } else {
+            tempStr += "<span class=\"page-button page-arrow\"><i class=\"fa fa-chevron-right\"></i></span>";
+        }
+
         return tempStr;
     }
 
@@ -367,6 +440,35 @@
             for (var i = 0; i <= 4; i ++){
                 rParent.children[i].children[0].classList.add('star-bad')
             }
+        }
+    }
+
+    function setBrand(){
+        var brand = "{{ brand }}";
+        switch (brand) {
+            case 'Education':
+                $("#search_c option:nth-child(2)").attr('selected', 'selected');
+                break;
+            case 'Fiction':
+                $("#search_c option:nth-child(3)").attr('selected', 'selected');
+                break;
+            case 'Reference':
+                $("#search_c option:nth-child(4)").attr('selected', 'selected');
+                break;
+            case 'Biography':
+                $("#search_c option:nth-child(5)").attr('selected', 'selected');
+                break;
+            case 'Story':
+                $("#search_c option:nth-child(6)").attr('selected', 'selected');
+                break;
+
+        }
+    }
+
+    function setSearch(){
+        var data = "{{ data }}";
+        if (data != "None"){
+            $("#search_v input").attr('value', data);
         }
     }
 
